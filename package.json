@@ -1,0 +1,66 @@
+{
+  "name": "codacy-eslint9",
+  "description": "Eslint 9 Tool for Codacy",
+  "keywords": [
+    "codacy",
+    "eslint",
+    "javascript",
+    "linter",
+    "typescript"
+  ],
+  "homepage": "https://github.com/codacy/codacy-eslint9#readme",
+  "bugs": {
+    "url": "https://github.com/codacy/codacy-eslint9/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codacy/codacy-eslint9.git"
+  },
+  "license": "Apache-2.0",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:docker:dev": "docker build -t codacy-eslint9:dev .",
+    "lint": "eslint **/*.ts",
+    "preupgrade": "npx npm-check-updates -u -ws --root",
+    "upgrade": "npm install --legacy-peer-deps -ws --root",
+    "postupgrade": "npm start -w doc-generator"
+  },
+  "type": "module",
+  "workspaces": [
+    "workspaces/**",
+    "lib"
+  ],
+  "files": [
+    "workspaces/doc-generator/src",
+    "workspaces/codacy/src",
+    "lib"
+  ],
+  "dependencies": {
+    "@eslint-stylistic/metadata": "^2.3.0",
+    "@types/eslint": "^8.56.10",
+    "@types/fs-extra": "^11.0.4",
+    "@types/glob": "^8.1.0",
+    "@types/jest": "^29.5.12",
+    "@types/lodash": "^4.17.6",
+    "@types/node": "^20.14.9",
+    "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
+    "npm-check-updates": "^16.14.20",
+    "prettier": "^3.3.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.0-alpha.39"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.6.0",
+    "codacy-seed": "^2.2.4",
+    "eslint": "^9.6.0",
+    "globals": "^15.8.0",
+    "tsconfig-paths": "^4.2.0",
+    "tslib": "^2.6.3"
+  }
+}

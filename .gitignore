@@ -1,0 +1,21 @@
+# Tool files
+/workspaces/doc-generator/docs/description/*.md
+
+# Configuration files
+.codarcyrc
+.eslintcache
+
+# IDE and editor directories
+.DS_Store
+.idea
+.vscode
+
+# Build outputs
+/dist
+
+# Dependencies
+/node_modules
+/workspaces/*/node_modules
+
+# Test directories
+/tests

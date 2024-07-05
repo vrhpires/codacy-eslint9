@@ -1,0 +1,22 @@
+{
+  "name": "doc-generator",
+  "version": "0.0.3",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "ts-node-dev --transpile-only --respawn --project tsconfig.json src/index.ts",
+    "start": "tsc --noEmit && node --no-warnings=ExperimentalWarning --loader ts-node/esm src/index.ts"
+  },
+  "type": "module",
+  "dependencies": {
+    "@types/semver": "^7.5.8",
+    "axios": "^1.7.2",
+    "fs-extra": "^11.2.0",
+    "json-schema": "^0.4.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0"
+  }
+}
