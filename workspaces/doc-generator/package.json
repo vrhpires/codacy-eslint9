@@ -3,9 +3,9 @@
   "version": "0.0.3",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "ts-node-dev --transpile-only --respawn --project tsconfig.json src/index.ts",
-    "start": "tsc --noEmit && node --no-warnings=ExperimentalWarning --loader ts-node/esm src/index.ts"
+    "start:dev": "tsc --noEmit && ts-node-dev --transpile-only --respawn --project tsconfig.json src/index.ts",
+    "start": "tsc --noEmit && node --no-warnings=ExperimentalWarning --loader ts-node/esm src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
   "dependencies": {

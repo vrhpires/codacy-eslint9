@@ -24,6 +24,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:docker:dev": "docker build -t codacy-eslint9:dev .",
     "lint": "eslint **/*.ts",
+    "init": "npm i --legacy-peer-deps && npm i --legacy-peer-deps -ws",
     "preupgrade": "npx npm-check-updates -u -ws --root",
     "upgrade": "npm install --legacy-peer-deps -ws --root",
     "postupgrade": "npm start -w doc-generator"
