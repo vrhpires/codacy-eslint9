@@ -13,39 +13,44 @@ import {
   Specification,
   writeFile
 } from "codacy-seed"
-import type { Rule } from "eslint"
 import fs from "fs-extra"
 import type { JSONSchema4 } from "json-schema"
+import type { TSESLint } from '@typescript-eslint/utils';
 
 import { isBlacklistedOnlyFromDocumentation } from "lib/models/blacklist.ts"
 import { capitalize, patternTitle } from "lib/utils/strings.ts"
-import { getAllRules, pluginByPackageName, type Plugin, type PluginDocsInfo } from "lib/models/plugins.ts";
+import { getAllNames, getAllRules, getByPackageName, getRuleMeta, type Plugin } from "lib/models/plugins.ts";
 import { patternIdToCodacy, translateTypes } from "lib/models/patterns.ts";
 import { fromSchemaArray } from "lib/utils/namedParameters.ts"
 import { rulesToUnnamedParametersDefaults } from "lib/utils/rulesToUnnamedParametersDefaults.ts"
 import { toolName, toolVersion } from "lib/utils/metadata.ts"
 import { TerminalColor, wrapConsoleTextInColor } from "lib/utils/logging.ts"
 
-export class DocGenerator {
-  private docsDirectory = "./docs"
-  private docsDescriptionDirectory = path.join(this.docsDirectory, "description")
-  private githubBaseUrl = "https://raw.githubusercontent.com"
-  private rules: Promise<[string, Rule.RuleModule][]>
-  private dependencies: Promise<Record<string, string>>
+export class DocsGenerator {
+  private docsDirectory = "./docs";
+  private docsDescriptionDirectory = path.join(this.docsDirectory, "description");
+  private githubBaseUrl = "https://raw.githubusercontent.com";
+  private rules: Promise<Record<string, TSESLint.LooseRuleDefinition>>;
+  private dependencies: Promise<Record<string, string>>;
+  private docs: Record<string, Omit<DocsInfo, "packageName">>;
 
   constructor () {
-    this.rules = this.initializeRules()
-    this.dependencies = this.initializeDependencies()
+    this.rules = this.initializeRules();
+    this.dependencies = this.initializeDependencies();
+    this.docs = {};
   }
- 
-  private async initializeRules (): Promise<[string, Rule.RuleModule][]> {
-    const rules = (await getAllRules())
-      .filter(([patternId, rule]) =>
+
+  private async initializeRules (): Promise<Record<string, TSESLint.LooseRuleDefinition>> {
+    const rules: Record<string, TSESLint.LooseRuleDefinition> = await getAllRules(true);
+    
+    const rulesFiltered = Object.fromEntries(
+      Object.entries(rules).filter(([patternId, _]) =>
         !isBlacklistedOnlyFromDocumentation(patternId)
-        && !(rule?.meta?.deprecated && rule.meta.deprecated === true)
       )
-    console.log("Number of rules: ", rules.length)
-    return rules
+    );
+
+    console.log("Number of rules: ", Object.keys(rulesFiltered).length)
+    return rulesFiltered
   }
 
   private async initializeDependencies (): Promise<Record<string, string>> {
@@ -54,7 +59,7 @@ export class DocGenerator {
 
     if (packageJson.dependencies === undefined) return {};
 
-    let dependencies: Record<string, string> = {};
+    const dependencies: Record<string, string> = {};
 
     for (const [packageName, versionString] of Object.entries(packageJson.dependencies)) {
       const version = versionString.replace("^", "");
@@ -67,8 +72,7 @@ export class DocGenerator {
   }
 
   private async getPatternIds (): Promise<string[]> {
-    const rules = await this.rules
-    return rules.map(([patternId ]) => patternId)
+    return Object.keys(await this.rules);
   }
 
   static generateParameters (
@@ -81,7 +85,7 @@ export class DocGenerator {
       : undefined
 
     const namedParameters = schema
-      ? DocGenerator.fromEslintSchemaToParameters(patternId, schema)
+      ? DocsGenerator.fromEslintSchemaToParameters(patternId, schema)
       : undefined
 
     if (namedParameters && unnamedParameter)
@@ -96,29 +100,33 @@ export class DocGenerator {
 
   private async generatePatterns (): Promise<Specification> {
     const rules = await this.rules
-    const patterns = rules.flatMap(([patternId, ruleModule]) => {
-      const meta = ruleModule.meta
+
+    const patterns: PatternSpec[] = []
+    Object.entries(rules).forEach(([patternId, ruleModule]) => {
+      const meta = getRuleMeta(ruleModule);
+      
+      if (meta === undefined) return;
       const type = meta?.type ?? meta?.docs?.category
       const [level, category, securitySubcategory, scanType] = translateTypes(
         patternId,
         type
       )
   
-      return new PatternSpec(
+      patterns.push(new PatternSpec(
         patternIdToCodacy(patternId),
         level,
         category,
         securitySubcategory,
         scanType,
-        DocGenerator.generateParameters(patternId, meta?.schema),
-        DocGenerator.isDefaultPattern(patternId, meta)
-      )
+        DocsGenerator.generateParameters(patternId, meta?.schema),
+        DocsGenerator.isDefaultPattern(patternId, ruleModule)
+      ));
     })
   
     return new Specification(toolName, toolVersion, patterns)
   }
 
-  static isDefaultPattern (patternId: string, meta: Rule.RuleMetaData | undefined): boolean {
+  static isDefaultPattern (patternId: string, ruleModule: TSESLint.LooseRuleDefinition): boolean {
     function prefixSplit (patternId: string): string {
       const p = patternId.split("/")[0]
       return p !== patternId ? p : ""
@@ -145,6 +153,7 @@ export class DocGenerator {
 
     const prefixes = [...defaultPrefixes, ...securityPrefixes]
     const prefix = prefixSplit(patternId)
+    const meta = getRuleMeta(ruleModule)
 
     return prefixes.some((p) => 
       p[prefix] === "all"
@@ -155,13 +164,13 @@ export class DocGenerator {
   private async generateDescriptionEntries (): Promise<DescriptionEntry[]> {
     const descriptions: DescriptionEntry[] = []
     const rules = await this.rules
-    rules.forEach(([patternId, ruleModule]) => {
-      const meta = ruleModule?.meta
+    Object.entries(rules).forEach(([patternId, ruleModule]) => {
+      const meta = getRuleMeta(ruleModule);
       const description = meta?.docs?.description
         ? capitalize(meta.docs.description)
         : undefined
       const timeToFix = 5
-      const descriptionParameters = DocGenerator
+      const descriptionParameters = DocsGenerator
         .generateParameters(
           patternId,
           meta?.schema
@@ -215,22 +224,24 @@ export class DocGenerator {
 
   async createPatternDescriptionFile (
     plugin: Plugin,
+    packageName: string,
     pattern: string,
-    patternDocFilename: string,
-    rejectOnError: boolean | undefined
+    patternDocFilename: string
   ): Promise<void> {
+    const docsInfo = this.docs[packageName];
+    const rejectOnError = docsInfo.rejectOnError;
     try {
       const pluginVersion = (await this.dependencies)[plugin.packageName];
       const url = (
-        (plugin.docs?.versionPrefix !== false && plugin.docs?.versionPrefix !== undefined)
-        ? plugin.docs?.baseUrl?.href.replace(/main|master/, `${plugin.docs.versionPrefix}${pluginVersion}`)
-        : plugin.docs?.baseUrl?.href
+        (docsInfo.versionPrefix !== false && docsInfo.versionPrefix !== undefined)
+        ? docsInfo.baseUrl?.href.replace(/main|master/, `${docsInfo.versionPrefix}${pluginVersion}`)
+        : docsInfo.baseUrl?.href
       ) + patternDocFilename;
 
       const response = (await axios.get(url)).data as string;
       const text: string = 
-        plugin.docs?.baseUrl
-        ? this.inlineLinkedMarkdownFiles(response, plugin.docs?.baseUrl.href)
+        docsInfo.baseUrl
+        ? this.inlineLinkedMarkdownFiles(response, docsInfo.baseUrl.href)
         : response;
       const filePath = `${this.docsDescriptionDirectory}/${patternIdToCodacy((plugin.name !== "eslint" ? plugin.name + "/" : "") + pattern)}.md`;
 
@@ -245,10 +256,12 @@ export class DocGenerator {
     }
   }
 
-  async downloadAllPluginsDocs (downloadDocsInfo: DownloadDocsInfo[]): Promise<void> {
-    downloadDocsInfo.forEach((pluginDocsInfo) => {
+  async downloadAllPluginsDocs (downloadDocsInfo: DocsInfo[]): Promise<void> {
+    downloadDocsInfo.forEach((docsInfo) => {
+      docsInfo['baseUrl'] = new URL((!docsInfo.relativeUrl.startsWith("https://") ? this.githubBaseUrl : "") + docsInfo.relativeUrl);
+      this.docs[docsInfo.packageName] = docsInfo;
       try {
-        this.downloadPluginDocs(pluginDocsInfo);
+        this.downloadPluginDocs(docsInfo.packageName);
       }
       catch(error) {
         console.error(error)
@@ -256,21 +269,15 @@ export class DocGenerator {
     });
   }
 
-  async downloadPluginDocs (pluginDocs: DownloadDocsInfo): Promise<void> {
-    const plugin: Plugin | undefined = await pluginByPackageName(pluginDocs.packageName)
+  async downloadPluginDocs (packageName: string): Promise<void> {
+    const plugin: Plugin | undefined = await getByPackageName(packageName)
 
     if (plugin === undefined) {
-      console.error(wrapConsoleTextInColor(`Plugin ${pluginDocs.packageName} not found`, TerminalColor.Red))
+      console.error(wrapConsoleTextInColor(`Plugin for package "${packageName}" not found`, TerminalColor.Red), await getAllNames())
       return
     }
 
     console.log(`Generate ${plugin.name} description files`)
-
-    plugin.docs = {
-      relativeUrl: pluginDocs.docs.relativeUrl,
-      baseUrl: new URL((!pluginDocs.docs.relativeUrl.startsWith("https://") ? this.githubBaseUrl : "") + pluginDocs.docs.relativeUrl),
-      versionPrefix: pluginDocs.docs.versionPrefix
-    }
 
     const patterns = plugin.name !== "eslint"
       ? await this.patternIdsWithoutPrefix(plugin.name)
@@ -280,14 +287,14 @@ export class DocGenerator {
       ? rulesStylistic
         .filter((rule: RuleInfo) => rule.ruleId.match(/^@stylistic\/[^/]+$/) !== null)
         .map((rule: RuleInfo) => {
-          return this.createPatternDescriptionFile(plugin, rule.name, rule.docsEntry, pluginDocs.docs.rejectOnError)
+          return this.createPatternDescriptionFile(plugin, packageName, rule.name, rule.docsEntry)
         })
       : (await patterns).map((pattern: string) => {
         const patternDocFilename = 
           plugin.name === "@typescript-eslint"
           ? `${pattern}.mdx`
           : `${pattern}.md`
-        return this.createPatternDescriptionFile(plugin, pattern, patternDocFilename, pluginDocs.docs.rejectOnError)
+        return this.createPatternDescriptionFile(plugin, packageName, pattern, patternDocFilename)
       })
     await Promise.all(promises)
   }
@@ -396,7 +403,10 @@ ${modules}
   }
 };
 
-export interface DownloadDocsInfo {
-  packageName: Plugin["packageName"];
-  docs: PluginDocsInfo
+export interface DocsInfo {
+  packageName: string;
+  relativeUrl: string;
+  baseUrl?: URL;
+  versionPrefix?: string | boolean;
+  rejectOnError?: boolean;
 };

@@ -31,11 +31,12 @@
   },
   "type": "module",
   "workspaces": [
-    "workspaces/**",
+    "workspaces/docs-generator",
+    "workspaces/codacy",
     "lib"
   ],
   "files": [
-    "workspaces/doc-generator/src",
+    "workspaces/docs-generator/src",
     "workspaces/codacy/src",
     "lib"
   ],

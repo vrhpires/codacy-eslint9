@@ -1,22 +1,21 @@
-import { existsSync } from "node:fs"
-import path from "node:path"
+import { existsSync } from "node:fs";
+import path from "node:path";
 
-import { type Codacyrc, Parameter, ParameterSpec, Pattern } from "codacy-seed"
-import type { Linter } from "eslint"
-import { fromPairs, isEmpty, partition } from "lodash-es"
+import { type Codacyrc, Parameter, ParameterSpec, Pattern } from "codacy-seed";
+import type { Linter } from "eslint";
+import { fromPairs, isEmpty, partition } from "lodash-es";
 import type { TSESLint } from '@typescript-eslint/utils';
 
-import { isBlacklisted } from "lib/models/blacklist.ts"
-import { DocGenerator } from "doc-generator/src/docGenerator.ts"
-import { baseConfig } from "codacy/src/defaultOptions.ts"
-import { getAllRules } from "lib/models/plugins.ts"
-import { DEBUG, debug } from "lib/utils/logging.ts"
-import { patternIdToEslint } from "lib/models/patterns.ts"
+import { DocsGenerator } from "docs-generator/src/docsGenerator.ts";
+import { baseConfig } from "codacy/src/defaultOptions.ts";
+import { getAll, getAllRules, getRuleMeta } from "lib/models/plugins.ts";
+import { DEBUG, debug } from "lib/utils/logging.ts";
+import { patternIdToEslint } from "lib/models/patterns.ts";
 
 export async function createEslintConfig (
   srcDirPath: string,
   codacyrc: Codacyrc
-): Promise<[TSESLint.FlatConfig.ConfigArray, string[]]> {
+): Promise<[TSESLint.FlatESLint.ESLintOptions, string[]]> {
   debug("config: creating")
 
   const options = await generateEslintOptions(srcDirPath, codacyrc)
@@ -49,19 +48,18 @@ function generateFilesToAnalyze (
 async function generateEslintOptions (
   srcDirPath: string,
   codacyrc: Codacyrc
-): Promise<TSESLint.FlatConfig.ConfigArray> {
-  debug("options: creating")
+): Promise<TSESLint.FlatESLint.ESLintOptions> {
+  debug("options: creating");
 
-  let patterns = codacyrc.tools?.[0].patterns || []
-  debug(`options: ${patterns.length} patterns in codacyrc`)
+  let patterns = codacyrc.tools?.[0].patterns || [];
+  debug(`options: ${patterns.length} patterns in codacyrc`);
 
-  const eslintConfig = existsEslintConfigInRepoRoot(srcDirPath)
-  debug(`options: config file${(eslintConfig === undefined) && " not"} found`)
+  const eslintConfig = existsEslintConfigInRepoRoot(srcDirPath);
+  debug(`options: config file${(eslintConfig === undefined) && " not"} found`);
 
-  const useCodacyPatterns = patterns.length
-  const useRepoPatterns = !useCodacyPatterns
-  const options: any = {
-    cwd: srcDirPath,
+  const useCodacyPatterns = patterns.length;
+  const useRepoPatterns = !useCodacyPatterns;
+  const options: TSESLint.FlatESLint.ESLintOptions = {
     errorOnUnmatchedPattern: false,
     ignorePatterns: [
       "**/node_modules/**",
@@ -73,25 +71,28 @@ async function generateEslintOptions (
       "**/tsconfig.json",
       "**/.eslintrc*"
     ],
-    passOnNoPatterns: true,
-    warnIgnored: false
+    //passOnNoPatterns: true,
+    warnIgnored: false,
+    overrideConfig: []
   }
   if (eslintConfig) {
-    options.overrideConfigFile = eslintConfig
+    options.overrideConfigFile = srcDirPath + path.sep + eslintConfig;
   }
 
   if (!DEBUG && useRepoPatterns) {
-    debug("options: using config from repo root")
-    return options
+    debug("options: using config from repo root");
+    return options;
   }
 
-  options.baseConfig = baseConfig
+  options.baseConfig = baseConfig;
 
   if (DEBUG && useRepoPatterns && !eslintConfig) {
-    const patternsSet = "recommended"
-    patterns = await retrieveCodacyPatterns(patternsSet)
-    options.baseConfig.rules = convertPatternsToEslintRules(patterns)
-    debug(`options: setting ${patternsSet} (${patterns.length}) patterns`)
+    const patternsSet = "recommended";
+    patterns = await retrieveCodacyPatterns(patternsSet);
+    options.overrideConfig?.push({
+      rules: convertPatternsToEslintRules(patterns)
+    });
+    debug(`options: setting ${patternsSet} (${patterns.length}) patterns`);
   } else if (useCodacyPatterns) {
     //TODO: move this logic to a generic (or specific) plugin function
 
@@ -104,51 +105,56 @@ async function generateEslintOptions (
     //            reports false positives on normal files.
     //            check: conf file @ eslint-plugin-storybook/configs/recommended.js
 
-    const [storybookPatterns, otherPatterns] = partition(patterns, (p: Pattern) =>
+    const [storybookPatterns, otherPatterns] = partition(
+      patterns, (p: Pattern) =>
       p.patternId.startsWith("storybook")
     )
 
     // configure override in case storybook plugin rules being turned on
     if (storybookPatterns.length) {
-      debug(`options: setting ${storybookPatterns.length} storybook patterns`)
-      options.baseConfig.rules?.push({
-        "files": [
+      debug(`options: setting ${storybookPatterns.length} storybook patterns`);
+      options.overrideConfig?.push({
+        files: [
           "*.stories.@(ts|tsx|js|jsx|mjs|cjs)",
           "*.story.@(ts|tsx|js|jsx|mjs|cjs)"
         ],
-        "rules": convertPatternsToEslintRules(storybookPatterns)
-      })
+        rules: convertPatternsToEslintRules(storybookPatterns)
+      });
     }
 
     // explicitly use only the rules being passed by codacyrc
     if (otherPatterns.length) {
-      debug(`options: setting ${otherPatterns.length} patterns`)
-      options.baseConfig.rules = convertPatternsToEslintRules(otherPatterns)
+      debug(`options: setting ${otherPatterns.length} patterns`);
+      options.overrideConfig?.push({
+        rules: convertPatternsToEslintRules(otherPatterns)
+      });
     }
   }
 
   // load only the plugins that are being used in loaded rules
-  // const prefixes = getPatternsUniquePrefixes(patterns)
-  // prefixes
-  //   .filter((prefix) => prefix !== "")
-  //   .forEach(async (prefix) => {
-  //     (await getPluginsName()).includes(prefix)
-  //       ? options?.baseConfig?.plugins?.push(prefix)
-  //       : debug(`options: plugin ${prefix} not found`)
-  //   })
+  const prefixes = getPatternsUniquePrefixes(patterns)
+  const plugins: Record<string, TSESLint.Linter.Plugin> = {};
+  (await getAll())
+    .filter(plugin => prefixes.includes(plugin.name))
+    .forEach(plugin => {
+      plugins[plugin.name] = plugin.module;
+    });
+  if (Object.keys(plugins).length) {
+    options.plugins = plugins;
+  }
 
-  debug("options: finished")
+  debug("options: finished");
 
-  return options
+  return options;
 }
 
-// function getPatternsUniquePrefixes (patterns: Pattern[]) {
-//   const prefixes = patterns.map(item => {
-//     const patternId = patternIdToEslint(item.patternId)
-//     return patternId.substring(0, patternId.lastIndexOf("/"))
-//   })
-//   return [...new Set(prefixes)]
-// }
+function getPatternsUniquePrefixes (patterns: Pattern[]) {
+  const prefixes = patterns.map(item => {
+    const patternId = patternIdToEslint(item.patternId)
+    return patternId.substring(0, patternId.lastIndexOf("/"))
+  })
+  return [...new Set(prefixes)]
+}
 
 function convertPatternsToEslintRules (patterns: Pattern[]): {
   [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
@@ -188,18 +194,17 @@ function existsEslintConfigInRepoRoot (srcDirPath: string): string | undefined {
 
 async function retrieveCodacyPatterns (set: "recommended" | "all" = "recommended"): Promise<Pattern[]> {
   const patterns: Pattern[] = [];
-  (await getAllRules())
+  const allRules = await getAllRules(true);
+  Object.entries(allRules)
     .filter(([patternId, rule]) =>
-      !isBlacklisted(patternId)
-      && !(rule?.meta?.deprecated && rule.meta.deprecated === true)
       // problems with the path generated (win vs nix) for this specific pattern
-      && (!DEBUG || patternId != "spellcheck_spell-checker")
-      && (set !== "recommended" || DocGenerator.isDefaultPattern(patternIdToEslint(patternId), rule.meta))
+      (!DEBUG || patternId != "spellcheck_spell-checker")
+      && (set !== "recommended" || DocsGenerator.isDefaultPattern(patternIdToEslint(patternId), rule))
     )
     .forEach(([patternId, rule]) => {
       const pattern = new Pattern(
         patternId,
-        DocGenerator.generateParameters(patternId, rule.meta?.schema)
+        DocsGenerator.generateParameters(patternId, getRuleMeta(rule)?.schema)
           .map((parameterSpec: ParameterSpec): Parameter => {
             return new Parameter(
               parameterSpec.name,

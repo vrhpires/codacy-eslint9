@@ -1,5 +1,5 @@
 # Tool files
-/workspaces/doc-generator/docs/description/*.md
+/workspaces/docs-generator/docs/description/*.md
 
 # Configuration files
 .codarcyrc
@@ -12,6 +12,7 @@
 
 # Build outputs
 /dist
+tsconfig.tsbuildinfo
 
 # Dependencies
 /node_modules

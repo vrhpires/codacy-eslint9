@@ -22,16 +22,20 @@
     "rootDir": ".",
     "typeRoots" : ["node_modules/@types"],
     "allowImportingTsExtensions": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["node"]
   },
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node",
+    "transpileOnly": true,
     "require": [
       "tsconfig-paths/register"
     ]
   },
-  "includes": [
-    "eslint.config.mjs"
+  "include": [
+    "eslint.config.mjs",
+    "lib/**/*.ts",
+    "workspaces/**/src/*.ts"
   ]
 }

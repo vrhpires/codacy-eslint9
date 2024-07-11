@@ -1,10 +1,10 @@
 {
   "name": "codacy",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc --noEmit && node --no-warnings=ExperimentalWarning --loader ts-node/esm src/index.ts"
+    "start": "tsc --noEmit && node --import=../../register.js src/index.ts"
   },
   "type": "module",
   "dependencies": {

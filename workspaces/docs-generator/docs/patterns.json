@@ -23,6 +23,20 @@
       "enabled": false
     },
     {
+      "patternId": "array-bracket-newline",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "array-bracket-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "array-callback-return",
       "level": "Error",
       "category": "ErrorProne",
@@ -43,6 +57,13 @@
       "enabled": false
     },
     {
+      "patternId": "array-element-newline",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "arrow-body-style",
       "level": "Warning",
       "category": "BestPractice",
@@ -50,7 +71,61 @@
       "enabled": false
     },
     {
+      "patternId": "arrow-parens",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "requireForBlockBody",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "arrow-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "before",
+          "default": true
+        },
+        {
+          "name": "after",
+          "default": true
+        }
+      ],
+      "enabled": false
+    },
+    {
       "patternId": "block-scoped-var",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "block-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "brace-style",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "allowSingleLine",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "callback-return",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -96,6 +171,36 @@
       "enabled": false
     },
     {
+      "patternId": "comma-dangle",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "comma-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "before",
+          "default": false
+        },
+        {
+          "name": "after",
+          "default": true
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "comma-style",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "complexity",
       "level": "Warning",
       "category": "BestPractice",
@@ -103,6 +208,18 @@
         {
           "name": "unnamedParam",
           "default": 4
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "computed-property-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "enforceForClassMembers",
+          "default": true
         }
       ],
       "enabled": false
@@ -172,6 +289,13 @@
       "enabled": false
     },
     {
+      "patternId": "dot-location",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "dot-notation",
       "level": "Warning",
       "category": "BestPractice",
@@ -185,6 +309,13 @@
           "default": ""
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "eol-last",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
       "enabled": false
     },
     {
@@ -205,6 +336,13 @@
       "category": "ErrorProne",
       "parameters": [],
       "enabled": true
+    },
+    {
+      "patternId": "func-call-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
     },
     {
       "patternId": "func-name-matching",
@@ -237,6 +375,27 @@
       "enabled": false
     },
     {
+      "patternId": "function-call-argument-newline",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "function-paren-newline",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "generator-star-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "getter-return",
       "level": "Error",
       "category": "ErrorProne",
@@ -249,6 +408,13 @@
       "enabled": true
     },
     {
+      "patternId": "global-require",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "grouped-accessor-pairs",
       "level": "Warning",
       "category": "BestPractice",
@@ -257,6 +423,20 @@
     },
     {
       "patternId": "guard-for-in",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "handle-callback-err",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "id-blacklist",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -310,6 +490,44 @@
       "enabled": false
     },
     {
+      "patternId": "implicit-arrow-linebreak",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "indent",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "SwitchCase",
+          "default": 0
+        },
+        {
+          "name": "flatTernaryExpressions",
+          "default": false
+        },
+        {
+          "name": "offsetTernaryExpressions",
+          "default": false
+        },
+        {
+          "name": "ignoreComments",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "indent-legacy",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "init-declarations",
       "level": "Warning",
       "category": "BestPractice",
@@ -317,6 +535,105 @@
         {
           "name": "unnamedParam",
           "default": "always"
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "jsx-quotes",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "key-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "keyword-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "before",
+          "default": true
+        },
+        {
+          "name": "after",
+          "default": true
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "line-comment-position",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "linebreak-style",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "lines-around-comment",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "beforeBlockComment",
+          "default": true
+        },
+        {
+          "name": "afterBlockComment",
+          "default": false
+        },
+        {
+          "name": "beforeLineComment",
+          "default": false
+        },
+        {
+          "name": "afterLineComment",
+          "default": false
+        },
+        {
+          "name": "allowBlockStart",
+          "default": false
+        },
+        {
+          "name": "allowBlockEnd",
+          "default": false
+        },
+        {
+          "name": "afterHashbangComment",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "lines-around-directive",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "lines-between-class-members",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "exceptAfterSingleLine",
+          "default": false
         }
       ],
       "enabled": false
@@ -339,6 +656,13 @@
       "patternId": "max-depth",
       "level": "Warning",
       "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "max-len",
+      "level": "Info",
+      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -383,6 +707,32 @@
       "enabled": false
     },
     {
+      "patternId": "max-statements-per-line",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "max",
+          "default": 1
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "multiline-comment-style",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "multiline-ternary",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "new-cap",
       "level": "Warning",
       "category": "BestPractice",
@@ -398,6 +748,44 @@
         {
           "name": "properties",
           "default": true
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "new-parens",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "newline-after-var",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "always"
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "newline-before-return",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "newline-per-chained-call",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "ignoreChainWithDepth",
+          "default": 2
         }
       ],
       "enabled": false
@@ -443,6 +831,13 @@
       "enabled": false
     },
     {
+      "patternId": "no-buffer-constructor",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "no-caller",
       "level": "Warning",
       "category": "BestPractice",
@@ -455,6 +850,13 @@
       "category": "BestPractice",
       "parameters": [],
       "enabled": true
+    },
+    {
+      "patternId": "no-catch-shadow",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
     },
     {
       "patternId": "no-class-assign",
@@ -481,6 +883,22 @@
         }
       ],
       "enabled": true
+    },
+    {
+      "patternId": "no-confusing-arrow",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [
+        {
+          "name": "allowParens",
+          "default": true
+        },
+        {
+          "name": "onlyOneSimpleParam",
+          "default": false
+        }
+      ],
+      "enabled": false
     },
     {
       "patternId": "no-console",
@@ -711,6 +1129,20 @@
       "enabled": false
     },
     {
+      "patternId": "no-extra-parens",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "no-extra-semi",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "no-fallthrough",
       "level": "Error",
       "category": "ErrorProne",
@@ -729,6 +1161,13 @@
         }
       ],
       "enabled": true
+    },
+    {
+      "patternId": "no-floating-decimal",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
     },
     {
       "patternId": "no-func-assign",
@@ -959,12 +1398,50 @@
       "enabled": true
     },
     {
+      "patternId": "no-mixed-operators",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [
+        {
+          "name": "allowSamePrecedence",
+          "default": true
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "no-mixed-requires",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "no-mixed-spaces-and-tabs",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "no-multi-assign",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [
         {
           "name": "ignoreNonDeclaration",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "no-multi-spaces",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "ignoreEOLComments",
           "default": false
         }
       ],
@@ -978,9 +1455,30 @@
       "enabled": false
     },
     {
+      "patternId": "no-multiple-empty-lines",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "no-native-reassign",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "no-negated-condition",
       "level": "Warning",
       "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "no-negated-in-lhs",
+      "level": "Error",
+      "category": "ErrorProne",
       "parameters": [],
       "enabled": false
     },
@@ -1011,6 +1509,27 @@
       "category": "ErrorProne",
       "parameters": [],
       "enabled": true
+    },
+    {
+      "patternId": "no-new-object",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "no-new-require",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "no-new-symbol",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
     },
     {
       "patternId": "no-new-wrappers",
@@ -1062,6 +1581,13 @@
       "enabled": false
     },
     {
+      "patternId": "no-path-concat",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "no-plusplus",
       "level": "Warning",
       "category": "BestPractice",
@@ -1071,6 +1597,20 @@
           "default": false
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "no-process-env",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "no-process-exit",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
       "enabled": false
     },
     {
@@ -1140,6 +1680,18 @@
       "enabled": false
     },
     {
+      "patternId": "no-restricted-modules",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "always"
+        }
+      ],
+      "enabled": false
+    },
+    {
       "patternId": "no-restricted-properties",
       "level": "Warning",
       "category": "BestPractice",
@@ -1163,6 +1715,13 @@
           "default": "always"
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "no-return-await",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
       "enabled": false
     },
     {
@@ -1238,11 +1797,42 @@
       "enabled": true
     },
     {
+      "patternId": "no-spaced-func",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "no-sparse-arrays",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],
       "enabled": true
+    },
+    {
+      "patternId": "no-sync",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [
+        {
+          "name": "allowAtRootLevel",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "no-tabs",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "allowIndentationTabs",
+          "default": false
+        }
+      ],
+      "enabled": false
     },
     {
       "patternId": "no-template-curly-in-string",
@@ -1270,6 +1860,22 @@
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "no-trailing-spaces",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "skipBlankLines",
+          "default": false
+        },
+        {
+          "name": "ignoreComments",
+          "default": false
+        }
+      ],
       "enabled": false
     },
     {
@@ -1576,11 +2182,55 @@
       "enabled": false
     },
     {
+      "patternId": "no-whitespace-before-property",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "no-with",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
       "enabled": true
+    },
+    {
+      "patternId": "nonblock-statement-body-position",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "object-curly-newline",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "object-curly-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "object-property-newline",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "allowAllPropertiesOnSameLine",
+          "default": false
+        },
+        {
+          "name": "allowMultiplePropertiesPerLine",
+          "default": false
+        }
+      ],
+      "enabled": false
     },
     {
       "patternId": "object-shorthand",
@@ -1602,9 +2252,37 @@
       "enabled": false
     },
     {
+      "patternId": "one-var-declaration-per-line",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "operator-assignment",
       "level": "Warning",
       "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "operator-linebreak",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "padded-blocks",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "padding-line-between-statements",
+      "level": "Info",
+      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -1695,6 +2373,13 @@
       "enabled": false
     },
     {
+      "patternId": "prefer-reflect",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "prefer-regex-literals",
       "level": "Warning",
       "category": "BestPractice",
@@ -1724,6 +2409,20 @@
       "patternId": "prefer-template",
       "level": "Warning",
       "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "quote-props",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "quotes",
+      "level": "Info",
+      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -1766,6 +2465,43 @@
       "category": "BestPractice",
       "parameters": [],
       "enabled": true
+    },
+    {
+      "patternId": "rest-spread-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "semi",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "semi-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "before",
+          "default": false
+        },
+        {
+          "name": "after",
+          "default": true
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "semi-style",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
     },
     {
       "patternId": "sort-imports",
@@ -1832,6 +2568,62 @@
       "enabled": false
     },
     {
+      "patternId": "space-before-blocks",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "space-before-function-paren",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "space-in-parens",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "space-infix-ops",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "int32Hint",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "space-unary-ops",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "words",
+          "default": true
+        },
+        {
+          "name": "nonwords",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "spaced-comment",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "strict",
       "level": "Warning",
       "category": "BestPractice",
@@ -1844,9 +2636,39 @@
       "enabled": false
     },
     {
+      "patternId": "switch-colon-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "before",
+          "default": false
+        },
+        {
+          "name": "after",
+          "default": true
+        }
+      ],
+      "enabled": false
+    },
+    {
       "patternId": "symbol-description",
       "level": "Warning",
       "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "template-curly-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "template-tag-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -1889,6 +2711,32 @@
       "patternId": "vars-on-top",
       "level": "Warning",
       "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "wrap-iife",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "functionPrototypeMethods",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "wrap-regex",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "yield-star-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -7612,37 +8460,6 @@
       "enabled": false
     },
     {
-      "patternId": "filenames_match-regex",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "^([a-z0-9]+)([A-Z][a-z0-9]+)*$"
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "filenames_match-exported",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "camel"
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "filenames_no-index",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "flowtype_array-style-complex-type",
       "level": "Info",
       "category": "CodeStyle",
@@ -7676,13 +8493,6 @@
       "enabled": false
     },
     {
-      "patternId": "flowtype_define-flow-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "flowtype_delimiter-dangle",
       "level": "Info",
       "category": "CodeStyle",
@@ -7704,21 +8514,7 @@
       "enabled": false
     },
     {
-      "patternId": "flowtype_interface-id-match",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "flowtype_newline-after-flow-annotation",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_no-dupe-keys",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -7732,49 +8528,7 @@
       "enabled": false
     },
     {
-      "patternId": "flowtype_no-existential-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_no-flow-fix-me-comments",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_no-internal-flow-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_no-mixed",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "flowtype_no-mutable-array",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_no-primitive-constructor-types",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_no-types-missing-file-annotation",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -7805,13 +8559,6 @@
       "enabled": false
     },
     {
-      "patternId": "flowtype_no-weak-types",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "flowtype_object-type-curly-spacing",
       "level": "Info",
       "category": "CodeStyle",
@@ -7833,13 +8580,6 @@
       "enabled": false
     },
     {
-      "patternId": "flowtype_require-compound-type-alias",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "flowtype_require-exact-type",
       "level": "Info",
       "category": "CodeStyle",
@@ -7854,49 +8594,7 @@
       "enabled": false
     },
     {
-      "patternId": "flowtype_require-inexact-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_require-parameter-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_require-readonly-react-props",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_require-return-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_require-types-at-top",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "flowtype_require-valid-file-annotation",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_require-variable-type",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -7945,20 +8643,6 @@
       "enabled": false
     },
     {
-      "patternId": "flowtype_spread-exact-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_type-id-match",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "flowtype_type-import-style",
       "level": "Info",
       "category": "CodeStyle",
@@ -7967,13 +8651,6 @@
     },
     {
       "patternId": "flowtype_union-intersection-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_use-flow-type",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -8652,48 +9329,6 @@
       "enabled": false
     },
     {
-      "patternId": "jasmine_expect-matcher",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_expect-single-argument",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_named-spy",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_no-focused-tests",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_no-disabled-tests",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_no-describe-variables",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "jasmine_no-suite-dupes",
       "level": "Info",
       "category": "CodeStyle",
@@ -8709,48 +9344,6 @@
     },
     {
       "patternId": "jasmine_missing-expect",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_no-suite-callback-args",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_valid-expect",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_no-assign-spyon",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_no-unsafe-spy",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_no-global-setup",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_no-pending-tests",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -8785,23 +9378,9 @@
       "enabled": false
     },
     {
-      "patternId": "jasmine_prefer-jasmine-matcher",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "jasmine_prefer-promise-strategies",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jasmine_prefer-toHaveBeenCalledWith",
-      "level": "Info",
-      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -10500,34 +11079,6 @@
       "patternId": "jsonc_vue-custom-block_no-parsing-error",
       "level": "Error",
       "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jsx_uses-factory",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jsx_factory-in-scope",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jsx_mark-used-vars",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jsx_no-undef",
-      "level": "Info",
-      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -14051,84 +14602,7 @@
       "enabled": false
     },
     {
-      "patternId": "react-redux_connect-prefer-minimum-two-arguments",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_connect-prefer-named-arguments",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_mapDispatchToProps-prefer-shorthand",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_mapDispatchToProps-returns-object",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_mapDispatchToProps-prefer-parameters-names",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_mapStateToProps-no-store",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_mapStateToProps-prefer-hoisted",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_mapStateToProps-prefer-parameters-names",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_mapStateToProps-prefer-selectors",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_useSelector-prefer-selectors",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "react-redux_no-unused-prop-types",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-redux_prefer-separate-component-file",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -14759,27 +15233,6 @@
     },
     {
       "patternId": "relay_generated-flow-types",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "relay_no-future-added-value",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "relay_unused-fields",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "relay_must-colocate-fragment-spreads",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -19453,15 +19906,6 @@
       "enabled": true
     },
     {
-      "patternId": "xss_no-mixed-html",
-      "level": "Warning",
-      "category": "Security",
-      "subcategory": "XSS",
-      "scanType": "SAST",
-      "parameters": [],
-      "enabled": true
-    },
-    {
       "patternId": "yml_block-mapping-colon-indicator-newline",
       "level": "Info",
       "category": "CodeStyle",
@@ -19677,517 +20121,6 @@
       "patternId": "yml_vue-custom-block_no-parsing-error",
       "level": "Error",
       "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_concat",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_drop",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_drop-right",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_index-of",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_join",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_last",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_last-index-of",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_reverse",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_fill",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_find",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_detect",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_first",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_find-index",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-array",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_each",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_for-each",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_every",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_all",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_filter",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_select",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_map",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_collect",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_reduce",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_inject",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_foldl",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_reduce-right",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_foldr",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_size",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_some",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_any",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_includes",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_contains",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_slice",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_take-right",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_bind",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-finite",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-integer",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-nan",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-nil",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-null",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-undefined",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_keys",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_extend-own",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_assign",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_values",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_entries",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_to-pairs",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_pairs",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_get",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_split",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_starts-with",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_ends-with",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_to-lower",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_to-upper",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_trim",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_pad-start",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_pad-end",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_repeat",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_uniq",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_replace",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_omit",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_flatten",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_throttle",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-string",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_cast-array",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_clone-deep",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-function",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_union-by",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_capitalize",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-date",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_defaults",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_is-array-buffer",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "you-dont-need-lodash-underscore_head",
-      "level": "Info",
-      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     }

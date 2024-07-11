@@ -1,14 +1,14 @@
-import { FileError, Issue, ToolResult } from "codacy-seed"
-import type { ESLint } from "eslint"
+import { FileError, Issue, ToolResult } from "codacy-seed";
+import { TSESLint } from '@typescript-eslint/utils';
 
-import { isBlacklisted } from "lib/models/blacklist.ts"
-import { patternIdToCodacy } from "lib/models/patterns.ts"
-import { computeSuggestion } from "codacy/src/computeSuggestion.ts"
+import { isBlacklisted } from "lib/models/blacklist.ts";
+import { patternIdToCodacy } from "lib/models/patterns.ts";
+import { computeSuggestion } from "codacy/src/computeSuggestion.ts";
 
-export function convertResults (eslintResults: ESLint.LintResult[]): ToolResult[] {
-  const results: ToolResult[] = []
+export function convertResults (eslintResults: TSESLint.FlatESLint.LintResult[]): ToolResult[] {
+  const results: ToolResult[] = [];
   eslintResults.forEach((result) => {
-    const { "filePath": filename, messages } = result
+    const { "filePath": filename, messages } = result;
 
     if (result.fatalErrorCount) {
       results.push(
@@ -16,8 +16,8 @@ export function convertResults (eslintResults: ESLint.LintResult[]): ToolResult[
           filename,
           messages.filter(m => m.fatal).map(m => m.message).join("\\n")
         )
-      )
-      return
+      );
+      return;
     }
 
     const issues = messages
@@ -27,13 +27,13 @@ export function convertResults (eslintResults: ESLint.LintResult[]): ToolResult[
         const patternId = patternIdToCodacy(ruleId || "")
         const suggestion
           = process.env.SUGGESTIONS === "true" && result.source
-            ? computeSuggestion(result.source, line, endLine, fix, suggestions)
+            ? computeSuggestion(result.source, (line ?? 1), endLine, fix, suggestions)
             : undefined
 
-        return new Issue(filename, message, patternId, line, suggestion)
-      })
+        return new Issue(filename, message, patternId, (line ?? 1), suggestion)
+      });
 
-    results.push(...issues)
+    results.push(...issues);
   })
-  return results
+  return results;
 }

@@ -16,8 +16,7 @@ export type LoggingMessageType =
 | string
 | number
 | boolean
-| object
-| Array<LoggingMessageType>;
+| object;
 
 /* eslint-disable no-unused-vars */
 export enum TerminalColor {
@@ -50,19 +49,12 @@ const PREFIX = wrapConsoleTextInColor("[DEBUG]", TerminalColor.Cyan);
 export function debug(...msgs: LoggingMessageType[]): void {
   if (!DEBUG) return;
 
-  console.log("Args:", msgs)
   msgs.forEach((msg) => {
     if (msg === null) {
       console.log(PREFIX, "null");
       return;
     }
-
-    if (Array.isArray(msg)) {
-      console.log("Array:", msg)
-      //msg.forEach(debug);
-      return;
-    }
-
+    
     switch (typeof msg) {
       case "object":
         console.log(PREFIX);

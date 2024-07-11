@@ -28,17 +28,15 @@ npm install package-name -w codacy
         {
           // plugin package-name
           packageName: "eslint-plugin-xss",
-          docs: {
-            // path to .md patterns files within github
-            relativeUrl: `/Rantanen/eslint-plugin-xss/master/docs/rules/`,
-            // prefix for tag relases (for example if tags are "v.1.0.0" you have to prefix tags with "v.")
-            // or "false" if package has no tags released
-            // (default) "v"
-            versionPrefix: "v",
-            // change to true if it should fail in case of missing .md files for any pattern
-            // (default) false
-            rejectOnError: false
-          }
+          // path to .md patterns files within github
+          relativeUrl: `/Rantanen/eslint-plugin-xss/master/docs/rules/`,
+          // prefix for tag relases (for example if tags are "v.1.0.0" you have to prefix tags with "v.")
+          // or "false" if package has no tags released
+          // (default) "v"
+          versionPrefix: "v",
+          // change to true if it should fail in case of missing .md files for any pattern
+          // (default) false
+          rejectOnError: false
         }
         ```
 
@@ -62,7 +60,7 @@ npm install package-name -w codacy
 ## Generating documentation
 
 ```shell
-npm start -w doc-generator
+npm start -w docs-generator
 ```
 
 ## Test changes to codacy-seed locally
