@@ -27,7 +27,7 @@
     "init": "npm i --legacy-peer-deps && npm i --legacy-peer-deps -ws",
     "preupgrade": "npx npm-check-updates -u -ws --root",
     "upgrade": "npm install --legacy-peer-deps -ws --root",
-    "postupgrade": "npm start -w doc-generator"
+    "postupgrade": "npm start -w docs-generator"
   },
   "type": "module",
   "workspaces": [
@@ -41,28 +41,30 @@
     "lib"
   ],
   "dependencies": {
-    "@eslint-stylistic/metadata": "^2.3.0",
-    "@types/eslint": "^8.56.10",
+    "@eslint-stylistic/metadata": "^2.8.0",
+    "@types/eslint": "^9.6.1",
     "@types/fs-extra": "^11.0.4",
     "@types/glob": "^8.1.0",
-    "@types/jest": "^29.5.12",
-    "@types/lodash": "^4.17.6",
-    "@types/node": "^20.14.9",
+    "@types/jest": "^29.5.13",
+    "@types/lodash": "^4.17.7",
+    "@types/node": "^22.5.5",
+    "eslint": "^9.10.0",
     "eslint-config-prettier": "^9.1.0",
     "jest": "^29.7.0",
-    "npm-check-updates": "^16.14.20",
-    "prettier": "^3.3.2",
+    "npm-check-updates": "^17.1.2",
+    "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
-    "tsx": "^4.16.2",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^8.0.0-alpha.39"
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.6.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.6.0",
-    "codacy-seed": "^2.2.4",
-    "eslint": "^9.6.0",
-    "globals": "^15.8.0",
+    "@eslint/js": "^9.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
+    "codacy-seed": "2.2.6",
+    "globals": "^15.9.0",
     "tsconfig-paths": "^4.2.0",
-    "tslib": "^2.6.3"
+    "tslib": "^2.7.0"
   }
 }

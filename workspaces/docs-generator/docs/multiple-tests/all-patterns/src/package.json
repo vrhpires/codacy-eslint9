@@ -1,0 +1,8 @@
+{
+    "name": "all-patterns",
+    "version": "1.0.0",
+    "author": "Your Name <email@example.com>",
+    "dependencies": {
+        "typescript-eslint": "^8.5.0"
+    }
+}

@@ -1,0 +1,6 @@
+<module name="root">
+    <module name="accessor-pairs" />
+    <module name="brace-style">
+        <property name="allowSingleLine" value="true" />
+    </module>
+</module>

@@ -1,16 +1,16 @@
 import { FileError, Issue, ToolResult } from "codacy-seed";
 import { TSESLint } from '@typescript-eslint/utils';
 
-import { isBlacklisted } from "lib/models/blacklist.ts";
+//TOODO: import { isBlacklisted } from "lib/models/blacklist.ts";
 import { patternIdToCodacy } from "lib/models/patterns.ts";
 import { computeSuggestion } from "codacy/src/computeSuggestion.ts";
 
-export function convertResults (eslintResults: TSESLint.FlatESLint.LintResult[]): ToolResult[] {
+export function convertResults(eslintResults: TSESLint.FlatESLint.LintResult[]): ToolResult[] {
   const results: ToolResult[] = [];
   eslintResults.forEach((result) => {
     const { "filePath": filename, messages } = result;
 
-    if (result.fatalErrorCount) {
+    if (result.fatalErrorCount > 0) {
       results.push(
         new FileError(
           filename,
@@ -21,7 +21,7 @@ export function convertResults (eslintResults: TSESLint.FlatESLint.LintResult[])
     }
 
     const issues = messages
-      .filter(m => { m.ruleId && !isBlacklisted(m.ruleId)})
+      //TODO: .filter(m => { m.ruleId != null && !isBlacklisted(m.ruleId) })
       .map(m => {
         const { ruleId, line, endLine, message, fix, suggestions } = m
         const patternId = patternIdToCodacy(ruleId || "")
@@ -35,5 +35,6 @@ export function convertResults (eslintResults: TSESLint.FlatESLint.LintResult[])
 
     results.push(...issues);
   })
+
   return results;
 }

@@ -34,15 +34,15 @@ export class DocsGenerator {
   private dependencies: Promise<Record<string, string>>;
   private docs: Record<string, Omit<DocsInfo, "packageName">>;
 
-  constructor () {
+  constructor() {
     this.rules = this.initializeRules();
     this.dependencies = this.initializeDependencies();
     this.docs = {};
   }
 
-  private async initializeRules (): Promise<Record<string, TSESLint.LooseRuleDefinition>> {
+  private async initializeRules(): Promise<Record<string, TSESLint.LooseRuleDefinition>> {
     const rules: Record<string, TSESLint.LooseRuleDefinition> = await getAllRules(true);
-    
+
     const rulesFiltered = Object.fromEntries(
       Object.entries(rules).filter(([patternId, _]) =>
         !isBlacklistedOnlyFromDocumentation(patternId)
@@ -53,7 +53,7 @@ export class DocsGenerator {
     return rulesFiltered
   }
 
-  private async initializeDependencies (): Promise<Record<string, string>> {
+  private async initializeDependencies(): Promise<Record<string, string>> {
     const packageJsonRaw = await fs.readFile("../codacy/package.json", { encoding: "utf-8" });
     const packageJson = JSON.parse(packageJsonRaw) as { dependencies?: Record<string, string> };
 
@@ -71,14 +71,15 @@ export class DocsGenerator {
     return dependencies;
   }
 
-  private async getPatternIds (): Promise<string[]> {
+  private async getPatternIds(): Promise<string[]> {
     return Object.keys(await this.rules);
   }
 
-  static generateParameters (
+  static generateParameters(
     patternId: string,
     schema: JSONSchema4 | JSONSchema4[] | undefined
   ): ParameterSpec[] {
+//    console.log({ patternId, "schema": JSON.stringify(schema) })
     const unnamedParameterValue = rulesToUnnamedParametersDefaults.get(patternId)
     const unnamedParameter = unnamedParameterValue
       ? new ParameterSpec("unnamedParam", unnamedParameterValue)
@@ -87,7 +88,7 @@ export class DocsGenerator {
     const namedParameters = schema
       ? DocsGenerator.fromEslintSchemaToParameters(patternId, schema)
       : undefined
-
+ //   console.log({ unnamedParameter, namedParameters, unnamedParameterValue })
     if (namedParameters && unnamedParameter)
       return [unnamedParameter, ...namedParameters]
     if (namedParameters)
@@ -98,20 +99,20 @@ export class DocsGenerator {
     return []
   }
 
-  private async generatePatterns (): Promise<Specification> {
+  private async generatePatterns(): Promise<Specification> {
     const rules = await this.rules
 
     const patterns: PatternSpec[] = []
     Object.entries(rules).forEach(([patternId, ruleModule]) => {
       const meta = getRuleMeta(ruleModule);
-      
+
       if (meta === undefined) return;
       const type = meta?.type ?? meta?.docs?.category
       const [level, category, securitySubcategory, scanType] = translateTypes(
         patternId,
         type
       )
-  
+
       patterns.push(new PatternSpec(
         patternIdToCodacy(patternId),
         level,
@@ -122,12 +123,12 @@ export class DocsGenerator {
         DocsGenerator.isDefaultPattern(patternId, ruleModule)
       ));
     })
-  
+
     return new Specification(toolName, toolVersion, patterns)
   }
 
-  static isDefaultPattern (patternId: string, ruleModule: TSESLint.LooseRuleDefinition): boolean {
-    function prefixSplit (patternId: string): string {
+  static isDefaultPattern(patternId: string, ruleModule: TSESLint.LooseRuleDefinition): boolean {
+    function prefixSplit(patternId: string): string {
       const p = patternId.split("/")[0]
       return p !== patternId ? p : ""
     }
@@ -155,13 +156,13 @@ export class DocsGenerator {
     const prefix = prefixSplit(patternId)
     const meta = getRuleMeta(ruleModule)
 
-    return prefixes.some((p) => 
+    return prefixes.some((p) =>
       p[prefix] === "all"
       || p[prefix] === "recommended" && meta?.docs?.recommended
     )
   }
 
-  private async generateDescriptionEntries (): Promise<DescriptionEntry[]> {
+  private async generateDescriptionEntries(): Promise<DescriptionEntry[]> {
     const descriptions: DescriptionEntry[] = []
     const rules = await this.rules
     Object.entries(rules).forEach(([patternId, ruleModule]) => {
@@ -176,7 +177,7 @@ export class DocsGenerator {
           meta?.schema
         )
         .map((p) => new DescriptionParameter(p.name, p.name))
-  
+
       descriptions.push(new DescriptionEntry(
         patternIdToCodacy(patternId),
         patternTitle(patternId),
@@ -185,12 +186,12 @@ export class DocsGenerator {
         descriptionParameters
       ))
     })
-  
+
     console.log("Number of descriptions: ", descriptions.length)
     return descriptions
   }
 
-  static fromEslintSchemaToParameters (
+  static fromEslintSchemaToParameters(
     patternId: string,
     schema: JSONSchema4 | JSONSchema4[]
   ): ParameterSpec[] {
@@ -201,18 +202,25 @@ export class DocsGenerator {
         if (schema.anyOf) {
           schema.anyOf.forEach(item => flattenSchema(item, result));
         } else {
-          result.push(schema);
+          if (schema.items) {
+            // Check for nested items in arrays
+            flattenSchema(schema.items, result);
+          } else {
+            result.push(schema);
+          }
         }
       }
       return result;
     };
-    const flattenedSchema = flattenSchema(schema);
-    const objects = flattenedSchema.filter(value => value && value.properties);
 
+    const flattenedSchema = flattenSchema(schema);
+ //   console.log({ flattenedSchema })
+    const objects = flattenedSchema.filter(value => value && value.properties);
+ //   console.log({ "flattenedSchema": JSON.stringify(flattenedSchema), "objects": JSON.stringify(objects) })
     return Array.isArray(objects) ? fromSchemaArray(patternId, objects) : []
   }
 
-  private convertMdxToMd (text: string): string {
+  private convertMdxToMd(text: string): string {
     return text
       .replace(/import {?.*}? from ["'].*["'];?/g, "")
       .replace(/<(\/)?Tabs>/g, "<!--$1tabs-->\n")
@@ -222,7 +230,7 @@ export class DocsGenerator {
       .replace(/\n{2,}/g, "\n\n")
   }
 
-  async createPatternDescriptionFile (
+  async createPatternDescriptionFile(
     plugin: Plugin,
     packageName: string,
     pattern: string,
@@ -230,25 +238,43 @@ export class DocsGenerator {
   ): Promise<void> {
     const docsInfo = this.docs[packageName];
     const rejectOnError = docsInfo.rejectOnError;
-    try {
-      const pluginVersion = (await this.dependencies)[plugin.packageName];
-      const url = (
-        (docsInfo.versionPrefix !== false && docsInfo.versionPrefix !== undefined)
+    const pluginVersion = (await this.dependencies)[plugin.packageName];
+
+    // Check if the pattern needs URL adjustment. For @shopify in-folder rules: https://github.com/Shopify/web-configs/tree/main/packages/eslint-plugin/docs/rules
+    const needsAdjustment = [
+      "typescript-prefer-pascal-case-enums",
+      "typescript-prefer-singular-enums",
+      "jest-no-all-mocks-methods",
+      "typescript-prefer-build-client-schema",
+      "jest-no-snapshots",
+      "webpack-no-unnamed-dynamic-imports"
+    ].includes(pattern);
+
+    let url = (
+      (docsInfo.versionPrefix !== false && docsInfo.versionPrefix !== undefined)
         ? docsInfo.baseUrl?.href.replace(/main|master/, `${docsInfo.versionPrefix}${pluginVersion}`)
         : docsInfo.baseUrl?.href
-      ) + patternDocFilename;
+    ) + patternDocFilename;
 
+    // Adjust the URL for specific patterns
+    if (needsAdjustment) {
+      // Replace the first hyphen with a slash
+      url = url.replace(/-(?=[^/]*\.md$)/, "/");
+    }
+
+    try {
       const response = (await axios.get(url)).data as string;
-      const text: string = 
+      const text: string =
         docsInfo.baseUrl
-        ? this.inlineLinkedMarkdownFiles(response, docsInfo.baseUrl.href)
-        : response;
+          ? this.inlineLinkedMarkdownFiles(response, docsInfo.baseUrl.href)
+          : response;
       const filePath = `${this.docsDescriptionDirectory}/${patternIdToCodacy((plugin.name !== "eslint" ? plugin.name + "/" : "") + pattern)}.md`;
 
       await writeFile(filePath, plugin.name === "@typescript-eslint" ? this.convertMdxToMd(text) : text);
     } catch (error) {
+      console.log({ plugin: plugin.name, url });
       const message = `Failed to retrieve docs for ${pattern}\n- ${error}`;
-      
+
       if (rejectOnError) {
         return Promise.reject(message);
       }
@@ -256,20 +282,21 @@ export class DocsGenerator {
     }
   }
 
-  async downloadAllPluginsDocs (downloadDocsInfo: DocsInfo[]): Promise<void> {
+
+  async downloadAllPluginsDocs(downloadDocsInfo: DocsInfo[]): Promise<void> {
     downloadDocsInfo.forEach((docsInfo) => {
       docsInfo['baseUrl'] = new URL((!docsInfo.relativeUrl.startsWith("https://") ? this.githubBaseUrl : "") + docsInfo.relativeUrl);
       this.docs[docsInfo.packageName] = docsInfo;
       try {
         this.downloadPluginDocs(docsInfo.packageName);
       }
-      catch(error) {
+      catch (error) {
         console.error(error)
       }
     });
   }
 
-  async downloadPluginDocs (packageName: string): Promise<void> {
+  async downloadPluginDocs(packageName: string): Promise<void> {
     const plugin: Plugin | undefined = await getByPackageName(packageName)
 
     if (plugin === undefined) {
@@ -290,21 +317,21 @@ export class DocsGenerator {
           return this.createPatternDescriptionFile(plugin, packageName, rule.name, rule.docsEntry)
         })
       : (await patterns).map((pattern: string) => {
-        const patternDocFilename = 
-          plugin.name === "@typescript-eslint"
-          ? `${pattern}.mdx`
-          : `${pattern}.md`
+        const patternDocFilename =
+          plugin.name === "@typescript-eslint" || plugin.name === "perfectionist"
+            ? `${pattern}.mdx`
+            : `${pattern}.md`
         return this.createPatternDescriptionFile(plugin, packageName, pattern, patternDocFilename)
       })
     await Promise.all(promises)
   }
 
-  async createDescriptionFile (): Promise<void> {
+  async createDescriptionFile(): Promise<void> {
     console.log("Generate description.json")
     const descriptions = await this.generateDescriptionEntries()
 
     if (!descriptions.length) return
-    
+
     await this.emptyDocsDescriptionFolder()
     await this.writeFileInJson(
       path.resolve(this.docsDescriptionDirectory, "description.json"),
@@ -312,7 +339,7 @@ export class DocsGenerator {
     )
   }
 
-  async createPatternsFile (): Promise<void> {
+  async createPatternsFile(): Promise<void> {
     console.log("Generate patterns.json")
     const patterns = await this.generatePatterns()
 
@@ -324,11 +351,11 @@ export class DocsGenerator {
     )
   }
 
-  async createAllPatternsMultipleTestFiles (): Promise<void> {
+  async createAllPatternsMultipleTestFiles(): Promise<void> {
     console.log("Generate patterns.xml")
 
     const patternIds = await this.getPatternIds()
-    
+
     const modules = patternIds
       .map(patternId => `  <module name="${patternIdToCodacy(patternId)}" />`)
       .join("\n")
@@ -349,7 +376,7 @@ ${modules}
     ])
   }
 
-  private async patternIdsWithoutPrefix (prefix: string): Promise<string[]> {
+  private async patternIdsWithoutPrefix(prefix: string): Promise<string[]> {
     const longPrefix = prefix + "/"
 
     const patternIds = await this.getPatternIds()
@@ -358,35 +385,35 @@ ${modules}
       .map((patternId) => patternId.substring(longPrefix.length))
   }
 
-  private async eslintPatternIds (): Promise<string[]> {
+  private async eslintPatternIds(): Promise<string[]> {
     // We take all the patterns except those that have slashes because
     // they come from third party plugins
     const patternIds = await this.getPatternIds()
-    
+
     return patternIds.filter((e) => !e.includes("/"))
   }
 
-  private convertFromGithubRawLink (url: string): string {
+  private convertFromGithubRawLink(url: string): string {
     const parsedUrl = new URL(url)
     parsedUrl.host = "github.com"
 
     const parts = parsedUrl.pathname.split("/")
     parts.splice(3, 0, "tree")
     parsedUrl.pathname = parts.join("/")
-    
+
     return parsedUrl.toString()
   }
 
-  private inlineLinkedMarkdownFiles (text: string, docsBaseUrl: string): string {
+  private inlineLinkedMarkdownFiles(text: string, docsBaseUrl: string): string {
     const elements = text.match(/\[.+?\]\(\.{1,2}[^)]+?\.?[a-z]+\)/g)
     if (!elements) return text
-  
+
     let newText = text
 
     elements.map(async (elem) => {
       const urlMatch = elem.match(/\((.+?\.?[a-z]+)\)/)
       if (!urlMatch) return
-  
+
       const fullUrl = this.convertFromGithubRawLink(docsBaseUrl + urlMatch[1])
       newText = newText.replace(urlMatch[1], fullUrl)
     })
@@ -394,11 +421,11 @@ ${modules}
     return newText
   }
 
-  private async emptyDocsDescriptionFolder (): Promise<void> {
+  private async emptyDocsDescriptionFolder(): Promise<void> {
     await fs.emptyDir(this.docsDescriptionDirectory)
   }
 
-  private async writeFileInJson (file: string, json: Specification | DescriptionEntry[]): Promise<void> {
+  private async writeFileInJson(file: string, json: Specification | DescriptionEntry[]): Promise<void> {
     await writeFile(file, JSON.stringify(json, null, 2) + EOL)
   }
 };

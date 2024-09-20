@@ -1,6 +1,6 @@
 {
   "name": "eslint-9",
-  "version": "9.6.0",
+  "version": "9.10.0",
   "patterns": [
     {
       "patternId": "accessor-pairs",
@@ -76,6 +76,10 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "unnamedParam",
+          "default": "always"
+        },
+        {
           "name": "requireForBlockBody",
           "default": false
         }
@@ -117,6 +121,10 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "1tbs"
+        },
         {
           "name": "allowSingleLine",
           "default": false
@@ -217,6 +225,10 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "never"
+        },
         {
           "name": "enforceForClassMembers",
           "default": true
@@ -502,6 +514,10 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "unnamedParam",
+          "default": 2
+        },
+        {
           "name": "SwitchCase",
           "default": 0
         },
@@ -631,6 +647,10 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "always"
+        },
         {
           "name": "exceptAfterSingleLine",
           "default": false
@@ -2720,6 +2740,10 @@
       "category": "CodeStyle",
       "parameters": [
         {
+          "name": "unnamedParam",
+          "default": "outside"
+        },
+        {
           "name": "functionPrototypeMethods",
           "default": false
         }
@@ -2980,6 +3004,13 @@
       "enabled": false
     },
     {
+      "patternId": "@angular-eslint_runtime-localize",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "@angular-eslint_sort-lifecycle-methods",
       "level": "Error",
       "category": "ErrorProne",
@@ -3022,74 +3053,6 @@
       "enabled": false
     },
     {
-      "patternId": "@babel_new-cap",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "newIsCap",
-          "default": true
-        },
-        {
-          "name": "capIsNew",
-          "default": true
-        },
-        {
-          "name": "properties",
-          "default": true
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "@babel_no-invalid-this",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "capIsConstructor",
-          "default": true
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "@babel_no-undef",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [
-        {
-          "name": "typeof",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "@babel_no-unused-expressions",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "allowShortCircuit",
-          "default": false
-        },
-        {
-          "name": "allowTernary",
-          "default": false
-        },
-        {
-          "name": "allowTaggedTemplates",
-          "default": false
-        },
-        {
-          "name": "enforceForJSX",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
       "patternId": "@lwc_lwc_consistent-component-name",
       "level": "Info",
       "category": "CodeStyle",
@@ -3105,13 +3068,6 @@
     },
     {
       "patternId": "@lwc_lwc_no-async-await",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@lwc_lwc_no-async-operation",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -3154,13 +3110,6 @@
     },
     {
       "patternId": "@lwc_lwc_no-leading-uppercase-api-name",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@lwc_lwc_no-leaky-event-listeners",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
@@ -3232,77 +3181,7 @@
       "enabled": false
     },
     {
-      "patternId": "@lwc_lwc_no-restricted-browser-globals-during-ssr",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "@lwc_lwc_no-unsupported-ssr-properties",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@lwc_lwc_no-node-env-in-ssr",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@salesforce_aura_aura-api",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@salesforce_aura_ecma-intrinsics",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@salesforce_aura_getevt-markup-prefix",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@salesforce_aura_no-deprecated-aura-error",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@salesforce_aura_no-deprecated-component-creation",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@salesforce_aura_no-deprecated-event-creation",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@salesforce_aura_secure-document",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@salesforce_aura_secure-window",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],
@@ -3330,13 +3209,6 @@
       "enabled": false
     },
     {
-      "patternId": "@salesforce_lightning_valid-apex-method-invocation",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "@shopify_binary-assignment-parens",
       "level": "Info",
       "category": "BestPractice",
@@ -3358,14 +3230,14 @@
       "enabled": false
     },
     {
-      "patternId": "@shopify_jest_no-all-mocks-methods",
+      "patternId": "@shopify_jest-no-all-mocks-methods",
       "level": "Info",
       "category": "BestPractice",
       "parameters": [],
       "enabled": false
     },
     {
-      "patternId": "@shopify_jest_no-snapshots",
+      "patternId": "@shopify_jest-no-snapshots",
       "level": "Info",
       "category": "BestPractice",
       "parameters": [],
@@ -3533,28 +3405,28 @@
       "enabled": false
     },
     {
-      "patternId": "@shopify_typescript_prefer-pascal-case-enums",
+      "patternId": "@shopify_typescript-prefer-pascal-case-enums",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
     {
-      "patternId": "@shopify_typescript_prefer-singular-enums",
+      "patternId": "@shopify_typescript-prefer-singular-enums",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
     {
-      "patternId": "@shopify_typescript_prefer-build-client-schema",
+      "patternId": "@shopify_typescript-prefer-build-client-schema",
       "level": "Info",
       "category": "BestPractice",
       "parameters": [],
       "enabled": false
     },
     {
-      "patternId": "@shopify_webpack_no-unnamed-dynamic-imports",
+      "patternId": "@shopify_webpack-no-unnamed-dynamic-imports",
       "level": "Info",
       "category": "BestPractice",
       "parameters": [],
@@ -3789,6 +3661,10 @@
           "default": false
         },
         {
+          "name": "tabLength",
+          "default": 4
+        },
+        {
           "name": "VariableDeclarator",
           "default": 1
         },
@@ -3840,6 +3716,127 @@
       "enabled": false
     },
     {
+      "patternId": "@stylistic_indent-binary-ops",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-child-element-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-closing-bracket-location",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-closing-tag-location",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-curly-brace-presence",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-curly-newline",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-curly-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-equals-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-first-prop-new-line",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-function-call-newline",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-indent-props",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-max-props-per-line",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-newline",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "prevent",
+          "default": false
+        },
+        {
+          "name": "allowMultilines",
+          "default": false
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-one-expression-per-line",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-pascal-case",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-props-no-multi-spaces",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "@stylistic_jsx-quotes",
       "level": "Info",
       "category": "CodeStyle",
@@ -3849,6 +3846,52 @@
           "default": "prefer-double"
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-self-closing-comp",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "component",
+          "default": true
+        },
+        {
+          "name": "html",
+          "default": true
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-sort-props",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [
+        {
+          "name": "multiline",
+          "default": "ignore"
+        },
+        {
+          "name": "locale",
+          "default": "auto"
+        }
+      ],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-tag-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_jsx-wrap-multilines",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
       "enabled": false
     },
     {
@@ -3957,6 +4000,13 @@
           "default": 1
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_member-delimiter-style",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
       "enabled": false
     },
     {
@@ -4375,6 +4425,27 @@
       "enabled": false
     },
     {
+      "patternId": "@stylistic_type-annotation-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_type-generic-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "@stylistic_type-named-tuple-spacing",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "@stylistic_wrap-iife",
       "level": "Info",
       "category": "CodeStyle",
@@ -4405,201 +4476,6 @@
       "enabled": false
     },
     {
-      "patternId": "@stylistic_jsx-child-element-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-closing-bracket-location",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-closing-tag-location",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-curly-brace-presence",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-curly-newline",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@stylistic_jsx-curly-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-equals-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-first-prop-new-line",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-function-call-newline",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@stylistic_jsx-indent-props",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-max-props-per-line",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-newline",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "prevent",
-          "default": false
-        },
-        {
-          "name": "allowMultilines",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-one-expression-per-line",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-pascal-case",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-props-no-multi-spaces",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-self-closing-comp",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "component",
-          "default": true
-        },
-        {
-          "name": "html",
-          "default": true
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-sort-props",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "multiline",
-          "default": "ignore"
-        },
-        {
-          "name": "locale",
-          "default": "auto"
-        }
-      ],
-      "enabled": true
-    },
-    {
-      "patternId": "@stylistic_jsx-tag-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_jsx-wrap-multilines",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_member-delimiter-style",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_type-annotation-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@stylistic_indent-binary-ops",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@stylistic_type-generic-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@stylistic_type-named-tuple-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": true
-    },
-    {
       "patternId": "@tanstack_query_exhaustive-deps",
       "level": "Error",
       "category": "ErrorProne",
@@ -4621,6 +4497,13 @@
       "enabled": false
     },
     {
+      "patternId": "@tanstack_query_no-unstable-deps",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "@typescript-eslint_adjacent-overload-signatures",
       "level": "Warning",
       "category": "BestPractice",
@@ -4631,13 +4514,6 @@
       "patternId": "@typescript-eslint_array-type",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_await-thenable",
-      "level": "Error",
-      "category": "ErrorProne",
       "parameters": [],
       "enabled": true
     },
@@ -4694,18 +4570,6 @@
       "enabled": true
     },
     {
-      "patternId": "@typescript-eslint_consistent-return",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "treatUndefinedAsUnspecified",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
       "patternId": "@typescript-eslint_consistent-type-assertions",
       "level": "Warning",
       "category": "BestPractice",
@@ -4720,46 +4584,11 @@
       "enabled": true
     },
     {
-      "patternId": "@typescript-eslint_consistent-type-exports",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "@typescript-eslint_default-param-last",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
       "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_dot-notation",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "allowKeywords",
-          "default": true
-        },
-        {
-          "name": "allowPattern",
-          "default": ""
-        },
-        {
-          "name": "allowPrivateClassPropertyAccess",
-          "default": false
-        },
-        {
-          "name": "allowProtectedClassPropertyAccess",
-          "default": false
-        },
-        {
-          "name": "allowIndexSignaturePropertyAccess",
-          "default": false
-        }
-      ],
-      "enabled": true
     },
     {
       "patternId": "@typescript-eslint_explicit-function-return-type",
@@ -4825,20 +4654,6 @@
       "enabled": true
     },
     {
-      "patternId": "@typescript-eslint_no-array-delete",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-base-to-string",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
       "patternId": "@typescript-eslint_no-confusing-non-null-assertion",
       "level": "Error",
       "category": "ErrorProne",
@@ -4863,13 +4678,6 @@
       "patternId": "@typescript-eslint_no-duplicate-enum-values",
       "level": "Error",
       "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-duplicate-type-constituents",
-      "level": "Warning",
-      "category": "BestPractice",
       "parameters": [],
       "enabled": true
     },
@@ -4916,23 +4724,9 @@
       "enabled": true
     },
     {
-      "patternId": "@typescript-eslint_no-floating-promises",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
       "patternId": "@typescript-eslint_no-for-in-array",
       "level": "Error",
       "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-implied-eval",
-      "level": "Warning",
-      "category": "BestPractice",
       "parameters": [],
       "enabled": true
     },
@@ -5005,33 +4799,7 @@
       "enabled": false
     },
     {
-      "patternId": "@typescript-eslint_no-meaningless-void-operator",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "checkNever",
-          "default": false
-        }
-      ],
-      "enabled": true
-    },
-    {
       "patternId": "@typescript-eslint_no-misused-new",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-misused-promises",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-mixed-enums",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],
@@ -5073,13 +4841,6 @@
       "enabled": false
     },
     {
-      "patternId": "@typescript-eslint_no-redundant-type-constituents",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
       "patternId": "@typescript-eslint_no-require-imports",
       "level": "Error",
       "category": "ErrorProne",
@@ -5115,79 +4876,16 @@
       "enabled": true
     },
     {
-      "patternId": "@typescript-eslint_no-unnecessary-boolean-literal-compare",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-unnecessary-condition",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-unnecessary-qualifier",
+      "patternId": "@typescript-eslint_no-unnecessary-parameter-property-assignment",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
       "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_no-unnecessary-template-expression",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-unnecessary-type-arguments",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-unnecessary-type-assertion",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
     },
     {
       "patternId": "@typescript-eslint_no-unnecessary-type-constraint",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-unnecessary-type-parameters",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_no-unsafe-argument",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-unsafe-assignment",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-unsafe-call",
-      "level": "Error",
-      "category": "ErrorProne",
       "parameters": [],
       "enabled": true
     },
@@ -5199,28 +4897,7 @@
       "enabled": true
     },
     {
-      "patternId": "@typescript-eslint_no-unsafe-enum-comparison",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
       "patternId": "@typescript-eslint_no-unsafe-function-type",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-unsafe-member-access",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_no-unsafe-return",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],
@@ -5293,20 +4970,6 @@
       "enabled": true
     },
     {
-      "patternId": "@typescript-eslint_non-nullable-type-assertion-style",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_only-throw-error",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
       "patternId": "@typescript-eslint_parameter-properties",
       "level": "Error",
       "category": "ErrorProne",
@@ -5321,25 +4984,11 @@
       "enabled": true
     },
     {
-      "patternId": "@typescript-eslint_prefer-destructuring",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "@typescript-eslint_prefer-enum-initializers",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
       "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-find",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
     },
     {
       "patternId": "@typescript-eslint_prefer-for-of",
@@ -5350,13 +4999,6 @@
     },
     {
       "patternId": "@typescript-eslint_prefer-function-type",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-includes",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -5377,125 +5019,6 @@
       "enabled": true
     },
     {
-      "patternId": "@typescript-eslint_prefer-nullish-coalescing",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-optional-chain",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-promise-reject-errors",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-readonly",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-readonly-parameter-types",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-reduce-type-parameter",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-regexp-exec",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-return-this-type",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_prefer-string-starts-ends-with",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_promise-function-async",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_require-array-sort-compare",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_require-await",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_restrict-plus-operands",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_restrict-template-expressions",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_return-await",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_strict-boolean-expressions",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@typescript-eslint_switch-exhaustiveness-check",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "@typescript-eslint_triple-slash-reference",
       "level": "Warning",
       "category": "BestPractice",
@@ -5510,137 +5033,11 @@
       "enabled": false
     },
     {
-      "patternId": "@typescript-eslint_unbound-method",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": true
-    },
-    {
       "patternId": "@typescript-eslint_unified-signatures",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
       "enabled": true
-    },
-    {
-      "patternId": "@typescript-eslint_use-unknown-in-catch-callback-variable",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "awscdk_require-bucket-encryption",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_require-bucket-private",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_no-public-ingress",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_no-iam-star-actions",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_no-iam-admin-permissions",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_no-policy-allow-kms-decrypt",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_require-bucket-ssl",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_require-dynamodb-ptr",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_require-sns-topic-encryption",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_require-dynamodb-autoscale",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_no-rds-public-access",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_no-kms-key-delete",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_no-s3-public-write",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_no-s3-public-read",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_require-cloudfront-default-root-object",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "awscdk_no-redshift-public-access",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
     },
     {
       "patternId": "backbone_collection-model",
@@ -5653,13 +5050,6 @@
       "patternId": "backbone_defaults-on-top",
       "level": "Info",
       "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "backbone_event-scope",
-      "level": "Info",
-      "category": "BestPractice",
       "parameters": [],
       "enabled": false
     },
@@ -5727,13 +5117,6 @@
       "enabled": false
     },
     {
-      "patternId": "backbone_no-silent",
-      "level": "Info",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "backbone_no-view-collection-models",
       "level": "Info",
       "category": "BestPractice",
@@ -5769,154 +5152,9 @@
       "enabled": false
     },
     {
-      "patternId": "cdk_ban-lambda-runtimes",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "cdk_ban-reserved-words",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "cdk_construct-ctor",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "cdk_filename-match-regex",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "cdk_no-static-import",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "cdk_construct-props-struct-name",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "cdk_public-static-property-all-caps",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "cdk_stack-props-struct-name",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "cdk_prefer-type-only-imports",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "chai-expect_no-inner-compare",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "chai-expect_no-inner-literal",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "chai-expect_missing-assertion",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "chai-expect_terminating-properties",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "chai-friendly_no-unused-expressions",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "enforceForJSX",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "codeceptjs_no-actor-in-scenario",
-      "level": "Info",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "codeceptjs_no-exclusive-tests",
-      "level": "Info",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "codeceptjs_no-skipped-tests",
-      "level": "Info",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "codeceptjs_no-pause-in-scenario",
-      "level": "Info",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "compat_compat",
       "level": "Error",
       "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "css-modules_no-unused-class",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "css-modules_no-undef-class",
-      "level": "Info",
-      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -5989,9 +5227,9 @@
       "enabled": false
     },
     {
-      "patternId": "deprecation_deprecation",
-      "level": "Error",
-      "category": "ErrorProne",
+      "patternId": "cypress_no-debug",
+      "level": "Warning",
+      "category": "BestPractice",
       "parameters": [],
       "enabled": false
     },
@@ -6461,7 +5699,24 @@
       "patternId": "ember_no-restricted-service-injections",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "paths",
+          "default": [
+            ""
+          ]
+        },
+        {
+          "name": "services",
+          "default": [
+            ""
+          ]
+        },
+        {
+          "name": "message",
+          "default": "Injecting this service is not allowed from this file."
+        }
+      ],
       "enabled": false
     },
     {
@@ -6622,6 +5877,13 @@
     },
     {
       "patternId": "ember_prefer-ember-test-helpers",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "ember_require-async-inverse-relationship",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -8460,336 +7722,6 @@
       "enabled": false
     },
     {
-      "patternId": "flowtype_array-style-complex-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_array-style-simple-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_arrow-parens",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "always"
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_boolean-style",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_delimiter-dangle",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_enforce-line-break",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_generic-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_newline-after-flow-annotation",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_no-duplicate-type-union-intersection-members",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_no-mutable-array",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_no-unused-expressions",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "allowShortCircuit",
-          "default": false
-        },
-        {
-          "name": "allowTernary",
-          "default": false
-        },
-        {
-          "name": "allowTaggedTemplates",
-          "default": false
-        },
-        {
-          "name": "enforceForJSX",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_object-type-curly-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_object-type-delimiter",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_quotes",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_require-exact-type",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_require-indexer-name",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_require-valid-file-annotation",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_semi",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_sort-keys",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_sort-type-union-intersection-members",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_space-after-type-colon",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_space-before-generic-bracket",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_space-before-type-colon",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_type-import-style",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_union-intersection-spacing",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "flowtype_use-read-only-spread",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_blocklist-elements",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_enforce-default-message",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_enforce-description",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_enforce-id",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_enforce-placeholders",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_enforce-plural-rules",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-camel-case",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-complex-selectors",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-emoji",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-id",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-invalid-icu",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-literal-string-in-jsx",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-multiple-plurals",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-multiple-whitespaces",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-offset",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_no-useless-message",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_prefer-formatted-message",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "formatjs_prefer-pound-in-plural",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "fp_no-arguments",
       "level": "Info",
       "category": "CodeStyle",
@@ -9100,6 +8032,10 @@
         {
           "name": "allowUnsafeDynamicCyclicDependency",
           "default": false
+        },
+        {
+          "name": "disableScc",
+          "default": false
         }
       ],
       "enabled": false
@@ -9134,20 +8070,6 @@
     },
     {
       "patternId": "import_no-unused-modules",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "import_no-commonjs",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "import_no-amd",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -9216,13 +8138,6 @@
           "default": false
         }
       ],
-      "enabled": false
-    },
-    {
-      "patternId": "import_newline-after-import",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
       "enabled": false
     },
     {
@@ -9311,20 +8226,6 @@
       "patternId": "import_no-deprecated",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "import-alias_import-alias",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "import-newlines_enforce",
-      "level": "Info",
-      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -9575,6 +8476,62 @@
     },
     {
       "patternId": "jest_no-untyped-mock-factory",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jest_padding-around-after-all-blocks",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jest_padding-around-after-each-blocks",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jest_padding-around-all",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jest_padding-around-before-all-blocks",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jest_padding-around-before-each-blocks",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jest_padding-around-describe-blocks",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jest_padding-around-expect-groups",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jest_padding-around-test-blocks",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -9961,13 +8918,6 @@
       "enabled": false
     },
     {
-      "patternId": "jira-ticket-todo-comment_jira-ticket-todo-comment",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "jsdoc_check-access",
       "level": "Warning",
       "category": "BestPractice",
@@ -10077,6 +9027,13 @@
       "enabled": false
     },
     {
+      "patternId": "jsdoc_check-template-names",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "jsdoc_check-types",
       "level": "Warning",
       "category": "BestPractice",
@@ -10085,6 +9042,13 @@
     },
     {
       "patternId": "jsdoc_check-values",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jsdoc_convert-to-jsdoc-comments",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -10113,6 +9077,13 @@
     },
     {
       "patternId": "jsdoc_informative-docs",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "jsdoc_lines-before-block",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -10463,6 +9434,13 @@
       "enabled": false
     },
     {
+      "patternId": "jsdoc_require-template",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "jsdoc_require-throws",
       "level": "Warning",
       "category": "BestPractice",
@@ -10544,153 +9522,6 @@
           "default": false
         }
       ],
-      "enabled": false
-    },
-    {
-      "patternId": "json_*",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_json",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_unknown",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_comment-not-permitted",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_undefined",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_enum-value-mismatch",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_unexpected-end-of-comment",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_unexpected-end-of-string",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_unexpected-end-of-number",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_invalid-unicode",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_invalid-escape-character",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_invalid-character",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_property-expected",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_comma-expected",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_colon-expected",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_value-expected",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_comma-or-close-backet-expected",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_comma-or-close-brace-expected",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_trailing-comma",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_duplicate-key",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "json_schema-resolve-error",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
       "enabled": false
     },
     {
@@ -11042,7 +9873,18 @@
       "patternId": "jsonc_sort-array-values",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "pathPattern",
+          "default": "^$"
+        },
+        {
+          "name": "order",
+          "default": {
+            "type": "asc"
+          }
+        }
+      ],
       "enabled": false
     },
     {
@@ -12204,20 +11046,6 @@
       "enabled": false
     },
     {
-      "patternId": "monorepo_no-internal-import",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "monorepo_no-relative-import",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "n_callback-return",
       "level": "Warning",
       "category": "BestPractice",
@@ -12503,42 +11331,6 @@
       "enabled": false
     },
     {
-      "patternId": "no-only-tests_no-only-tests",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [
-        {
-          "name": "block",
-          "default": [
-            "describe",
-            "it",
-            "context",
-            "test",
-            "tape",
-            "fixture",
-            "serial",
-            "Feature",
-            "Scenario",
-            "Given",
-            "And",
-            "When",
-            "Then"
-          ]
-        },
-        {
-          "name": "focus",
-          "default": [
-            "only"
-          ]
-        },
-        {
-          "name": "fix",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
       "patternId": "no-unsanitized_property",
       "level": "Warning",
       "category": "Security",
@@ -12606,415 +11398,143 @@
       "enabled": false
     },
     {
-      "patternId": "perfectionist_sort-array-includes",
+      "patternId": "perfectionist_sort-variable-declarations",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "spread-last",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-astro-attributes",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-classes",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "groups",
-          "default": []
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-enums",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "partition-by-comment",
-          "default": false
-        },
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-exports",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-imports",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "groups",
-          "default": []
-        },
-        {
-          "name": "newlines-between",
-          "default": "always"
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-interfaces",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "optionality-order",
-          "default": "ignore"
-        },
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "groups",
-          "default": []
-        },
-        {
-          "name": "partition-by-new-line",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-jsx-props",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-maps",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-named-exports",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "group-kind",
-          "default": "mixed"
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-named-imports",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "ignore-alias",
-          "default": false
-        },
-        {
-          "name": "group-kind",
-          "default": "mixed"
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-object-types",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "groups",
-          "default": []
-        },
-        {
-          "name": "partition-by-new-line",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-objects",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "partition-by-comment",
-          "default": false
-        },
-        {
-          "name": "partition-by-new-line",
-          "default": false
-        },
-        {
-          "name": "styled-components",
-          "default": true
-        },
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "perfectionist_sort-svelte-attributes",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        }
-      ],
+      "parameters": [],
       "enabled": false
     },
     {
       "patternId": "perfectionist_sort-intersection-types",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        }
-      ],
+      "parameters": [],
       "enabled": false
     },
     {
-      "patternId": "perfectionist_sort-union-types",
+      "patternId": "perfectionist_sort-svelte-attributes",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "nullable-last",
-          "default": false
-        }
-      ],
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-astro-attributes",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
       "enabled": false
     },
     {
       "patternId": "perfectionist_sort-vue-attributes",
       "level": "Warning",
       "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "type",
-          "default": "alphabetical"
-        },
-        {
-          "name": "order",
-          "default": "asc"
-        },
-        {
-          "name": "ignore-case",
-          "default": false
-        },
-        {
-          "name": "groups",
-          "default": []
-        }
-      ],
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-array-includes",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-named-imports",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-named-exports",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-object-types",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-union-types",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-switch-case",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-interfaces",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-jsx-props",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-classes",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-imports",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-exports",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-objects",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-enums",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-sets",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "perfectionist_sort-maps",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
       "enabled": false
     },
     {
@@ -13363,34 +11883,6 @@
       "enabled": false
     },
     {
-      "patternId": "prefer-arrow_prefer-arrow-functions",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "prefer-object-spread_prefer-object-spread",
-      "level": "Info",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "prettier_prettier",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "prettier-vue_prettier",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "promise_param-names",
       "level": "Warning",
       "category": "BestPractice",
@@ -13492,188 +11984,6 @@
       "patternId": "promise_no-multiple-resolved",
       "level": "Error",
       "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_always-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_any-pass-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_both-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_complement-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_compose-pipe-style",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_compose-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_cond-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_either-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_eq-by-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_filter-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_if-else-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_map-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_merge-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_no-redundant-and",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_no-redundant-not",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_no-redundant-or",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_pipe-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_prefer-both-either",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_prefer-complement",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_prefer-ramda-boolean",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_prop-satisfies-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_reduce-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_reject-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_set-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_unless-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "ramda_when-simplification",
-      "level": "Info",
-      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -14097,6 +12407,13 @@
       "enabled": false
     },
     {
+      "patternId": "react_jsx-props-no-spread-multi",
+      "level": "Info",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "react_jsx-sort-props",
       "level": "Info",
       "category": "CodeStyle",
@@ -14511,20 +12828,6 @@
       "enabled": false
     },
     {
-      "patternId": "react-hooks_rules-of-hooks",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-hooks_exhaustive-deps",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "react-native_no-unused-styles",
       "level": "Info",
       "category": "CodeStyle",
@@ -14602,16 +12905,23 @@
       "enabled": false
     },
     {
-      "patternId": "react-redux_no-unused-prop-types",
+      "patternId": "react-redux_mapStateToProps-prefer-selectors",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
     {
-      "patternId": "react-refresh_only-export-components",
-      "level": "Error",
-      "category": "ErrorProne",
+      "patternId": "react-redux_useSelector-prefer-selectors",
+      "level": "Info",
+      "category": "CodeStyle",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "react-redux_no-unused-prop-types",
+      "level": "Info",
+      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },
@@ -15211,349 +13521,6 @@
       "enabled": false
     },
     {
-      "patternId": "relay_graphql-syntax",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "relay_compat-uses-vars",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "relay_graphql-naming",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "relay_generated-flow-types",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "relay_function-required-argument",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "relay_hook-required-argument",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_ban-observables",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_ban-operators",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_finnish",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_just",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_macro",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-async-subscribe",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-compat",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-connectable",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-create",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-cyclic-action",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-explicit-generics",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-exposed-subjects",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-finnish",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-ignored-error",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-ignored-notifier",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-ignored-observable",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-ignored-replay-buffer",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-ignored-subscribe",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-ignored-subscription",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-ignored-takewhile-value",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-implicit-any-catch",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-index",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-internal",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-nested-subscribe",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-redundant-notify",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-sharereplay",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-subclass",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-subject-unsubscribe",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-subject-value",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-subscribe-handlers",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-topromise",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-unbound-methods",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-unsafe-catch",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-unsafe-first",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-unsafe-subject-next",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-unsafe-switchmap",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_no-unsafe-takeuntil",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_prefer-observer",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_suffix-subjects",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs_throw-error",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs-angular_prefer-async-pipe",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs-angular_prefer-composition",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "rxjs-angular_prefer-takeuntil",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "security_detect-unsafe-regex",
       "level": "Warning",
       "category": "Security",
@@ -15850,249 +13817,6 @@
       "enabled": true
     },
     {
-      "patternId": "simple-import-sort_imports",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "simple-import-sort_exports",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_cognitive-complexity",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_elseif-without-else",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_max-switch-cases",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-all-duplicated-branches",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-collapsible-if",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-collection-size-mischeck",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-duplicate-string",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [
-        {
-          "name": "ignoreStrings",
-          "default": "application/json"
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-duplicated-branches",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-element-overwrite",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-empty-collection",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-extra-arguments",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-gratuitous-expressions",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-identical-conditions",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-identical-expressions",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-identical-functions",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-ignored-return",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-inverted-boolean-check",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-nested-switch",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-nested-template-literals",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-one-iteration-loop",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-redundant-boolean",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-redundant-jump",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-same-line-conditional",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-small-switch",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-unused-collection",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-use-of-empty-return-value",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_no-useless-catch",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_non-existent-operator",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_prefer-immediate-return",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_prefer-object-literal",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_prefer-single-boolean-return",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sonarjs_prefer-while",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "sort_destructuring-properties",
       "level": "Warning",
       "category": "BestPractice",
@@ -16253,107 +13977,6 @@
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sort-imports-es6-autofix_sort-imports-es6",
-      "level": "Warning",
-      "category": "CodeStyle",
-      "parameters": [
-        {
-          "name": "ignoreCase",
-          "default": false
-        },
-        {
-          "name": "memberSyntaxSortOrder",
-          "default": [
-            "none",
-            "all",
-            "multiple",
-            "single"
-          ]
-        },
-        {
-          "name": "ignoreMemberSort",
-          "default": false
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "sort-keys-custom-order-fix_sort-keys-custom-order-fix",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "sort-keys-fix_sort-keys-fix",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "spellcheck_spell-checker",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [
-        {
-          "name": "comments",
-          "default": true
-        },
-        {
-          "name": "strings",
-          "default": true
-        },
-        {
-          "name": "identifiers",
-          "default": true
-        },
-        {
-          "name": "ignoreRequire",
-          "default": false
-        },
-        {
-          "name": "enableUpperCaseUnderscoreCheck",
-          "default": false
-        },
-        {
-          "name": "templates",
-          "default": true
-        },
-        {
-          "name": "lang",
-          "default": "en_US"
-        },
-        {
-          "name": "langDir",
-          "default": "/mnt/c/repos/codacy/codacy-eslint9/node_modules/eslint-plugin-spellcheck/rules/utils/dicts"
-        },
-        {
-          "name": "skipWords",
-          "default": [
-            "dict",
-            "aff",
-            "hunspellchecker",
-            "hunspell",
-            "utils"
-          ]
-        },
-        {
-          "name": "skipIfMatch",
-          "default": []
-        },
-        {
-          "name": "skipWordIfMatch",
-          "default": []
-        },
-        {
-          "name": "minLength",
-          "default": 1
-        }
-      ],
       "enabled": false
     },
     {
@@ -16851,25 +14474,6 @@
       "enabled": false
     },
     {
-      "patternId": "tsdoc_syntax",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "turbo_no-undeclared-env-vars",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [
-        {
-          "name": "allowList",
-          "default": []
-        }
-      ],
-      "enabled": false
-    },
-    {
       "patternId": "typescript-sort-keys_interface",
       "level": "Warning",
       "category": "BestPractice",
@@ -17131,6 +14735,13 @@
     },
     {
       "patternId": "unicorn_no-keyword-prefix",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "unicorn_no-length-as-slice-end",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -18215,6 +15826,20 @@
       "enabled": false
     },
     {
+      "patternId": "vue_max-props",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "vue_max-template-depth",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "vue_multi-word-component-names",
       "level": "Warning",
       "category": "BestPractice",
@@ -19145,6 +16770,13 @@
       "enabled": false
     },
     {
+      "patternId": "vue_require-default-export",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "vue_require-default-prop",
       "level": "Warning",
       "category": "BestPractice",
@@ -19829,6 +17461,13 @@
       "enabled": false
     },
     {
+      "patternId": "vuejs-accessibility_no-aria-hidden-on-focusable",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "vuejs-accessibility_no-autofocus",
       "level": "Error",
       "category": "ErrorProne",
@@ -19849,6 +17488,13 @@
     },
     {
       "patternId": "vuejs-accessibility_no-redundant-roles",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "vuejs-accessibility_no-role-presentation-on-focusable",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],

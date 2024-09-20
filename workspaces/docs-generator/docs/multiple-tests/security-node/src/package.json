@@ -1,0 +1,8 @@
+{
+    "name": "all-patterns",
+    "version": "1.0.0",
+    "author": "Your Name <email@example.com>",
+    "devDependencies": {
+        "eslint-plugin-security-node": "1.1.4"
+    }
+}
