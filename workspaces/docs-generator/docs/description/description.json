@@ -4507,6 +4507,13 @@
     "timeToFix": 5
   },
   {
+    "parameters": [],
+    "patternId": "@typescript-eslint_await-thenable",
+    "title": "@typescript eslint: Await thenable",
+    "description": "Disallow awaiting a value that is not a Thenable",
+    "timeToFix": 5
+  },
+  {
     "parameters": [
       {
         "name": "minimumDescriptionLength",
@@ -4559,6 +4566,18 @@
     "timeToFix": 5
   },
   {
+    "parameters": [
+      {
+        "name": "treatUndefinedAsUnspecified",
+        "description": "treatUndefinedAsUnspecified"
+      }
+    ],
+    "patternId": "@typescript-eslint_consistent-return",
+    "title": "@typescript eslint: Consistent return",
+    "description": "Require `return` statements to either always or never specify values",
+    "timeToFix": 5
+  },
+  {
     "parameters": [],
     "patternId": "@typescript-eslint_consistent-type-assertions",
     "title": "@typescript eslint: Consistent type assertions",
@@ -4574,9 +4593,44 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_consistent-type-exports",
+    "title": "@typescript eslint: Consistent type exports",
+    "description": "Enforce consistent usage of type exports",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_default-param-last",
     "title": "@typescript eslint: Default param last",
     "description": "Enforce default parameters to be last",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "allowKeywords",
+        "description": "allowKeywords"
+      },
+      {
+        "name": "allowPattern",
+        "description": "allowPattern"
+      },
+      {
+        "name": "allowPrivateClassPropertyAccess",
+        "description": "allowPrivateClassPropertyAccess"
+      },
+      {
+        "name": "allowProtectedClassPropertyAccess",
+        "description": "allowProtectedClassPropertyAccess"
+      },
+      {
+        "name": "allowIndexSignaturePropertyAccess",
+        "description": "allowIndexSignaturePropertyAccess"
+      }
+    ],
+    "patternId": "@typescript-eslint_dot-notation",
+    "title": "@typescript eslint: Dot notation",
+    "description": "Enforce dot notation whenever possible",
     "timeToFix": 5
   },
   {
@@ -4644,6 +4698,20 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_no-array-delete",
+    "title": "@typescript eslint: No array delete",
+    "description": "Disallow using the `delete` operator on array values",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-base-to-string",
+    "title": "@typescript eslint: No base to string",
+    "description": "Require `.toString()` to only be called on objects which provide useful information when stringified",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_no-confusing-non-null-assertion",
     "title": "@typescript eslint: No confusing non null assertion",
     "description": "Disallow non-null assertion in locations that may be confusing",
@@ -4658,6 +4726,13 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_no-deprecated",
+    "title": "@typescript eslint: No deprecated",
+    "description": "Disallow using code marked as `@deprecated`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_no-dupe-class-members",
     "title": "@typescript eslint: No dupe class members",
     "description": "Disallow duplicate class members",
@@ -4668,6 +4743,13 @@
     "patternId": "@typescript-eslint_no-duplicate-enum-values",
     "title": "@typescript eslint: No duplicate enum values",
     "description": "Disallow duplicate enum member values",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-duplicate-type-constituents",
+    "title": "@typescript eslint: No duplicate type constituents",
+    "description": "Disallow duplicate constituents of union or intersection types",
     "timeToFix": 5
   },
   {
@@ -4714,9 +4796,23 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_no-floating-promises",
+    "title": "@typescript eslint: No floating promises",
+    "description": "Require Promise-like statements to be handled appropriately",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_no-for-in-array",
     "title": "@typescript eslint: No for in array",
     "description": "Disallow iterating over an array with a for-in loop",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-implied-eval",
+    "title": "@typescript eslint: No implied eval",
+    "description": "Disallow the use of `eval()`-like methods",
     "timeToFix": 5
   },
   {
@@ -4788,10 +4884,36 @@
     "timeToFix": 5
   },
   {
+    "parameters": [
+      {
+        "name": "checkNever",
+        "description": "checkNever"
+      }
+    ],
+    "patternId": "@typescript-eslint_no-meaningless-void-operator",
+    "title": "@typescript eslint: No meaningless void operator",
+    "description": "Disallow the `void` operator except when used to discard a value",
+    "timeToFix": 5
+  },
+  {
     "parameters": [],
     "patternId": "@typescript-eslint_no-misused-new",
     "title": "@typescript eslint: No misused new",
     "description": "Enforce valid definition of `new` and `constructor`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-misused-promises",
+    "title": "@typescript eslint: No misused promises",
+    "description": "Disallow Promises in places not designed to handle them",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-mixed-enums",
+    "title": "@typescript eslint: No mixed enums",
+    "description": "Disallow enums from having both number and string members",
     "timeToFix": 5
   },
   {
@@ -4831,6 +4953,13 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_no-redundant-type-constituents",
+    "title": "@typescript eslint: No redundant type constituents",
+    "description": "Disallow members of unions and intersections that do nothing or override type information",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_no-require-imports",
     "title": "@typescript eslint: No require imports",
     "description": "Disallow invocation of `require()`",
@@ -4866,9 +4995,51 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_no-unnecessary-boolean-literal-compare",
+    "title": "@typescript eslint: No unnecessary boolean literal compare",
+    "description": "Disallow unnecessary equality comparisons against boolean literals",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unnecessary-condition",
+    "title": "@typescript eslint: No unnecessary condition",
+    "description": "Disallow conditionals where the type is always truthy or always falsy",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_no-unnecessary-parameter-property-assignment",
     "title": "@typescript eslint: No unnecessary parameter property assignment",
     "description": "Disallow unnecessary assignment of constructor property parameter",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unnecessary-qualifier",
+    "title": "@typescript eslint: No unnecessary qualifier",
+    "description": "Disallow unnecessary namespace qualifiers",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unnecessary-template-expression",
+    "title": "@typescript eslint: No unnecessary template expression",
+    "description": "Disallow unnecessary template expressions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unnecessary-type-arguments",
+    "title": "@typescript eslint: No unnecessary type arguments",
+    "description": "Disallow type arguments that are equal to the default",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unnecessary-type-assertion",
+    "title": "@typescript eslint: No unnecessary type assertion",
+    "description": "Disallow type assertions that do not change the type of an expression",
     "timeToFix": 5
   },
   {
@@ -4880,6 +5051,34 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_no-unnecessary-type-parameters",
+    "title": "@typescript eslint: No unnecessary type parameters",
+    "description": "Disallow type parameters that aren't used multiple times",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unsafe-argument",
+    "title": "@typescript eslint: No unsafe argument",
+    "description": "Disallow calling a function with a value with type `any`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unsafe-assignment",
+    "title": "@typescript eslint: No unsafe assignment",
+    "description": "Disallow assigning a value with type `any` to variables and properties",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unsafe-call",
+    "title": "@typescript eslint: No unsafe call",
+    "description": "Disallow calling a value with type `any`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_no-unsafe-declaration-merging",
     "title": "@typescript eslint: No unsafe declaration merging",
     "description": "Disallow unsafe declaration merging",
@@ -4887,9 +5086,30 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_no-unsafe-enum-comparison",
+    "title": "@typescript eslint: No unsafe enum comparison",
+    "description": "Disallow comparing an enum value with a non-enum value",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_no-unsafe-function-type",
     "title": "@typescript eslint: No unsafe function type",
     "description": "Disallow using the unsafe built-in Function type",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unsafe-member-access",
+    "title": "@typescript eslint: No unsafe member access",
+    "description": "Disallow member access on a value with type `any`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_no-unsafe-return",
+    "title": "@typescript eslint: No unsafe return",
+    "description": "Disallow returning a value with type `any` from a function",
     "timeToFix": 5
   },
   {
@@ -4960,6 +5180,20 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_non-nullable-type-assertion-style",
+    "title": "@typescript eslint: Non nullable type assertion style",
+    "description": "Enforce non-null assertions over explicit type casts",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_only-throw-error",
+    "title": "@typescript eslint: Only throw error",
+    "description": "Disallow throwing non-`Error` values as exceptions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_parameter-properties",
     "title": "@typescript eslint: Parameter properties",
     "description": "Require or disallow parameter properties in class constructors",
@@ -4974,9 +5208,23 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_prefer-destructuring",
+    "title": "@typescript eslint: Prefer destructuring",
+    "description": "Require destructuring from arrays and/or objects",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_prefer-enum-initializers",
     "title": "@typescript eslint: Prefer enum initializers",
     "description": "Require each enum member value to be explicitly initialized",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-find",
+    "title": "@typescript eslint: Prefer find",
+    "description": "Enforce the use of Array.prototype.find() over Array.prototype.filter() followed by [0] when looking for a single result",
     "timeToFix": 5
   },
   {
@@ -4995,6 +5243,13 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_prefer-includes",
+    "title": "@typescript eslint: Prefer includes",
+    "description": "Enforce `includes` method over `indexOf` method",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_prefer-literal-enum-member",
     "title": "@typescript eslint: Prefer literal enum member",
     "description": "Require all enum members to be literal values",
@@ -5005,6 +5260,125 @@
     "patternId": "@typescript-eslint_prefer-namespace-keyword",
     "title": "@typescript eslint: Prefer namespace keyword",
     "description": "Require using `namespace` keyword over `module` keyword to declare custom TypeScript modules",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-nullish-coalescing",
+    "title": "@typescript eslint: Prefer nullish coalescing",
+    "description": "Enforce using the nullish coalescing operator instead of logical assignments or chaining",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-optional-chain",
+    "title": "@typescript eslint: Prefer optional chain",
+    "description": "Enforce using concise optional chain expressions instead of chained logical ands, negated logical ors, or empty objects",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-promise-reject-errors",
+    "title": "@typescript eslint: Prefer promise reject errors",
+    "description": "Require using Error objects as Promise rejection reasons",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-readonly",
+    "title": "@typescript eslint: Prefer readonly",
+    "description": "Require private members to be marked as `readonly` if they're never modified outside of the constructor",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-readonly-parameter-types",
+    "title": "@typescript eslint: Prefer readonly parameter types",
+    "description": "Require function parameters to be typed as `readonly` to prevent accidental mutation of inputs",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-reduce-type-parameter",
+    "title": "@typescript eslint: Prefer reduce type parameter",
+    "description": "Enforce using type parameter when calling `Array#reduce` instead of casting",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-regexp-exec",
+    "title": "@typescript eslint: Prefer regexp exec",
+    "description": "Enforce `RegExp#exec` over `String#match` if no global flag is provided",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-return-this-type",
+    "title": "@typescript eslint: Prefer return this type",
+    "description": "Enforce that `this` is used when only `this` type is returned",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_prefer-string-starts-ends-with",
+    "title": "@typescript eslint: Prefer string starts ends with",
+    "description": "Enforce using `String#startsWith` and `String#endsWith` over other equivalent methods of checking substrings",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_promise-function-async",
+    "title": "@typescript eslint: Promise function async",
+    "description": "Require any function or method that returns a Promise to be marked async",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_require-array-sort-compare",
+    "title": "@typescript eslint: Require array sort compare",
+    "description": "Require `Array#sort` and `Array#toSorted` calls to always provide a `compareFunction`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_require-await",
+    "title": "@typescript eslint: Require await",
+    "description": "Disallow async functions which do not return promises and have no `await` expression",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_restrict-plus-operands",
+    "title": "@typescript eslint: Restrict plus operands",
+    "description": "Require both operands of addition to be the same type and be `bigint`, `number`, or `string`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_restrict-template-expressions",
+    "title": "@typescript eslint: Restrict template expressions",
+    "description": "Enforce template literal expressions to be of `string` type",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_return-await",
+    "title": "@typescript eslint: Return await",
+    "description": "Enforce consistent awaiting of returned promises",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_strict-boolean-expressions",
+    "title": "@typescript eslint: Strict boolean expressions",
+    "description": "Disallow certain types in boolean expressions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_switch-exhaustiveness-check",
+    "title": "@typescript eslint: Switch exhaustiveness check",
+    "description": "Require switch-case statements to be exhaustive",
     "timeToFix": 5
   },
   {
@@ -5023,9 +5397,473 @@
   },
   {
     "parameters": [],
+    "patternId": "@typescript-eslint_unbound-method",
+    "title": "@typescript eslint: Unbound method",
+    "description": "Enforce unbound methods are called with their expected scope",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "@typescript-eslint_unified-signatures",
     "title": "@typescript eslint: Unified signatures",
     "description": "Disallow two overloads that could be unified into one with a union or an optional/rest parameter",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@typescript-eslint_use-unknown-in-catch-callback-variable",
+    "title": "@typescript eslint: Use unknown in catch callback variable",
+    "description": "Enforce typing arguments in Promise rejection callbacks as `unknown`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "ignoreTopLevelDescribe",
+        "description": "ignoreTopLevelDescribe"
+      },
+      {
+        "name": "lowercaseFirstCharacterOnly",
+        "description": "lowercaseFirstCharacterOnly"
+      }
+    ],
+    "patternId": "@vitest_prefer-lowercase-title",
+    "title": "@vitest: Prefer lowercase title",
+    "description": "Enforce lowercase titles",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_max-nested-describe",
+    "title": "@vitest: Max nested describe",
+    "description": "Require describe block to be less than set max value or default value",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-identical-title",
+    "title": "@vitest: No identical title",
+    "description": "Disallow identical titles",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "fixable",
+        "description": "fixable"
+      }
+    ],
+    "patternId": "@vitest_no-focused-tests",
+    "title": "@vitest: No focused tests",
+    "description": "Disallow focused tests",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-conditional-tests",
+    "title": "@vitest: No conditional tests",
+    "description": "Disallow conditional tests",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_expect-expect",
+    "title": "@vitest: Expect expect",
+    "description": "Enforce having expectation in test body",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_consistent-test-it",
+    "title": "@vitest: Consistent test it",
+    "description": "Enforce using test or it but not both",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-to-be",
+    "title": "@vitest: Prefer to be",
+    "description": "Enforce using toBe()",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-hooks",
+    "title": "@vitest: No hooks",
+    "description": "Disallow setup and teardown hooks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-restricted-vi-methods",
+    "title": "@vitest: No restricted vi methods",
+    "description": "Disallow specific `vi.` methods",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "pattern",
+        "description": "pattern"
+      },
+      {
+        "name": "allTestPattern",
+        "description": "allTestPattern"
+      }
+    ],
+    "patternId": "@vitest_consistent-test-filename",
+    "title": "@vitest: Consistent test filename",
+    "description": "Require .spec test file pattern",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_max-expects",
+    "title": "@vitest: Max expects",
+    "description": "Enforce a maximum number of expect per test",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-alias-methods",
+    "title": "@vitest: No alias methods",
+    "description": "Disallow alias methods",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-commented-out-tests",
+    "title": "@vitest: No commented out tests",
+    "description": "Disallow commented out tests",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-conditional-expect",
+    "title": "@vitest: No conditional expect",
+    "description": "Disallow conditional expects",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-conditional-in-test",
+    "title": "@vitest: No conditional in test",
+    "description": "Disallow conditional tests",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-disabled-tests",
+    "title": "@vitest: No disabled tests",
+    "description": "Disallow disabled tests",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-duplicate-hooks",
+    "title": "@vitest: No duplicate hooks",
+    "description": "Disallow duplicate hooks and teardown hooks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-large-snapshots",
+    "title": "@vitest: No large snapshots",
+    "description": "Disallow large snapshots",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-interpolation-in-snapshots",
+    "title": "@vitest: No interpolation in snapshots",
+    "description": "Disallow string interpolation in snapshots",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-mocks-import",
+    "title": "@vitest: No mocks import",
+    "description": "Disallow importing from __mocks__ directory",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-restricted-matchers",
+    "title": "@vitest: No restricted matchers",
+    "description": "Disallow the use of certain matchers",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-standalone-expect",
+    "title": "@vitest: No standalone expect",
+    "description": "Disallow using `expect` outside of `it` or `test` blocks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-test-prefixes",
+    "title": "@vitest: No test prefixes",
+    "description": "Disallow using `test` as a prefix",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-test-return-statement",
+    "title": "@vitest: No test return statement",
+    "description": "Disallow return statements in tests",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_no-import-node-test",
+    "title": "@vitest: No import node test",
+    "description": "Disallow importing `node:test`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-called-with",
+    "title": "@vitest: Prefer called with",
+    "description": "Enforce using `toBeCalledWith()` or `toHaveBeenCalledWith()`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "ignoreTypeOfDescribeName",
+        "description": "ignoreTypeOfDescribeName"
+      },
+      {
+        "name": "allowArguments",
+        "description": "allowArguments"
+      }
+    ],
+    "patternId": "@vitest_valid-title",
+    "title": "@vitest: Valid title",
+    "description": "Enforce valid titles",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "alwaysAwait",
+        "description": "alwaysAwait"
+      }
+    ],
+    "patternId": "@vitest_valid-expect",
+    "title": "@vitest: Valid expect",
+    "description": "Enforce valid `expect()` usage",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-to-be-falsy",
+    "title": "@vitest: Prefer to be falsy",
+    "description": "Enforce using toBeFalsy()",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-to-be-object",
+    "title": "@vitest: Prefer to be object",
+    "description": "Enforce using toBeObject()",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-to-be-truthy",
+    "title": "@vitest: Prefer to be truthy",
+    "description": "Enforce using `toBeTruthy`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-to-have-length",
+    "title": "@vitest: Prefer to have length",
+    "description": "Enforce using toHaveLength()",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-equality-matcher",
+    "title": "@vitest: Prefer equality matcher",
+    "description": "Enforce using the built-in quality matchers",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-strict-equal",
+    "title": "@vitest: Prefer strict equal",
+    "description": "Enforce strict equal over equal",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-expect-resolves",
+    "title": "@vitest: Prefer expect resolves",
+    "description": "Enforce using `expect().resolves` over `expect(await ...)` syntax",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-each",
+    "title": "@vitest: Prefer each",
+    "description": "Enforce using `each` rather than manual loops",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-hooks-on-top",
+    "title": "@vitest: Prefer hooks on top",
+    "description": "Enforce having hooks before any test cases",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-hooks-in-order",
+    "title": "@vitest: Prefer hooks in order",
+    "description": "Enforce having hooks in consistent order",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_require-local-test-context-for-concurrent-snapshots",
+    "title": "@vitest: Require local test context for concurrent snapshots",
+    "description": "Require local Test Context for concurrent snapshot tests",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-mock-promise-shorthand",
+    "title": "@vitest: Prefer mock promise shorthand",
+    "description": "Enforce mock resolved/rejected shorthands for promises",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-snapshot-hint",
+    "title": "@vitest: Prefer snapshot hint",
+    "description": "Enforce including a hint with external snapshots",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_valid-describe-callback",
+    "title": "@vitest: Valid describe callback",
+    "description": "Enforce valid describe callback",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_require-top-level-describe",
+    "title": "@vitest: Require top level describe",
+    "description": "Enforce that all tests are in a top-level describe",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_require-to-throw-message",
+    "title": "@vitest: Require to throw message",
+    "description": "Require toThrow() to be called with an error message",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_require-hook",
+    "title": "@vitest: Require hook",
+    "description": "Require setup and teardown to be within a hook",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-todo",
+    "title": "@vitest: Prefer todo",
+    "description": "Enforce using `test.todo`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-spy-on",
+    "title": "@vitest: Prefer spy on",
+    "description": "Enforce using `vi.spyOn`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-comparison-matcher",
+    "title": "@vitest: Prefer comparison matcher",
+    "description": "Enforce using the built-in comparison matchers",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-to-contain",
+    "title": "@vitest: Prefer to contain",
+    "description": "Enforce using toContain()",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-expect-assertions",
+    "title": "@vitest: Prefer expect assertions",
+    "description": "Enforce using expect assertions instead of callbacks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_padding-around-after-all-blocks",
+    "title": "@vitest: Padding around after all blocks",
+    "description": "Enforce padding around `afterAll` blocks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_padding-around-after-each-blocks",
+    "title": "@vitest: Padding around after each blocks",
+    "description": "Enforce padding around `afterEach` blocks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_padding-around-all",
+    "title": "@vitest: Padding around all",
+    "description": "Enforce padding around vitest functions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_padding-around-before-all-blocks",
+    "title": "@vitest: Padding around before all blocks",
+    "description": "Enforce padding around `beforeAll` blocks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_padding-around-before-each-blocks",
+    "title": "@vitest: Padding around before each blocks",
+    "description": "Enforce padding around `beforeEach` blocks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_padding-around-describe-blocks",
+    "title": "@vitest: Padding around describe blocks",
+    "description": "Enforce padding around `describe` blocks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_padding-around-expect-groups",
+    "title": "@vitest: Padding around expect groups",
+    "description": "Enforce padding around `expect` groups",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_padding-around-test-blocks",
+    "title": "@vitest: Padding around test blocks",
+    "description": "Enforce padding around afterAll blocks",
     "timeToFix": 5
   },
   {
@@ -11998,6 +12836,13 @@
     "patternId": "react_forbid-prop-types",
     "title": "React: Forbid prop types",
     "description": "Disallow certain propTypes",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react_forward-ref-uses-ref",
+    "title": "React: Forward ref uses ref",
+    "description": "Require all forwardRef components include a ref parameter",
     "timeToFix": 5
   },
   {
