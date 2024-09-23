@@ -35,6 +35,10 @@ const downloadDocs: DocsInfo[] = [
     relativeUrl: "/typescript-eslint/typescript-eslint/main/packages/eslint-plugin/docs/rules/"
   },
   {
+    packageName: "@vitest/eslint-plugin",
+    relativeUrl: "/vitest-dev/eslint-plugin-vitest/refs/heads/main/docs/rules/"
+  },
+  {
     packageName: "eslint-plugin-backbone",
     relativeUrl: "/ilyavolodin/eslint-plugin-backbone/master/docs/rules/"
   },

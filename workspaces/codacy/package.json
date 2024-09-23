@@ -19,6 +19,7 @@
     "@types/glob": "^8.1.0",
     "@types/lodash-es": "^4.17.12",
     "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@vitest/eslint-plugin": "1.1.4",
     "eslint": "^9.10.0",
     "eslint-plugin-awscdk": "^0.0.65",
     "eslint-plugin-backbone": "^2.1.1",

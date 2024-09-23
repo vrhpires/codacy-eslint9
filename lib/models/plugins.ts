@@ -28,6 +28,7 @@ const packageNames: string[] = [
   "@stylistic/eslint-plugin",
   "@tanstack/eslint-plugin-query",
   "@typescript-eslint/eslint-plugin",
+  "@vitest/eslint-plugin",
   "eslint",
 //  "eslint-plugin-awscdk", no rule description
   "eslint-plugin-backbone",
