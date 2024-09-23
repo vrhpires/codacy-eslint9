@@ -10,6 +10,7 @@ export default tseslint.config(
     {
         ignores: [
             "node_modules/",
+            "app/node_modules/",
             "dist/",
             "tests/",
             "tsconfig.json",
