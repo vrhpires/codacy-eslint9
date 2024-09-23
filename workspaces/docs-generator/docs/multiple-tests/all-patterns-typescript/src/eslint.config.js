@@ -10,7 +10,7 @@ module.exports = [
   {
     plugins: {
       'yml': eslintPluginYml,
-      'no-unsanitized': noUnsanitized,
+      //'no-unsanitized': noUnsanitized,
       'security': security,
       'security-node': securityNode,
       'xss': xss,

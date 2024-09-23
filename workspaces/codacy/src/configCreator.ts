@@ -10,7 +10,7 @@ import { DocsGenerator } from "docs-generator/src/docsGenerator.ts";
 import { baseConfig } from "codacy/src/defaultOptions.ts";
 import { getAll, getAllRules, getRuleMeta } from "lib/models/plugins.ts";
 import { DEBUG, debug } from "lib/utils/logging.ts";
-import { patternIdToEslint, securityPlugins } from "lib/models/patterns.ts";
+import { patternIdToEslint/*, securityPlugins */} from "lib/models/patterns.ts";
 
 export async function createEslintConfig(
   srcDirPath: string,
@@ -48,11 +48,6 @@ async function generateEslintOptions(
 
   let patterns = codacyrc.tools?.[0].patterns || [];
 
-  if (DEBUG) {
-    for (let i = 0; i < patterns.length; i++) {
-
-    }
-  }
 
   const eslintConfig = existsEslintConfigInRepoRoot(srcDirPath);
 
@@ -87,7 +82,7 @@ async function generateEslintOptions(
 
   options.baseConfig = baseConfig;
 
-  if (/*DEBUG && */useRepoPatterns && !eslintConfig) {
+  if (DEBUG && useRepoPatterns && !eslintConfig) {
     const patternsSet = "recommended";
     debug(`config: retrieveCodacyPatterns`)
     patterns = await retrieveCodacyPatterns(patternsSet);
@@ -126,7 +121,6 @@ async function generateEslintOptions(
 
     // explicitly use only the rules being passed by codacyrc
     if (otherPatterns.length) {
-
       options.overrideConfig?.push({
         rules: convertPatternsToEslintRules(otherPatterns)
       });
@@ -140,12 +134,11 @@ async function generateEslintOptions(
   (await getAll())
     .filter(plugin => prefixes.includes(plugin.name))
     .forEach(plugin => {
-      if(DEBUG){
-
-      }
-      if (!securityPlugins.includes(plugin.name)) {
-        plugins[plugin.name] = plugin.module;
-      }
+      //if (!securityPlugins.includes(plugin.name)) {
+        if (!plugins[plugin.name]) {
+          plugins[plugin.name] = plugin.module;
+        }
+      //}
     });
   if (Object.keys(plugins).length) {
     options.plugins = plugins;
@@ -196,7 +189,7 @@ function existsEslintConfigInRepoRoot(srcDirPath: string): string | undefined {
   const filenames = [
     "eslint.config.js",
     "eslint.config.mjs",
-    "eslint.config.mjs"
+    "eslint.config.cjs"
   ]
   return filenames.find(filename => existsSync(srcDirPath + path.sep + filename))
 }
