@@ -481,6 +481,7 @@
   <module name="@tanstack_query_stable-query-client" />
   <module name="@tanstack_query_no-rest-destructuring" />
   <module name="@tanstack_query_no-unstable-deps" />
+  <module name="@tanstack_query_infinite-query-property-order" />
   <module name="@typescript-eslint_adjacent-overload-signatures" />
   <module name="@typescript-eslint_array-type" />
   <module name="@typescript-eslint_await-thenable" />
@@ -790,6 +791,7 @@
   <module name="es-x_no-array-from" />
   <module name="es-x_no-array-isarray" />
   <module name="es-x_no-array-of" />
+  <module name="es-x_no-array-prototype-at" />
   <module name="es-x_no-array-prototype-copywithin" />
   <module name="es-x_no-array-prototype-entries" />
   <module name="es-x_no-array-prototype-every" />
@@ -813,7 +815,6 @@
   <module name="es-x_no-array-prototype-tospliced" />
   <module name="es-x_no-array-prototype-values" />
   <module name="es-x_no-array-prototype-with" />
-  <module name="es-x_no-array-string-prototype-at" />
   <module name="es-x_no-arraybuffer-prototype-transfer" />
   <module name="es-x_no-arrow-functions" />
   <module name="es-x_no-async-functions" />
@@ -824,8 +825,11 @@
   <module name="es-x_no-binary-numeric-literals" />
   <module name="es-x_no-block-scoped-functions" />
   <module name="es-x_no-block-scoped-variables" />
-  <module name="es-x_no-class-fields" />
+  <module name="es-x_no-class-instance-fields" />
+  <module name="es-x_no-class-private-fields" />
+  <module name="es-x_no-class-private-methods" />
   <module name="es-x_no-class-static-block" />
+  <module name="es-x_no-class-static-fields" />
   <module name="es-x_no-classes" />
   <module name="es-x_no-computed-properties" />
   <module name="es-x_no-date-now" />
@@ -868,6 +872,7 @@
   <module name="es-x_no-logical-assignment-operators" />
   <module name="es-x_no-malformed-template-literals" />
   <module name="es-x_no-map" />
+  <module name="es-x_no-map-groupby" />
   <module name="es-x_no-math-acosh" />
   <module name="es-x_no-math-asinh" />
   <module name="es-x_no-math-atanh" />
@@ -910,13 +915,13 @@
   <module name="es-x_no-object-getownpropertynames" />
   <module name="es-x_no-object-getownpropertysymbols" />
   <module name="es-x_no-object-getprototypeof" />
+  <module name="es-x_no-object-groupby" />
   <module name="es-x_no-object-hasown" />
   <module name="es-x_no-object-is" />
   <module name="es-x_no-object-isextensible" />
   <module name="es-x_no-object-isfrozen" />
   <module name="es-x_no-object-issealed" />
   <module name="es-x_no-object-keys" />
-  <module name="es-x_no-object-map-groupby" />
   <module name="es-x_no-object-preventextensions" />
   <module name="es-x_no-object-seal" />
   <module name="es-x_no-object-setprototypeof" />
@@ -966,10 +971,11 @@
   <module name="es-x_no-spread-elements" />
   <module name="es-x_no-string-create-html-methods" />
   <module name="es-x_no-string-fromcodepoint" />
+  <module name="es-x_no-string-prototype-at" />
   <module name="es-x_no-string-prototype-codepointat" />
   <module name="es-x_no-string-prototype-endswith" />
   <module name="es-x_no-string-prototype-includes" />
-  <module name="es-x_no-string-prototype-iswellformed-towellformed" />
+  <module name="es-x_no-string-prototype-iswellformed" />
   <module name="es-x_no-string-prototype-matchall" />
   <module name="es-x_no-string-prototype-normalize" />
   <module name="es-x_no-string-prototype-padstart-padend" />
@@ -977,6 +983,7 @@
   <module name="es-x_no-string-prototype-replaceall" />
   <module name="es-x_no-string-prototype-startswith" />
   <module name="es-x_no-string-prototype-substr" />
+  <module name="es-x_no-string-prototype-towellformed" />
   <module name="es-x_no-string-prototype-trim" />
   <module name="es-x_no-string-prototype-trimleft-trimright" />
   <module name="es-x_no-string-prototype-trimstart-trimend" />
@@ -1569,6 +1576,7 @@
   <module name="promise_no-return-in-finally" />
   <module name="promise_valid-params" />
   <module name="promise_no-multiple-resolved" />
+  <module name="promise_spec-only" />
   <module name="react_boolean-prop-naming" />
   <module name="react_button-has-type" />
   <module name="react_checked-requires-onchange-or-readonly" />

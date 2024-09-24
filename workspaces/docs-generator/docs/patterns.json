@@ -1,6 +1,6 @@
 {
   "name": "eslint-9",
-  "version": "9.10.0",
+  "version": "9.11.1",
   "patterns": [
     {
       "patternId": "accessor-pairs",
@@ -4504,6 +4504,13 @@
       "enabled": false
     },
     {
+      "patternId": "@tanstack_query_infinite-query-property-order",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "@typescript-eslint_adjacent-overload-signatures",
       "level": "Warning",
       "category": "BestPractice",
@@ -6923,6 +6930,13 @@
       "enabled": false
     },
     {
+      "patternId": "es-x_no-array-prototype-at",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "es-x_no-array-prototype-copywithin",
       "level": "Error",
       "category": "ErrorProne",
@@ -7084,13 +7098,6 @@
       "enabled": false
     },
     {
-      "patternId": "es-x_no-array-string-prototype-at",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "es-x_no-arraybuffer-prototype-transfer",
       "level": "Error",
       "category": "ErrorProne",
@@ -7161,7 +7168,21 @@
       "enabled": false
     },
     {
-      "patternId": "es-x_no-class-fields",
+      "patternId": "es-x_no-class-instance-fields",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "es-x_no-class-private-fields",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "es-x_no-class-private-methods",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],
@@ -7169,6 +7190,13 @@
     },
     {
       "patternId": "es-x_no-class-static-block",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "es-x_no-class-static-fields",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],
@@ -7469,6 +7497,13 @@
       "enabled": false
     },
     {
+      "patternId": "es-x_no-map-groupby",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "es-x_no-math-acosh",
       "level": "Error",
       "category": "ErrorProne",
@@ -7763,6 +7798,13 @@
       "enabled": false
     },
     {
+      "patternId": "es-x_no-object-groupby",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "es-x_no-object-hasown",
       "level": "Error",
       "category": "ErrorProne",
@@ -7799,13 +7841,6 @@
     },
     {
       "patternId": "es-x_no-object-keys",
-      "level": "Error",
-      "category": "ErrorProne",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "es-x_no-object-map-groupby",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],
@@ -8155,6 +8190,13 @@
       "enabled": false
     },
     {
+      "patternId": "es-x_no-string-prototype-at",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "es-x_no-string-prototype-codepointat",
       "level": "Error",
       "category": "ErrorProne",
@@ -8176,7 +8218,7 @@
       "enabled": false
     },
     {
-      "patternId": "es-x_no-string-prototype-iswellformed-towellformed",
+      "patternId": "es-x_no-string-prototype-iswellformed",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],
@@ -8226,6 +8268,13 @@
     },
     {
       "patternId": "es-x_no-string-prototype-substr",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "es-x_no-string-prototype-towellformed",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],
@@ -12820,6 +12869,13 @@
     },
     {
       "patternId": "promise_no-multiple-resolved",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "promise_spec-only",
       "level": "Error",
       "category": "ErrorProne",
       "parameters": [],

@@ -380,6 +380,7 @@ ${modules}
     const longPrefix = prefix + "/"
 
     const patternIds = await this.getPatternIds()
+    
     return patternIds
       .filter((patternId) => patternId.startsWith(longPrefix))
       .map((patternId) => patternId.substring(longPrefix.length))
@@ -389,8 +390,9 @@ ${modules}
     // We take all the patterns except those that have slashes because
     // they come from third party plugins
     const patternIds = await this.getPatternIds()
-
+    
     return patternIds.filter((e) => !e.includes("/"))
+    
   }
 
   private convertFromGithubRawLink(url: string): string {

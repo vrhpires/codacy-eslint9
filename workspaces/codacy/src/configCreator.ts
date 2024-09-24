@@ -64,7 +64,9 @@ async function generateEslintOptions(
       "vendor/**",
       "**/tsconfig.json",
       "**/.eslintrc*",
-      "**/eslint.config.*"
+      "**/eslint.config.*",
+      "**/package.json",
+      "**/package-lock.json"
     ],
     //passOnNoPatterns: true,
     warnIgnored: false,

@@ -4489,7 +4489,14 @@
     "parameters": [],
     "patternId": "@tanstack_query_no-unstable-deps",
     "title": "@tanstack: [Query] No unstable deps",
-    "description": "Disallow putting the result of useMutation directly in a React hook dependency array",
+    "description": "Disallow putting the result of query hooks directly in a React hook dependency array",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@tanstack_query_infinite-query-property-order",
+    "title": "@tanstack: [Query] Infinite query property order",
+    "description": "Ensure correct order of inference sensitive properties for infinite queries",
     "timeToFix": 5
   },
   {
@@ -6906,6 +6913,13 @@
   },
   {
     "parameters": [],
+    "patternId": "es-x_no-array-prototype-at",
+    "title": "Es x: No array prototype at",
+    "description": "Disallow the `Array.prototype.at()` methods.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "es-x_no-array-prototype-copywithin",
     "title": "Es x: No array prototype copywithin",
     "description": "Disallow the `Array.prototype.copyWithin` method.",
@@ -7067,13 +7081,6 @@
   },
   {
     "parameters": [],
-    "patternId": "es-x_no-array-string-prototype-at",
-    "title": "Es x: No array string prototype at",
-    "description": "Disallow the `{Array,String}.prototype.at()` methods.",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
     "patternId": "es-x_no-arraybuffer-prototype-transfer",
     "title": "Es x: No arraybuffer prototype transfer",
     "description": "Disallow the `ArrayBuffer.prototype.transfer` method.",
@@ -7144,9 +7151,23 @@
   },
   {
     "parameters": [],
-    "patternId": "es-x_no-class-fields",
-    "title": "Es x: No class fields",
-    "description": "Disallow class fields.",
+    "patternId": "es-x_no-class-instance-fields",
+    "title": "Es x: No class instance fields",
+    "description": "Disallow instance class fields.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "es-x_no-class-private-fields",
+    "title": "Es x: No class private fields",
+    "description": "Disallow private class fields.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "es-x_no-class-private-methods",
+    "title": "Es x: No class private methods",
+    "description": "Disallow private class methods.",
     "timeToFix": 5
   },
   {
@@ -7154,6 +7175,13 @@
     "patternId": "es-x_no-class-static-block",
     "title": "Es x: No class static block",
     "description": "Disallow class static block.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "es-x_no-class-static-fields",
+    "title": "Es x: No class static fields",
+    "description": "Disallow static class fields.",
     "timeToFix": 5
   },
   {
@@ -7452,6 +7480,13 @@
   },
   {
     "parameters": [],
+    "patternId": "es-x_no-map-groupby",
+    "title": "Es x: No map groupby",
+    "description": "Disallow the `Map.groupBy()` method.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "es-x_no-math-acosh",
     "title": "Es x: No math acosh",
     "description": "Disallow the `Math.acosh` method.",
@@ -7746,6 +7781,13 @@
   },
   {
     "parameters": [],
+    "patternId": "es-x_no-object-groupby",
+    "title": "Es x: No object groupby",
+    "description": "Disallow the `Object.groupBy()` method.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "es-x_no-object-hasown",
     "title": "Es x: No object hasown",
     "description": "Disallow the `Object.hasOwn` method.",
@@ -7784,13 +7826,6 @@
     "patternId": "es-x_no-object-keys",
     "title": "Es x: No object keys",
     "description": "Disallow the `Object.keys` method.",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "es-x_no-object-map-groupby",
-    "title": "Es x: No object map groupby",
-    "description": "Disallow the `{Object,Map}.groupBy()` function (array grouping).",
     "timeToFix": 5
   },
   {
@@ -8138,6 +8173,13 @@
   },
   {
     "parameters": [],
+    "patternId": "es-x_no-string-prototype-at",
+    "title": "Es x: No string prototype at",
+    "description": "Disallow the `String.prototype.at()` methods.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "es-x_no-string-prototype-codepointat",
     "title": "Es x: No string prototype codepointat",
     "description": "Disallow the `String.prototype.codePointAt` method.",
@@ -8159,9 +8201,9 @@
   },
   {
     "parameters": [],
-    "patternId": "es-x_no-string-prototype-iswellformed-towellformed",
-    "title": "Es x: No string prototype iswellformed towellformed",
-    "description": "Disallow the `String.prototype.{isWellFormed,toWellFormed}` methods.",
+    "patternId": "es-x_no-string-prototype-iswellformed",
+    "title": "Es x: No string prototype iswellformed",
+    "description": "Disallow the `String.prototype.isWellFormed` methods.",
     "timeToFix": 5
   },
   {
@@ -8211,6 +8253,13 @@
     "patternId": "es-x_no-string-prototype-substr",
     "title": "Es x: No string prototype substr",
     "description": "Disallow the `String.prototype.substr` method.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "es-x_no-string-prototype-towellformed",
+    "title": "Es x: No string prototype towellformed",
+    "description": "Disallow the `String.prototype.toWellFormed` methods.",
     "timeToFix": 5
   },
   {
@@ -12656,7 +12705,7 @@
     "parameters": [],
     "patternId": "promise_prefer-await-to-callbacks",
     "title": "Promise: Prefer await to callbacks",
-    "description": "Prefer async/await to the callback pattern.",
+    "description": "Prefer `async`/`await` to the callback pattern.",
     "timeToFix": 5
   },
   {
@@ -12677,7 +12726,7 @@
     "parameters": [],
     "patternId": "promise_no-callback-in-promise",
     "title": "Promise: No callback in promise",
-    "description": "Disallow calling `cb()` inside of a `then()` (use [nodeify][] instead).",
+    "description": "Disallow calling `cb()` inside of a `then()` (use [util.callbackify][] instead).",
     "timeToFix": 5
   },
   {
@@ -12698,7 +12747,7 @@
     "parameters": [],
     "patternId": "promise_avoid-new",
     "title": "Promise: Avoid new",
-    "description": "Disallow creating `new` promises outside of utility libs (use [pify][] instead).",
+    "description": "Disallow creating `new` promises outside of utility libs (use [util.promisify][] instead).",
     "timeToFix": 5
   },
   {
@@ -12727,6 +12776,13 @@
     "patternId": "promise_no-multiple-resolved",
     "title": "Promise: No multiple resolved",
     "description": "Disallow creating new promises with paths that resolve multiple times.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "promise_spec-only",
+    "title": "Promise: Spec only",
+    "description": "Disallow use of non-standard Promise static methods.",
     "timeToFix": 5
   },
   {
