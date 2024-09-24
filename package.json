@@ -63,6 +63,7 @@
     "@typescript-eslint/eslint-plugin": "^8.6.0",
     "@typescript-eslint/parser": "^8.6.0",
     "codacy-seed": "2.2.6",
+    "eslint-import-resolver-webpack": "^0.13.9",
     "eslint-import-resolver-typescript": "^3.6.3",
     "globals": "^15.9.0",
     "tsconfig-paths": "^4.2.0",
