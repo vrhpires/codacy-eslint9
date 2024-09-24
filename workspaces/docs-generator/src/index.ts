@@ -36,7 +36,7 @@ const downloadDocs: DocsInfo[] = [
   },
   {
     packageName: "@vitest/eslint-plugin",
-    relativeUrl: "/vitest-dev/eslint-plugin-vitest/refs/heads/main/docs/rules/"
+    relativeUrl: "/vitest-dev/eslint-plugin-vitest/refs/heads/main/docs/rules"
   },
   {
     packageName: "eslint-plugin-backbone",
@@ -64,7 +64,7 @@ const downloadDocs: DocsInfo[] = [
   },
   {
     packageName: "eslint",
-    relativeUrl: "/eslint/eslint/main/docs/src/rules/" // this is the good path
+    relativeUrl: "/eslint/eslint/main/docs/src/rules/"
   },
   {
     packageName: "eslint-plugin-eslint-plugin",
@@ -172,10 +172,10 @@ const downloadDocs: DocsInfo[] = [
     packageName: "eslint-plugin-react",
     relativeUrl: "/jsx-eslint/eslint-plugin-react/master/docs/rules/"
   },
-  {
-    packageName: "eslint-plugin-react-native",
-    relativeUrl: "/Intellicode/eslint-plugin-react-native/master/docs/rules/"
-  },
+  // {
+  //   packageName: "eslint-plugin-react-native",
+  //   relativeUrl: "/Intellicode/eslint-plugin-react-native/master/docs/rules/"
+  // },
   {
     packageName: "eslint-plugin-react-perf",
     relativeUrl: "/cvazac/eslint-plugin-react-perf/master/docs/rules/",
