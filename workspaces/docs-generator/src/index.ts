@@ -9,10 +9,6 @@ const downloadDocs: DocsInfo[] = [
     packageName: "@lwc/eslint-plugin-lwc",
     relativeUrl: "/salesforce/eslint-plugin-lwc/master/docs/rules/"
   },
-  // {
-  //   packageName: "@salesforce/eslint-plugin-aura",
-  //   relativeUrl: "/forcedotcom/eslint-plugin-aura/master/docs/rules/"
-  // },
   {
     packageName: "@salesforce/eslint-plugin-lightning",
     relativeUrl: "/salesforce/eslint-plugin-lightning/master/docs/rules/"
@@ -74,10 +70,6 @@ const downloadDocs: DocsInfo[] = [
     packageName: "eslint-plugin-functional",
     relativeUrl: "/jonaskello/eslint-plugin-functional/master/docs/rules/"
   },
-  // {
-  //   packageName: "eslint-plugin-flowtype",
-  //   relativeUrl: "/gajus/eslint-plugin-flowtype/master/.README/rules/"
-  // },
   {
     packageName: "eslint-plugin-i18next",
     relativeUrl: "/edvardchen/eslint-plugin-i18next/main/docs/rules/"
@@ -116,7 +108,7 @@ const downloadDocs: DocsInfo[] = [
   },
   {
     packageName: "eslint-plugin-fp",
-    "relativeUrl": "/jfmengels/eslint-plugin-fp/master/docs/rules/"
+    relativeUrl: "/jfmengels/eslint-plugin-fp/master/docs/rules/"
   },
   {
     packageName: "eslint-plugin-playwright",
@@ -172,10 +164,6 @@ const downloadDocs: DocsInfo[] = [
     packageName: "eslint-plugin-react",
     relativeUrl: "/jsx-eslint/eslint-plugin-react/master/docs/rules/"
   },
-  // {
-  //   packageName: "eslint-plugin-react-native",
-  //   relativeUrl: "/Intellicode/eslint-plugin-react-native/master/docs/rules/"
-  // },
   {
     packageName: "eslint-plugin-react-perf",
     relativeUrl: "/cvazac/eslint-plugin-react-perf/master/docs/rules/",
@@ -194,15 +182,6 @@ const downloadDocs: DocsInfo[] = [
     packageName: "eslint-plugin-regexp",
     relativeUrl: "/ota-meshi/eslint-plugin-regexp/master/docs/rules/"
   },
-  // {
-  //   packageName: "eslint-plugin-rxjs",
-  //   relativeUrl: "/cartant/eslint-plugin-rxjs/main/docs/rules/",
-  //   versionPrefix: false
-  // },
-  // {
-  //   packageName: "eslint-plugin-rxjs-angular",
-  //   relativeUrl: "/cartant/eslint-plugin-rxjs-angular/main/docs/rules/"
-  // },
   {
     packageName: "eslint-plugin-security",
     relativeUrl: "/eslint-community/eslint-plugin-security/main/docs/rules/"
@@ -212,11 +191,6 @@ const downloadDocs: DocsInfo[] = [
     relativeUrl: "/gkouziik/eslint-plugin-security-node/master/docs/rules/",
     versionPrefix: ""
   },
-  // {
-  //   packageName: "eslint-plugin-sonarjs",
-  //   relativeUrl: "/SonarSource/eslint-plugin-sonarjs/blob/master/docs/rules/",
-  //   versionPrefix: ""
-  // },
   {
     packageName: "eslint-plugin-sort",
     relativeUrl: "/mskelton/eslint-plugin-sort/main/docs/rules/"
