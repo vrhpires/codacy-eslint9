@@ -14,7 +14,9 @@ export default tseslint.config(
             "dist/",
             "tests/",
             "tsconfig.json",
-            "eslint.config.*"
+            "eslint.config.*",
+            "package.json",
+            "package-lock.json"
         ],
     },
     eslint.configs.recommended,
