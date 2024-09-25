@@ -3146,13 +3146,6 @@
       "enabled": false
     },
     {
-      "patternId": "@lwc_lwc_prefer-custom-event",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "@lwc_lwc_valid-api",
       "level": "Info",
       "category": "CodeStyle",
@@ -3224,13 +3217,6 @@
     },
     {
       "patternId": "@shopify_images-no-direct-imports",
-      "level": "Info",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@shopify_jest-no-all-mocks-methods",
       "level": "Info",
       "category": "BestPractice",
       "parameters": [],
@@ -8845,13 +8831,6 @@
       "enabled": false
     },
     {
-      "patternId": "import_no-mutable-exports",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "import_extensions",
       "level": "Warning",
       "category": "BestPractice",
@@ -13725,55 +13704,6 @@
       "patternId": "react_void-dom-elements-no-children",
       "level": "Info",
       "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-native_no-unused-styles",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-native_no-inline-styles",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-native_no-color-literals",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-native_sort-styles",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-native_split-platform-components",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-native_no-raw-text",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "react-native_no-single-element-style-arrays",
-      "level": "Info",
-      "category": "CodeStyle",
       "parameters": [],
       "enabled": false
     },

@@ -342,7 +342,6 @@
   <module name="@lwc_lwc_no-disallowed-lwc-imports" />
   <module name="@lwc_lwc_no-template-children" />
   <module name="@lwc_lwc_no-rest-parameter" />
-  <module name="@lwc_lwc_prefer-custom-event" />
   <module name="@lwc_lwc_valid-api" />
   <module name="@lwc_lwc_valid-graphql-wire-adapter-callback-parameters" />
   <module name="@lwc_lwc_valid-track" />
@@ -354,7 +353,6 @@
   <module name="@shopify_binary-assignment-parens" />
   <module name="@shopify_class-property-semi" />
   <module name="@shopify_images-no-direct-imports" />
-  <module name="@shopify_jest-no-all-mocks-methods" />
   <module name="@shopify_jest-no-snapshots" />
   <module name="@shopify_jsx-no-complex-expressions" />
   <module name="@shopify_jsx-no-hardcoded-content" />
@@ -1059,7 +1057,6 @@
   <module name="import_namespace" />
   <module name="import_no-namespace" />
   <module name="import_export" />
-  <module name="import_no-mutable-exports" />
   <module name="import_extensions" />
   <module name="import_no-restricted-paths" />
   <module name="import_no-internal-modules" />
@@ -1678,13 +1675,6 @@
   <module name="react_static-property-placement" />
   <module name="react_style-prop-object" />
   <module name="react_void-dom-elements-no-children" />
-  <module name="react-native_no-unused-styles" />
-  <module name="react-native_no-inline-styles" />
-  <module name="react-native_no-color-literals" />
-  <module name="react-native_sort-styles" />
-  <module name="react-native_split-platform-components" />
-  <module name="react-native_no-raw-text" />
-  <module name="react-native_no-single-element-style-arrays" />
   <module name="react-perf_jsx-no-new-object-as-prop" />
   <module name="react-perf_jsx-no-new-array-as-prop" />
   <module name="react-perf_jsx-no-new-function-as-prop" />

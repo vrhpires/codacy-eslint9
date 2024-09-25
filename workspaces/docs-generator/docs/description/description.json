@@ -3144,13 +3144,6 @@
   },
   {
     "parameters": [],
-    "patternId": "@lwc_lwc_prefer-custom-event",
-    "title": "@lwc: [Lwc] Prefer custom event",
-    "description": "Suggest usage of \"CustomEvent\" over \"Event\" constructor",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
     "patternId": "@lwc_lwc_valid-api",
     "title": "@lwc: [Lwc] Valid api",
     "description": "Validate api decorator usage",
@@ -3224,13 +3217,6 @@
     "patternId": "@shopify_images-no-direct-imports",
     "title": "@shopify: Images no direct imports",
     "description": "Prefer importing image files from the index file of the directory instead of the direct path to the image file.",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@shopify_jest-no-all-mocks-methods",
-    "title": "@shopify: Jest no all mocks methods",
-    "description": "Disallows jest allMocks methods.",
     "timeToFix": 5
   },
   {
@@ -8828,13 +8814,6 @@
   },
   {
     "parameters": [],
-    "patternId": "import_no-mutable-exports",
-    "title": "Import: No mutable exports",
-    "description": "Forbid the use of mutable exports with `var` or `let`.",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
     "patternId": "import_extensions",
     "title": "Import: Extensions",
     "description": "Ensure consistent use of file extension within the import path.",
@@ -13627,49 +13606,6 @@
     "patternId": "react_void-dom-elements-no-children",
     "title": "React: Void dom elements no children",
     "description": "Disallow void DOM elements (e.g. `<img />`, `<br />`) from receiving children",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "react-native_no-unused-styles",
-    "title": "React native: No unused styles",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "react-native_no-inline-styles",
-    "title": "React native: No inline styles",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "react-native_no-color-literals",
-    "title": "React native: No color literals",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "react-native_sort-styles",
-    "title": "React native: Sort styles",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "react-native_split-platform-components",
-    "title": "React native: Split platform components",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "react-native_no-raw-text",
-    "title": "React native: No raw text",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "react-native_no-single-element-style-arrays",
-    "title": "React native: No single element style arrays",
-    "description": "Disallow single element style arrays. These cause unnecessary re-renders as the identity of the array always changes",
     "timeToFix": 5
   },
   {
