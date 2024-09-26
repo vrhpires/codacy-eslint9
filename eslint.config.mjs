@@ -37,6 +37,7 @@ export default tseslint.config(
         files: ['**/*.js'],
         ...tseslint.configs.disableTypeChecked,
         rules: {
+            "@typescript-eslint/await-thenable": "off",
             "@typescript-eslint/consistent-type-exports": "off",
             "@typescript-eslint/dot-notation": "off",
             "@typescript-eslint/naming-convention": "off",
