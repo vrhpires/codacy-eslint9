@@ -35,7 +35,8 @@ const blacklistRegexes: RegExp[] = [
   /import\/no-mutable-exports/,
   /xss\/no-mixed-html/,
   /unused-imports\/.*-ts/,
-  /yml\/sort-sequence-values/
+  /yml\/sort-sequence-values/,
+  /jest\/unbound-method/
 ]
 
 const documentationBlacklistRegexes: RegExp[] = [
