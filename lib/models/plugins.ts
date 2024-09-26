@@ -46,7 +46,6 @@ const packageNames: string[] = [
   "eslint-plugin-meteor",
   "eslint-plugin-mocha",
   "eslint-plugin-n",
-  "eslint-plugin-no-unsanitized",
   "eslint-plugin-nuxt",
   "eslint-plugin-perfectionist",
   "eslint-plugin-playwright",

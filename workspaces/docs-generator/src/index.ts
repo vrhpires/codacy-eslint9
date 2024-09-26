@@ -32,7 +32,7 @@ const downloadDocs: DocsInfo[] = [
   },
   {
     packageName: "@vitest/eslint-plugin",
-    relativeUrl: "/vitest-dev/eslint-plugin-vitest/refs/heads/main/docs/rules"
+    relativeUrl: "/vitest-dev/eslint-plugin-vitest/main/docs/rules/"
   },
   {
     packageName: "eslint-plugin-backbone",
@@ -142,11 +142,6 @@ const downloadDocs: DocsInfo[] = [
   {
     packageName: "eslint-plugin-n",
     relativeUrl: "/eslint-community/eslint-plugin-n/master/docs/rules/"
-  },
-  {
-    packageName: "eslint-plugin-no-unsanitized",
-    relativeUrl: "/mozilla/eslint-plugin-no-unsanitized/master/docs/rules/",
-    versionPrefix: false
   },
   {
     packageName: "eslint-plugin-nuxt",

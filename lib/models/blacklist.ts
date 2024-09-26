@@ -62,7 +62,15 @@ const documentationBlacklistRegexes: RegExp[] = [
   /jasmine\/prefer-jasmine-matcher/,
   /jasmine\/no-global-setup/,
   /jasmine\/expect-single-argument/,
-  /jasmine\/valid-expect/
+  /jasmine\/valid-expect/,
+  /@vitest\/padding-around-after-all-blocks/,
+  /@vitest\/padding-around-after-each-blocks/,
+  /@vitest\/padding-around-before-all-blocks/,
+  /@vitest\/padding-around-before-each-blocks/,
+  /@vitest\/padding-around-expect-groups/,
+  /@vitest\/padding-around-describe-blocks/,
+  /@vitest\/padding-around-test-blocks/,
+  /@vitest\/padding-around-all/
 ]
 
 function testRegex (regexes: RegExp[], value: string): boolean {

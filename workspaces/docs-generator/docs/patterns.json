@@ -5815,62 +5815,6 @@
       "enabled": false
     },
     {
-      "patternId": "@vitest_padding-around-after-all-blocks",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@vitest_padding-around-after-each-blocks",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@vitest_padding-around-all",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@vitest_padding-around-before-all-blocks",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@vitest_padding-around-before-each-blocks",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@vitest_padding-around-describe-blocks",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@vitest_padding-around-expect-groups",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "@vitest_padding-around-test-blocks",
-      "level": "Warning",
-      "category": "BestPractice",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "backbone_collection-model",
       "level": "Info",
       "category": "BestPractice",
@@ -12195,24 +12139,6 @@
       "category": "ErrorProne",
       "parameters": [],
       "enabled": false
-    },
-    {
-      "patternId": "no-unsanitized_property",
-      "level": "Warning",
-      "category": "Security",
-      "subcategory": "XSS",
-      "scanType": "SAST",
-      "parameters": [],
-      "enabled": true
-    },
-    {
-      "patternId": "no-unsanitized_method",
-      "level": "Warning",
-      "category": "Security",
-      "subcategory": "XSS",
-      "scanType": "SAST",
-      "parameters": [],
-      "enabled": true
     },
     {
       "patternId": "nuxt_no-env-in-context",

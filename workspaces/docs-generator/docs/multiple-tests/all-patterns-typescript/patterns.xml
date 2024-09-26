@@ -651,14 +651,6 @@
   <module name="@vitest_prefer-comparison-matcher" />
   <module name="@vitest_prefer-to-contain" />
   <module name="@vitest_prefer-expect-assertions" />
-  <module name="@vitest_padding-around-after-all-blocks" />
-  <module name="@vitest_padding-around-after-each-blocks" />
-  <module name="@vitest_padding-around-all" />
-  <module name="@vitest_padding-around-before-all-blocks" />
-  <module name="@vitest_padding-around-before-each-blocks" />
-  <module name="@vitest_padding-around-describe-blocks" />
-  <module name="@vitest_padding-around-expect-groups" />
-  <module name="@vitest_padding-around-test-blocks" />
   <module name="backbone_collection-model" />
   <module name="backbone_defaults-on-top" />
   <module name="backbone_events-on-top" />
@@ -1483,8 +1475,6 @@
   <module name="n_prefer-promises_fs" />
   <module name="n_process-exit-as-throw" />
   <module name="n_hashbang" />
-  <module name="no-unsanitized_property" />
-  <module name="no-unsanitized_method" />
   <module name="nuxt_no-env-in-context" />
   <module name="nuxt_no-env-in-hooks" />
   <module name="nuxt_no-globals-in-created" />

@@ -4,7 +4,6 @@ export const securityPlugins = [
   "scanjs-rules",
   "security",
   "security-node",
-  "no-unsanitized",
   "xss"
 ]
 
@@ -44,7 +43,7 @@ function getSecuritySubcategory (patternId: string): SecuritySubcategory | undef
   if (patternId.includes("assign_to_")) return "MaliciousCode"
   if (patternId.includes("storage") || patternId.includes("-fs-") || patternId.includes("filename"))
     return "InsecureStorage"
-  if (patternId.startsWith("no-unsanitized") || patternId.includes("xss"))
+  if (patternId.includes("xss"))
     return "XSS"
   if (patternId.includes("regex") && (patternId.startsWith("scanjs-rules") || patternId.startsWith("security")))
     return "Regex"

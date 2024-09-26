@@ -5805,62 +5805,6 @@
   },
   {
     "parameters": [],
-    "patternId": "@vitest_padding-around-after-all-blocks",
-    "title": "@vitest: Padding around after all blocks",
-    "description": "Enforce padding around `afterAll` blocks",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@vitest_padding-around-after-each-blocks",
-    "title": "@vitest: Padding around after each blocks",
-    "description": "Enforce padding around `afterEach` blocks",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@vitest_padding-around-all",
-    "title": "@vitest: Padding around all",
-    "description": "Enforce padding around vitest functions",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@vitest_padding-around-before-all-blocks",
-    "title": "@vitest: Padding around before all blocks",
-    "description": "Enforce padding around `beforeAll` blocks",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@vitest_padding-around-before-each-blocks",
-    "title": "@vitest: Padding around before each blocks",
-    "description": "Enforce padding around `beforeEach` blocks",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@vitest_padding-around-describe-blocks",
-    "title": "@vitest: Padding around describe blocks",
-    "description": "Enforce padding around `describe` blocks",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@vitest_padding-around-expect-groups",
-    "title": "@vitest: Padding around expect groups",
-    "description": "Enforce padding around `expect` groups",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@vitest_padding-around-test-blocks",
-    "title": "@vitest: Padding around test blocks",
-    "description": "Enforce padding around afterAll blocks",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
     "patternId": "backbone_collection-model",
     "title": "Backbone: Collection model",
     "description": "Require all collections to declare model",
@@ -12102,20 +12046,6 @@
     "patternId": "n_hashbang",
     "title": "N: Hashbang",
     "description": "Require correct usage of hashbang",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "no-unsanitized_property",
-    "title": "No unsanitized: Property",
-    "description": "ESLint rule to disallow unsanitized property assignment",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "no-unsanitized_method",
-    "title": "No unsanitized: Method",
-    "description": "ESLint rule to disallow unsanitized method calls",
     "timeToFix": 5
   },
   {

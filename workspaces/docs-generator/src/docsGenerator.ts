@@ -146,7 +146,6 @@ export class DocsGenerator {
       { "eslint-plugin": "recommended" }
     ] as prefixSet[]
     const securityPrefixes = [
-      { "no-unsanitized": "all" },
       { "security": "recommended" },
       { "security-node": "recommended" },
       { "xss": "all" }
