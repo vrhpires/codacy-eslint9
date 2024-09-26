@@ -14,7 +14,8 @@ export default tseslint.config(
             "dist/",
             "tests/",
             "tsconfig.json",
-            "eslint.config.*"
+            "eslint.config.*",
+            ".eslintignore"
         ],
     },
     eslint.configs.recommended,
