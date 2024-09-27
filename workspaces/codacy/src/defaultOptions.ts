@@ -1,6 +1,3 @@
-// import type { ESLint } from "eslint"
-// @types/eslint doesn't have yet the new ESLint 9 options syntax
-
 import type { TSESLint } from '@typescript-eslint/utils';
 import tseslint from 'typescript-eslint';
 
@@ -146,7 +143,6 @@ export const baseConfig: TSESLint.FlatConfig.ConfigArray = [
     files: ["**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs", "**/*.json"],
     rules: {
       // https://github.com/typescript-eslint/typescript-eslint/blob/e44a1a280f08f9fd0d29f74e5c3e73b7b64a9606/packages/eslint-plugin/src/configs/disable-type-checked.ts#L12
-      //extends: ["plugin:@typescript-eslint/disable-type-checked"],
       // turn off other type-aware rules
       "functional/prefer-tacit": "off",
       "jest/unbound-method": "off",
@@ -188,10 +184,54 @@ export const baseConfig: TSESLint.FlatConfig.ConfigArray = [
       "rxjs-angular/prefer-composition": "off",
       "rxjs-angular/prefer-takeuntil": "off",
       // turn off rules that don't apply to JS code
-      // https://github.com/typescript-eslint/typescript-eslint/blob/e44a1a280f08f9fd0d29f74e5c3e73b7b64a9606/eslint.config.mjs#L304
       "deprecation/deprecation": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/internal/no-poorly-typed-ts-props": "off"
+      "@typescript-eslint/internal/no-poorly-typed-ts-props": "off",
+      "@typescript-eslint/await-thenable": "off",
+      "@typescript-eslint/consistent-type-exports": "off",
+      "@typescript-eslint/dot-notation": "off",
+      "@typescript-eslint/naming-convention": "off",
+      "@typescript-eslint/no-base-to-string": "off",
+      "@typescript-eslint/no-confusing-void-expression": "off",
+      "@typescript-eslint/no-duplicate-type-constituents": "off",
+      "@typescript-eslint/no-floating-promises": "off",
+      "@typescript-eslint/no-for-in-array": "off",
+      "@typescript-eslint/no-implied-eval": "off",
+      "@typescript-eslint/no-meaningless-void-operator": "off",
+      "@typescript-eslint/no-misused-promises": "off",
+      "@typescript-eslint/no-mixed-enums": "off",
+      "@typescript-eslint/no-redundant-type-constituents": "off",
+      "@typescript-eslint/no-throw-literal": "off",
+      "@typescript-eslint/no-unnecessary-boolean-literal-compare": "off",
+      "@typescript-eslint/no-unnecessary-condition": "off",
+      "@typescript-eslint/no-unnecessary-qualifier": "off",
+      "@typescript-eslint/no-unnecessary-type-arguments": "off",
+      "@typescript-eslint/no-unnecessary-type-assertion": "off",
+      "@typescript-eslint/no-unsafe-argument": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-unsafe-enum-comparison": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/no-unsafe-return": "off",
+      "@typescript-eslint/non-nullable-type-assertion-style": "off",
+      "@typescript-eslint/prefer-includes": "off",
+      "@typescript-eslint/prefer-nullish-coalescing": "off",
+      "@typescript-eslint/prefer-optional-chain": "off",
+      "@typescript-eslint/prefer-readonly": "off",
+      "@typescript-eslint/prefer-readonly-parameter-types": "off",
+      "@typescript-eslint/prefer-reduce-type-parameter": "off",
+      "@typescript-eslint/prefer-regexp-exec": "off",
+      "@typescript-eslint/prefer-return-this-type": "off",
+      "@typescript-eslint/prefer-string-starts-ends-with": "off",
+      "@typescript-eslint/promise-function-async": "off",
+      "@typescript-eslint/require-array-sort-compare": "off",
+      "@typescript-eslint/require-await": "off",
+      "@typescript-eslint/restrict-plus-operands": "off",
+      "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/return-await": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/switch-exhaustiveness-check": "off",
+      "@typescript-eslint/unbound-method": "off"
     }
   },
   {
@@ -200,21 +240,7 @@ export const baseConfig: TSESLint.FlatConfig.ConfigArray = [
     rules: {
       "json/json": "off"
     }
-  }
-  // JSX with Babel
-  // https://www.npmjs.com/package/@babel/eslint-parser
-  // "When should I use @babel/eslint-parser?"
-  // {
-  //   "files": ["**/*.jsx"],
-  //   "parser": "@babel/eslint-parser",
-  //   "parserOptions": {
-  //     "babelOptions": {
-  //       "presets": ["@babel/preset-env"]
-  //     },
-  //     "requireConfigFile": false
-  //   }
-  // }
-    
+  } 
 ]
 
 
