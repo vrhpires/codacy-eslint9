@@ -121,25 +121,8 @@ async function generateEslintOptions(
       });
     }
 
-
     // explicitly use only the rules being passed by codacyrc
     if (otherPatterns.length) {
-      const [typescriptPatterns] = partition(
-        otherPatterns, (p: Pattern) =>
-        p.patternId.startsWith("@typescript-eslint")
-      )
-
-      //configure override in case @typescript-eslint plugin rules being turned on
-      if (typescriptPatterns.length) {
-  
-        options.overrideConfig?.push({
-          files: [
-            "*.@(ts|tsx)"
-          ],
-          rules: convertPatternsToEslintRules(typescriptPatterns)
-        });
-      }
-
       options.overrideConfig?.push({
         rules: convertPatternsToEslintRules(otherPatterns)
       });
