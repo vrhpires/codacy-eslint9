@@ -73,7 +73,7 @@ async function generateEslintOptions(
     overrideConfig: []
   }
 
-  if (eslintConfig) {
+  if (eslintConfig && useRepoPatterns) {
     options.overrideConfigFile = srcDirPath + path.sep + eslintConfig;
   }
 
