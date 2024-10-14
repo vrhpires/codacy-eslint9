@@ -45,8 +45,6 @@ async function generateEslintOptions(
   srcDirPath: string,
   codacyrc: Codacyrc
 ): Promise<TSESLint.FlatESLint.ESLintOptions> {
-  console.log(JSON.stringify(codacyrc, null, 2))
-
   let patterns = codacyrc.tools?.[0].patterns || [];
   debug(`options: ${patterns.length} patterns in codacyrc`)
   console.log(`options: ${patterns.length} patterns in codacyrc`)
@@ -125,6 +123,14 @@ async function generateEslintOptions(
         rules: convertPatternsToEslintRules(typescriptPatterns),
       });
 
+    }
+
+    if (nonTypescriptPatterns.length > 0) {
+      // Configuration for non-TypeScript files
+      options.overrideConfig?.push({
+        files: ["**/*.js", "**/*.jsx"],
+        rules: convertPatternsToEslintRules(nonTypescriptPatterns),
+      });
     }
 
 
