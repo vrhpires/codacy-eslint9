@@ -47,7 +47,6 @@ async function generateEslintOptions(
 ): Promise<TSESLint.FlatESLint.ESLintOptions> {
   let patterns = codacyrc.tools?.[0].patterns || [];
   debug(`options: ${patterns.length} patterns in codacyrc`)
-  console.log(`options: ${patterns.length} patterns in codacyrc`)
 
   const eslintConfig = existsEslintConfigInRepoRoot(srcDirPath);
 
@@ -75,11 +74,9 @@ async function generateEslintOptions(
 
   if (eslintConfig && useRepoPatterns) {
     debug(`options: using config from repo root: ${eslintConfig}`)
-    console.log(`options: using config from repo root: ${eslintConfig}`)
     options.overrideConfigFile = srcDirPath + path.sep + eslintConfig;
   } else {
     debug(`options: overrideConfigFile: true`)
-    console.log(`options: overrideConfigFile: true`)
     options.overrideConfigFile = true;
   }
 
@@ -94,9 +91,30 @@ async function generateEslintOptions(
     const patternsSet = "recommended";
     debug(`config: retrieveCodacyPatterns`)
     patterns = await retrieveCodacyPatterns(patternsSet);
-    options.overrideConfig?.push({
+    const [typescriptPatterns, nonTypescriptPatterns] = partition(
+      patterns,
+      (p: Pattern) => p.patternId.startsWith("@typescript-eslint")
+    );
+
+    if (typescriptPatterns.length > 0) {
+      // Configuration for TypeScript files
+      options.overrideConfig?.push({
+        files: ["*.@(ts|tsx)"],
+        rules: convertPatternsToEslintRules(typescriptPatterns),
+      });
+
+    }
+
+    if (nonTypescriptPatterns.length > 0) {
+      // Configuration for non-TypeScript files
+      options.overrideConfig?.push({
+        files: ["*.@(ts|tsx|js|jsx|mjs|cjs)"],
+        rules: convertPatternsToEslintRules(nonTypescriptPatterns),
+      });
+    }
+    /*options.overrideConfig?.push({
       rules: convertPatternsToEslintRules(patterns)
-    });
+    });*/
 
   } else if (useCodacyPatterns) {
     //TODO: move this logic to a generic (or specific) plugin function
@@ -110,28 +128,7 @@ async function generateEslintOptions(
     //            reports false positives on normal files.
     //            check: conf file @ eslint-plugin-storybook/configs/recommended.js
 
-    // Handle TypeScript-specific rules for JavaScript files
-    const [typescriptPatterns, nonTypescriptPatterns] = partition(
-      patterns,
-      (p: Pattern) => p.patternId.startsWith("@typescript-eslint/")
-    );
-
-    if (typescriptPatterns.length > 0) {
-      // Configuration for TypeScript files
-      options.overrideConfig?.push({
-        files: ["**/*.ts", "**/*.tsx"],
-        rules: convertPatternsToEslintRules(typescriptPatterns),
-      });
-
-    }
-
-    if (nonTypescriptPatterns.length > 0) {
-      // Configuration for non-TypeScript files
-      options.overrideConfig?.push({
-        files: ["**/*.js", "**/*.jsx"],
-        rules: convertPatternsToEslintRules(nonTypescriptPatterns),
-      });
-    }
+    
 
 
     const [storybookPatterns, otherPatterns] = partition(
@@ -153,9 +150,29 @@ async function generateEslintOptions(
 
     // explicitly use only the rules being passed by codacyrc
     if (otherPatterns.length) {
+
+      // Handle TypeScript-specific rules for JavaScript files
+    const [typescriptPatterns, nonTypescriptPatterns] = partition(
+      otherPatterns,
+      (p: Pattern) => p.patternId.startsWith("@typescript-eslint")
+    );
+
+    if (typescriptPatterns.length > 0) {
+      // Configuration for TypeScript files
       options.overrideConfig?.push({
-        rules: convertPatternsToEslintRules(otherPatterns)
+        files: ["*.@(ts|tsx)"],
+        rules: convertPatternsToEslintRules(typescriptPatterns),
       });
+
+    }
+
+    if (nonTypescriptPatterns.length > 0) {
+      // Configuration for non-TypeScript files
+      options.overrideConfig?.push({
+        files: ["*.@(ts|tsx|js|jsx|mjs|cjs)"],
+        rules: convertPatternsToEslintRules(nonTypescriptPatterns),
+      });
+    }
     }
   }
 
