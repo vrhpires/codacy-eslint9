@@ -45,9 +45,11 @@ async function generateEslintOptions(
   srcDirPath: string,
   codacyrc: Codacyrc
 ): Promise<TSESLint.FlatESLint.ESLintOptions> {
+  console.log(JSON.stringify(codacyrc, null, 2))
 
   let patterns = codacyrc.tools?.[0].patterns || [];
-
+  debug(`options: ${patterns.length} patterns in codacyrc`)
+  console.log(`options: ${patterns.length} patterns in codacyrc`)
 
   const eslintConfig = existsEslintConfigInRepoRoot(srcDirPath);
 
@@ -74,6 +76,8 @@ async function generateEslintOptions(
   }
 
   if (eslintConfig && useRepoPatterns) {
+    debug(`options: using config from repo root: ${eslintConfig}`)
+    console.log(`options: using config from repo root: ${eslintConfig}`)
     options.overrideConfigFile = srcDirPath + path.sep + eslintConfig;
   }
 
