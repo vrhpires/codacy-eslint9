@@ -112,6 +112,22 @@ async function generateEslintOptions(
     //            reports false positives on normal files.
     //            check: conf file @ eslint-plugin-storybook/configs/recommended.js
 
+    // Handle TypeScript-specific rules for JavaScript files
+    const [typescriptPatterns, nonTypescriptPatterns] = partition(
+      patterns,
+      (p: Pattern) => p.patternId.startsWith("@typescript-eslint/")
+    );
+
+    if (typescriptPatterns.length > 0) {
+      // Configuration for TypeScript files
+      options.overrideConfig?.push({
+        files: ["**/*.ts", "**/*.tsx"],
+        rules: convertPatternsToEslintRules(typescriptPatterns),
+      });
+
+    }
+
+
     const [storybookPatterns, otherPatterns] = partition(
       patterns, (p: Pattern) =>
       p.patternId.startsWith("storybook") || false
