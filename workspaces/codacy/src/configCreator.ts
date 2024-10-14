@@ -80,9 +80,9 @@ async function generateEslintOptions(
     console.log(`options: using config from repo root: ${eslintConfig}`)
     options.overrideConfigFile = srcDirPath + path.sep + eslintConfig;
   } else {
-    debug(`options: overrideConfigFile: undefined`)
-    console.log(`options: overrideConfigFile: undefined`)
-    options.overrideConfigFile = undefined;
+    debug(`options: overrideConfigFile: true`)
+    console.log(`options: overrideConfigFile: true`)
+    options.overrideConfigFile = true;
   }
 
   if (!DEBUG && useRepoPatterns) {
