@@ -31,6 +31,10 @@ const downloadDocs: DocsInfo[] = [
     relativeUrl: "/typescript-eslint/typescript-eslint/main/packages/eslint-plugin/docs/rules/"
   },
   {
+     packageName:"eslint-plugin-sonarjs",
+     relativeUrl: "/SonarSource/eslint-plugin-sonarjs/master/docs/rules/"
+  },
+  {
     packageName: "@vitest/eslint-plugin",
     relativeUrl: "/vitest-dev/eslint-plugin-vitest/main/docs/rules/"
   },

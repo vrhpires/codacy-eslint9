@@ -57,6 +57,7 @@ const packageNames: string[] = [
   "eslint-plugin-regexp",
   "eslint-plugin-security",
   "eslint-plugin-security-node",
+  "eslint-plugin-sonarjs",
   "eslint-plugin-sort",
   "eslint-plugin-sort-destructure-keys",
   "eslint-plugin-storybook",

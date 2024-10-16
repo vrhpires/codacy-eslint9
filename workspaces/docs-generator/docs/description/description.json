@@ -3558,6 +3558,13 @@
     "timeToFix": 5
   },
   {
+    "parameters": [],
+    "patternId": "@stylistic_curly-newline",
+    "title": "@stylistic: Curly newline",
+    "description": "Enforce consistent line breaks after opening and before closing braces",
+    "timeToFix": 5
+  },
+  {
     "parameters": [
       {
         "name": "unnamedParam",
@@ -4601,6 +4608,10 @@
   {
     "parameters": [
       {
+        "name": "allowIndexSignaturePropertyAccess",
+        "description": "allowIndexSignaturePropertyAccess"
+      },
+      {
         "name": "allowKeywords",
         "description": "allowKeywords"
       },
@@ -4615,10 +4626,6 @@
       {
         "name": "allowProtectedClassPropertyAccess",
         "description": "allowProtectedClassPropertyAccess"
-      },
-      {
-        "name": "allowIndexSignaturePropertyAccess",
-        "description": "allowIndexSignaturePropertyAccess"
       }
     ],
     "patternId": "@typescript-eslint_dot-notation",
@@ -5731,6 +5738,13 @@
     "patternId": "@vitest_prefer-mock-promise-shorthand",
     "title": "@vitest: Prefer mock promise shorthand",
     "description": "Enforce mock resolved/rejected shorthands for promises",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@vitest_prefer-vi-mocked",
+    "title": "@vitest: Prefer vi mocked",
+    "description": "Prefer `vi.mocked()` over `fn as Mock`",
     "timeToFix": 5
   },
   {
@@ -8923,6 +8937,10 @@
         "description": "distinctGroup"
       },
       {
+        "name": "named",
+        "description": "named"
+      },
+      {
         "name": "warnOnUnassignedImports",
         "description": "warnOnUnassignedImports"
       }
@@ -11827,7 +11845,12 @@
     "timeToFix": 5
   },
   {
-    "parameters": [],
+    "parameters": [
+      {
+        "name": "ignoreTypeImport",
+        "description": "ignoreTypeImport"
+      }
+    ],
     "patternId": "n_no-missing-import",
     "title": "N: No missing import",
     "description": "Disallow `import` declarations which import non-existence modules",
@@ -12102,27 +12125,6 @@
     "patternId": "perfectionist_sort-intersection-types",
     "title": "Perfectionist: Sort intersection types",
     "description": "Enforce sorted intersection types.",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "perfectionist_sort-svelte-attributes",
-    "title": "Perfectionist: Sort svelte attributes",
-    "description": "Enforce sorted Svelte attributes.",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "perfectionist_sort-astro-attributes",
-    "title": "Perfectionist: Sort astro attributes",
-    "description": "Enforce sorted Astro attributes.",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "perfectionist_sort-vue-attributes",
-    "title": "Perfectionist: Sort vue attributes",
-    "description": "Enforce sorted Vue attributes.",
     "timeToFix": 5
   },
   {
@@ -12453,6 +12455,13 @@
     "timeToFix": 5
   },
   {
+    "parameters": [],
+    "patternId": "playwright_prefer-locator",
+    "title": "Playwright: Prefer locator",
+    "description": "Suggest locators over page methods",
+    "timeToFix": 5
+  },
+  {
     "parameters": [
       {
         "name": "ignoreTopLevelDescribe",
@@ -12462,6 +12471,18 @@
     "patternId": "playwright_prefer-lowercase-title",
     "title": "Playwright: Prefer lowercase title",
     "description": "Enforce lowercase test names",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "testIdAttribute",
+        "description": "testIdAttribute"
+      }
+    ],
+    "patternId": "playwright_prefer-native-locators",
+    "title": "Playwright: Prefer native locators",
+    "description": "Prefer native locator functions",
     "timeToFix": 5
   },
   {
@@ -12564,6 +12585,10 @@
       {
         "name": "ignoreTypeOfDescribeName",
         "description": "ignoreTypeOfDescribeName"
+      },
+      {
+        "name": "ignoreTypeOfStepName",
+        "description": "ignoreTypeOfStepName"
       },
       {
         "name": "ignoreTypeOfTestName",
@@ -14425,6 +14450,2264 @@
     "timeToFix": 5
   },
   {
+    "parameters": [],
+    "patternId": "sonarjs_anchor-precedence",
+    "title": "Sonarjs: Anchor precedence",
+    "description": "Alternatives in regular expressions should be grouped when used with anchors",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_argument-type",
+    "title": "Sonarjs: Argument type",
+    "description": "Arguments to built-in functions should match documented types",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_arguments-order",
+    "title": "Sonarjs: Arguments order",
+    "description": "Parameters should be passed in the correct order",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_arguments-usage",
+    "title": "Sonarjs: Arguments usage",
+    "description": "\"arguments\" should not be accessed directly",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_array-callback-without-return",
+    "title": "Sonarjs: Array callback without return",
+    "description": "Callbacks of array methods should have return statements",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_array-constructor",
+    "title": "Sonarjs: Array constructor",
+    "description": "Array constructors should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_arrow-function-convention",
+    "title": "Sonarjs: Arrow function convention",
+    "description": "Braces and parentheses should be used consistently with arrow functions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_assertions-in-tests",
+    "title": "Sonarjs: Assertions in tests",
+    "description": "Tests should include assertions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-apigateway-public-api",
+    "title": "Sonarjs: Aws apigateway public api",
+    "description": "Creating public APIs is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-ec2-rds-dms-public",
+    "title": "Sonarjs: Aws ec2 rds dms public",
+    "description": "Allowing public network access to cloud resources is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-ec2-unencrypted-ebs-volume",
+    "title": "Sonarjs: Aws ec2 unencrypted ebs volume",
+    "description": "Using unencrypted EBS volumes is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-efs-unencrypted",
+    "title": "Sonarjs: Aws efs unencrypted",
+    "description": "Using unencrypted EFS file systems is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-iam-all-privileges",
+    "title": "Sonarjs: Aws iam all privileges",
+    "description": "Policies granting all privileges are security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-iam-all-resources-accessible",
+    "title": "Sonarjs: Aws iam all resources accessible",
+    "description": "Policies granting access to all resources of an account are security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-iam-privilege-escalation",
+    "title": "Sonarjs: Aws iam privilege escalation",
+    "description": "AWS IAM policies should limit the scope of permissions given",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-iam-public-access",
+    "title": "Sonarjs: Aws iam public access",
+    "description": "Policies authorizing public access to resources are security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-opensearchservice-domain",
+    "title": "Sonarjs: Aws opensearchservice domain",
+    "description": "Using unencrypted Elasticsearch domains is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-rds-unencrypted-databases",
+    "title": "Sonarjs: Aws rds unencrypted databases",
+    "description": "Using unencrypted RDS DB resources is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-restricted-ip-admin-access",
+    "title": "Sonarjs: Aws restricted ip admin access",
+    "description": "Administration services access should be restricted to specific IP addresses",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-s3-bucket-granted-access",
+    "title": "Sonarjs: Aws s3 bucket granted access",
+    "description": "Granting access to S3 buckets to all or authenticated users is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-s3-bucket-insecure-http",
+    "title": "Sonarjs: Aws s3 bucket insecure http",
+    "description": "Authorizing HTTP communications with S3 buckets is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-s3-bucket-public-access",
+    "title": "Sonarjs: Aws s3 bucket public access",
+    "description": "Allowing public ACLs or policies on a S3 bucket is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-s3-bucket-versioning",
+    "title": "Sonarjs: Aws s3 bucket versioning",
+    "description": "Disabling versioning of S3 buckets is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-sagemaker-unencrypted-notebook",
+    "title": "Sonarjs: Aws sagemaker unencrypted notebook",
+    "description": "Using unencrypted SageMaker notebook instances is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-sns-unencrypted-topics",
+    "title": "Sonarjs: Aws sns unencrypted topics",
+    "description": "Using unencrypted SNS topics is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_aws-sqs-unencrypted-queue",
+    "title": "Sonarjs: Aws sqs unencrypted queue",
+    "description": "Using unencrypted SQS queues is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_bitwise-operators",
+    "title": "Sonarjs: Bitwise operators",
+    "description": "Bitwise operators should not be used in boolean contexts",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_bool-param-default",
+    "title": "Sonarjs: Bool param default",
+    "description": "Optional boolean parameters should have default value",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_call-argument-line",
+    "title": "Sonarjs: Call argument line",
+    "description": "Function call arguments should not start on new lines",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_certificate-transparency",
+    "title": "Sonarjs: Certificate transparency",
+    "description": "Disabling Certificate Transparency monitoring is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_chai-determinate-assertion",
+    "title": "Sonarjs: Chai determinate assertion",
+    "description": "Chai assertions should have only one reason to succeed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_class-name",
+    "title": "Sonarjs: Class name",
+    "description": "Class names should comply with a naming convention",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_class-prototype",
+    "title": "Sonarjs: Class prototype",
+    "description": "Class methods should be used instead of \"prototype\" assignments",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_code-eval",
+    "title": "Sonarjs: Code eval",
+    "description": "Dynamically executing code is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_cognitive-complexity",
+    "title": "Sonarjs: Cognitive complexity",
+    "description": "Cognitive Complexity of functions should not be too high",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_comma-or-logical-or-case",
+    "title": "Sonarjs: Comma or logical or case",
+    "description": "Comma and logical OR operators should not be used in switch cases",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_comment-regex",
+    "title": "Sonarjs: Comment regex",
+    "description": "Track comments matching a regular expression",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_concise-regex",
+    "title": "Sonarjs: Concise regex",
+    "description": "Regular expression quantifiers and character classes should be used concisely",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_confidential-information-logging",
+    "title": "Sonarjs: Confidential information logging",
+    "description": "Allowing confidential information to be logged is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_constructor-for-side-effects",
+    "title": "Sonarjs: Constructor for side effects",
+    "description": "Objects should not be created to be dropped immediately without being used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_content-length",
+    "title": "Sonarjs: Content length",
+    "description": "Allowing requests with excessive content length is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_content-security-policy",
+    "title": "Sonarjs: Content security policy",
+    "description": "Disabling content security policy fetch directives is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_cookie-no-httponly",
+    "title": "Sonarjs: Cookie no httponly",
+    "description": "Creating cookies without the \"HttpOnly\" flag is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_cors",
+    "title": "Sonarjs: Cors",
+    "description": "Having a permissive Cross-Origin Resource Sharing policy is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_csrf",
+    "title": "Sonarjs: Csrf",
+    "description": "Disabling CSRF protections is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_cyclomatic-complexity",
+    "title": "Sonarjs: Cyclomatic complexity",
+    "description": "Cyclomatic Complexity of functions should not be too high",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_declarations-in-global-scope",
+    "title": "Sonarjs: Declarations in global scope",
+    "description": "Variables and functions should not be declared in the global scope",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_deprecation",
+    "title": "Sonarjs: Deprecation",
+    "description": "Deprecated APIs should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_destructuring-assignment-syntax",
+    "title": "Sonarjs: Destructuring assignment syntax",
+    "description": "Destructuring syntax should be used for assignments",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_different-types-comparison",
+    "title": "Sonarjs: Different types comparison",
+    "description": "Strict equality operators should not be used with dissimilar types",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_disabled-auto-escaping",
+    "title": "Sonarjs: Disabled auto escaping",
+    "description": "Disabling auto-escaping in template engines is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_disabled-resource-integrity",
+    "title": "Sonarjs: Disabled resource integrity",
+    "description": "Using remote artifacts without integrity checks is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_disabled-timeout",
+    "title": "Sonarjs: Disabled timeout",
+    "description": "Disabling Mocha timeouts should be explicit",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_duplicates-in-character-class",
+    "title": "Sonarjs: Duplicates in character class",
+    "description": "Character classes in regular expressions should not contain the same character twice",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_elseif-without-else",
+    "title": "Sonarjs: Elseif without else",
+    "description": "\"if ... else if\" constructs should end with \"else\" clauses",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_empty-string-repetition",
+    "title": "Sonarjs: Empty string repetition",
+    "description": "Repeated patterns in regular expressions should not match the empty string",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_encryption-secure-mode",
+    "title": "Sonarjs: Encryption secure mode",
+    "description": "Encryption algorithms should be used with secure mode and padding scheme",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_existing-groups",
+    "title": "Sonarjs: Existing groups",
+    "description": "Replacement strings should reference existing regular expression groups",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_expression-complexity",
+    "title": "Sonarjs: Expression complexity",
+    "description": "Expressions should not be too complex",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_file-header",
+    "title": "Sonarjs: File header",
+    "description": "Track lack of copyright and license headers",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_file-name-differ-from-class",
+    "title": "Sonarjs: File name differ from class",
+    "description": "Default export names and file names should match",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_file-permissions",
+    "title": "Sonarjs: File permissions",
+    "description": "Setting loose POSIX file permissions is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_file-uploads",
+    "title": "Sonarjs: File uploads",
+    "description": "File uploads should be restricted",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_fixme-tag",
+    "title": "Sonarjs: Fixme tag",
+    "description": "Track uses of \"FIXME\" tags",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_for-in",
+    "title": "Sonarjs: For in",
+    "description": "\"for...in\" loops should filter properties before acting on them",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_for-loop-increment-sign",
+    "title": "Sonarjs: For loop increment sign",
+    "description": "A \"for\" loop update clause should move the counter in the right direction",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_frame-ancestors",
+    "title": "Sonarjs: Frame ancestors",
+    "description": "Disabling content security policy frame-ancestors directive is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_function-inside-loop",
+    "title": "Sonarjs: Function inside loop",
+    "description": "Functions should not be defined inside loops",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_function-name",
+    "title": "Sonarjs: Function name",
+    "description": "Function and method names should comply with a naming convention",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_function-return-type",
+    "title": "Sonarjs: Function return type",
+    "description": "Functions should always return the same type",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_future-reserved-words",
+    "title": "Sonarjs: Future reserved words",
+    "description": "Future reserved words should not be used as identifiers",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_generator-without-yield",
+    "title": "Sonarjs: Generator without yield",
+    "description": "Generators should explicitly \"yield\" a value",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_hashing",
+    "title": "Sonarjs: Hashing",
+    "description": "Using weak hashing algorithms is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_hidden-files",
+    "title": "Sonarjs: Hidden files",
+    "description": "Statically serving hidden files is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "allowDestructuredState",
+        "description": "allowDestructuredState"
+      }
+    ],
+    "patternId": "sonarjs_hook-use-state",
+    "title": "Sonarjs: Hook use state",
+    "description": "The return value of \"useState\" should be destructured and named symmetrically",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_in-operator-type-error",
+    "title": "Sonarjs: In operator type error",
+    "description": "\"in\" should not be used with primitive types",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_inconsistent-function-call",
+    "title": "Sonarjs: Inconsistent function call",
+    "description": "Functions should be called consistently with or without \"new\"",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_index-of-compare-to-positive-number",
+    "title": "Sonarjs: Index of compare to positive number",
+    "description": "\"indexOf\" checks should not be for positive numbers",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_insecure-cookie",
+    "title": "Sonarjs: Insecure cookie",
+    "description": "Creating cookies without the \"secure\" flag is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_insecure-jwt-token",
+    "title": "Sonarjs: Insecure jwt token",
+    "description": "JWT should be signed and verified with strong cipher algorithms",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_inverted-assertion-arguments",
+    "title": "Sonarjs: Inverted assertion arguments",
+    "description": "Assertion arguments should be passed in the correct order",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_jsx-key",
+    "title": "Sonarjs: Jsx key",
+    "description": "JSX list components should have a key property",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_jsx-no-constructed-context-values",
+    "title": "Sonarjs: Jsx no constructed context values",
+    "description": "React Context Provider values should have stable identities",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_label-position",
+    "title": "Sonarjs: Label position",
+    "description": "Only \"while\", \"do\", \"for\" and \"switch\" statements should be labelled",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_link-with-target-blank",
+    "title": "Sonarjs: Link with target blank",
+    "description": "Authorizing an opened window to access back to the originating window is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_max-switch-cases",
+    "title": "Sonarjs: Max switch cases",
+    "description": "\"switch\" statements should not have too many \"case\" clauses",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_max-union-size",
+    "title": "Sonarjs: Max union size",
+    "description": "Union types should not have too many elements",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_misplaced-loop-counter",
+    "title": "Sonarjs: Misplaced loop counter",
+    "description": "\"for\" loop increment clauses should modify the loops' counters",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_mouse-events-a11y",
+    "title": "Sonarjs: Mouse events a11y",
+    "description": "Mouse events should have corresponding keyboard events",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_nested-control-flow",
+    "title": "Sonarjs: Nested control flow",
+    "description": "Control flow statements \"if\", \"for\", \"while\", \"switch\" and \"try\" should not be nested too deeply",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_new-operator-misuse",
+    "title": "Sonarjs: New operator misuse",
+    "description": "\"new\" should only be used with functions and classes",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-all-duplicated-branches",
+    "title": "Sonarjs: No all duplicated branches",
+    "description": "All branches in a conditional structure should not have exactly the same implementation",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-alphabetical-sort",
+    "title": "Sonarjs: No alphabetical sort",
+    "description": "\"Array.prototype.sort()\" and \"Array.prototype.toSorted()\" should use a compare function",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-angular-bypass-sanitization",
+    "title": "Sonarjs: No angular bypass sanitization",
+    "description": "Disabling Angular built-in sanitization is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-array-delete",
+    "title": "Sonarjs: No array delete",
+    "description": "\"delete\" should not be used on arrays",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-array-index-key",
+    "title": "Sonarjs: No array index key",
+    "description": "JSX list components should not use array indexes as key",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-associative-arrays",
+    "title": "Sonarjs: No associative arrays",
+    "description": "Array indexes should be numeric",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-async-constructor",
+    "title": "Sonarjs: No async constructor",
+    "description": "Constructors should not contain asynchronous operations",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-built-in-override",
+    "title": "Sonarjs: No built in override",
+    "description": "Built-in objects should not be overridden",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-case-label-in-switch",
+    "title": "Sonarjs: No case label in switch",
+    "description": "\"switch\" statements should not contain non-case labels",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-clear-text-protocols",
+    "title": "Sonarjs: No clear text protocols",
+    "description": "Using clear-text protocols is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-code-after-done",
+    "title": "Sonarjs: No code after done",
+    "description": "Tests should not execute any code after \"done()\" is called",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-collapsible-if",
+    "title": "Sonarjs: No collapsible if",
+    "description": "Mergeable \"if\" statements should be combined",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-collection-size-mischeck",
+    "title": "Sonarjs: No collection size mischeck",
+    "description": "Collection size and array length comparisons should make sense",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-commented-code",
+    "title": "Sonarjs: No commented code",
+    "description": "Sections of code should not be commented out",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-dead-store",
+    "title": "Sonarjs: No dead store",
+    "description": "Unused assignments should be removed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-delete-var",
+    "title": "Sonarjs: No delete var",
+    "description": "\"delete\" should be used only with object properties",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-deprecated-react",
+    "title": "Sonarjs: No deprecated react",
+    "description": "Deprecated React APIs should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-duplicate-in-composite",
+    "title": "Sonarjs: No duplicate in composite",
+    "description": "Union and intersection types should not include duplicated constituents",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-duplicate-string",
+    "title": "Sonarjs: No duplicate string",
+    "description": "String literals should not be duplicated",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-duplicated-branches",
+    "title": "Sonarjs: No duplicated branches",
+    "description": "Two branches in a conditional structure should not have exactly the same implementation",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-element-overwrite",
+    "title": "Sonarjs: No element overwrite",
+    "description": "Collection elements should not be replaced unconditionally",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-empty-after-reluctant",
+    "title": "Sonarjs: No empty after reluctant",
+    "description": "Reluctant quantifiers in regular expressions should be followed by an expression that can't match the empty string",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-empty-alternatives",
+    "title": "Sonarjs: No empty alternatives",
+    "description": "Alternation in regular expressions should not contain empty alternatives",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-empty-collection",
+    "title": "Sonarjs: No empty collection",
+    "description": "Empty collections should not be accessed or iterated",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-empty-group",
+    "title": "Sonarjs: No empty group",
+    "description": "Regular expressions should not contain empty groups",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-empty-test-file",
+    "title": "Sonarjs: No empty test file",
+    "description": "Test files should contain at least one test case",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-equals-in-for-termination",
+    "title": "Sonarjs: No equals in for termination",
+    "description": "Equality operators should not be used in \"for\" loop termination conditions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-exclusive-tests",
+    "title": "Sonarjs: No exclusive tests",
+    "description": "Exclusive tests should not be commited to version control",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-extra-arguments",
+    "title": "Sonarjs: No extra arguments",
+    "description": "Function calls should not pass extra arguments",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-for-in-iterable",
+    "title": "Sonarjs: No for in iterable",
+    "description": "\"for in\" should not be used with iterables",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-function-declaration-in-block",
+    "title": "Sonarjs: No function declaration in block",
+    "description": "Function declarations should not be made within blocks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-global-this",
+    "title": "Sonarjs: No global this",
+    "description": "The global \"this\" object should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-globals-shadowing",
+    "title": "Sonarjs: No globals shadowing",
+    "description": "Special identifiers should not be bound or assigned",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-gratuitous-expressions",
+    "title": "Sonarjs: No gratuitous expressions",
+    "description": "Boolean expressions should not be gratuitous",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-hardcoded-credentials",
+    "title": "Sonarjs: No hardcoded credentials",
+    "description": "Hard-coded credentials are security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-hardcoded-ip",
+    "title": "Sonarjs: No hardcoded ip",
+    "description": "Using hardcoded IP addresses is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-hook-setter-in-body",
+    "title": "Sonarjs: No hook setter in body",
+    "description": "React's useState hook should not be used directly in the render function or body of a component",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-identical-conditions",
+    "title": "Sonarjs: No identical conditions",
+    "description": "\"if/else if\" chains and \"switch\" cases should not have the same condition",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-identical-expressions",
+    "title": "Sonarjs: No identical expressions",
+    "description": "Identical expressions should not be used on both sides of a binary operator",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-identical-functions",
+    "title": "Sonarjs: No identical functions",
+    "description": "Functions should not have identical implementations",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-ignored-exceptions",
+    "title": "Sonarjs: No ignored exceptions",
+    "description": "Exceptions should not be ignored",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-ignored-return",
+    "title": "Sonarjs: No ignored return",
+    "description": "Return values from functions without side effects should not be ignored",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-implicit-dependencies",
+    "title": "Sonarjs: No implicit dependencies",
+    "description": "Dependencies should be explicit",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-implicit-global",
+    "title": "Sonarjs: No implicit global",
+    "description": "Variables should be declared explicitly",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-in-misuse",
+    "title": "Sonarjs: No in misuse",
+    "description": "\"in\" should not be used on arrays",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-incomplete-assertions",
+    "title": "Sonarjs: No incomplete assertions",
+    "description": "Assertions should be complete",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-inconsistent-returns",
+    "title": "Sonarjs: No inconsistent returns",
+    "description": "Functions should use \"return\" consistently",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-incorrect-string-concat",
+    "title": "Sonarjs: No incorrect string concat",
+    "description": "Strings and non-strings should not be added",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-internal-api-use",
+    "title": "Sonarjs: No internal api use",
+    "description": "Users should not use internal APIs",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-intrusive-permissions",
+    "title": "Sonarjs: No intrusive permissions",
+    "description": "Using intrusive permissions is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-invalid-await",
+    "title": "Sonarjs: No invalid await",
+    "description": "\"await\" should only be used with promises",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-invariant-returns",
+    "title": "Sonarjs: No invariant returns",
+    "description": "Function returns should not be invariant",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-inverted-boolean-check",
+    "title": "Sonarjs: No inverted boolean check",
+    "description": "Boolean checks should not be inverted",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-ip-forward",
+    "title": "Sonarjs: No ip forward",
+    "description": "Forwarding client IP address is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-labels",
+    "title": "Sonarjs: No labels",
+    "description": "Labels should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-literal-call",
+    "title": "Sonarjs: No literal call",
+    "description": "Literals should not be used as functions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-mime-sniff",
+    "title": "Sonarjs: No mime sniff",
+    "description": "Allowing browsers to sniff MIME types is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-misleading-array-reverse",
+    "title": "Sonarjs: No misleading array reverse",
+    "description": "Array-mutating methods should not be used misleadingly",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-mixed-content",
+    "title": "Sonarjs: No mixed content",
+    "description": "Allowing mixed-content is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-nested-assignment",
+    "title": "Sonarjs: No nested assignment",
+    "description": "Assignments should not be made from within sub-expressions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-nested-conditional",
+    "title": "Sonarjs: No nested conditional",
+    "description": "Ternary operators should not be nested",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-nested-functions",
+    "title": "Sonarjs: No nested functions",
+    "description": "Functions should not be nested too deeply",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-nested-incdec",
+    "title": "Sonarjs: No nested incdec",
+    "description": "Increment (++) and decrement (--) operators should not be used in a method call or mixed with other operators in an expression",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-nested-switch",
+    "title": "Sonarjs: No nested switch",
+    "description": "\"switch\" statements should not be nested",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-nested-template-literals",
+    "title": "Sonarjs: No nested template literals",
+    "description": "Template literals should not be nested",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-one-iteration-loop",
+    "title": "Sonarjs: No one iteration loop",
+    "description": "Loops with at most one iteration should be refactored",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-os-command-from-path",
+    "title": "Sonarjs: No os command from path",
+    "description": "Searching OS commands in PATH is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-parameter-reassignment",
+    "title": "Sonarjs: No parameter reassignment",
+    "description": "Initial values of parameters, caught exceptions, and loop variables should not be ignored",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-primitive-wrappers",
+    "title": "Sonarjs: No primitive wrappers",
+    "description": "Wrapper objects should not be used for primitive types",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-redundant-assignments",
+    "title": "Sonarjs: No redundant assignments",
+    "description": "Assignments should not be redundant",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-redundant-boolean",
+    "title": "Sonarjs: No redundant boolean",
+    "description": "Boolean literals should not be used in comparisons",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-redundant-jump",
+    "title": "Sonarjs: No redundant jump",
+    "description": "Jump statements should not be redundant",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-redundant-optional",
+    "title": "Sonarjs: No redundant optional",
+    "description": "Optional property declarations should not use both '?' and 'undefined' syntax",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-reference-error",
+    "title": "Sonarjs: No reference error",
+    "description": "Variables should be defined before being used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-referrer-policy",
+    "title": "Sonarjs: No referrer policy",
+    "description": "Disabling strict HTTP no-referrer policy is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-require-or-define",
+    "title": "Sonarjs: No require or define",
+    "description": "\"import\" should be used to include external code",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-return-type-any",
+    "title": "Sonarjs: No return type any",
+    "description": "Primitive return types should be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-same-argument-assert",
+    "title": "Sonarjs: No same argument assert",
+    "description": "Assertions should not be given twice the same argument",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-same-line-conditional",
+    "title": "Sonarjs: No same line conditional",
+    "description": "Conditionals should start on new lines",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-selector-parameter",
+    "title": "Sonarjs: No selector parameter",
+    "description": "Methods should not contain selector parameters",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-skipped-test",
+    "title": "Sonarjs: No skipped test",
+    "description": "Tests should not be skipped without providing a reason",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-small-switch",
+    "title": "Sonarjs: No small switch",
+    "description": "\"if\" statements should be preferred over \"switch\" when simpler",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-table-as-layout",
+    "title": "Sonarjs: No table as layout",
+    "description": "HTML \"<table>\" should not be used for layout purposes",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-try-promise",
+    "title": "Sonarjs: No try promise",
+    "description": "Promise rejections should not be caught by \"try\" blocks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-undefined-argument",
+    "title": "Sonarjs: No undefined argument",
+    "description": "\"undefined\" should not be passed as the value of optional parameters",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-undefined-assignment",
+    "title": "Sonarjs: No undefined assignment",
+    "description": "\"undefined\" should not be assigned",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-unenclosed-multiline-block",
+    "title": "Sonarjs: No unenclosed multiline block",
+    "description": "Multiline blocks should be enclosed in curly braces",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-uniq-key",
+    "title": "Sonarjs: No uniq key",
+    "description": "JSX list components keys should match up between renders",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "checkAliases",
+        "description": "checkAliases"
+      }
+    ],
+    "patternId": "sonarjs_no-unsafe",
+    "title": "Sonarjs: No unsafe",
+    "description": "React legacy lifecycle methods should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-unsafe-unzip",
+    "title": "Sonarjs: No unsafe unzip",
+    "description": "Expanding archive files without controlling resource consumption is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-unstable-nested-components",
+    "title": "Sonarjs: No unstable nested components",
+    "description": "React components should not be nested",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-unthrown-error",
+    "title": "Sonarjs: No unthrown error",
+    "description": "Errors should not be created without being thrown",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-unused-collection",
+    "title": "Sonarjs: No unused collection",
+    "description": "Collection contents should be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-unused-function-argument",
+    "title": "Sonarjs: No unused function argument",
+    "description": "Unused function parameters should be removed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-use-of-empty-return-value",
+    "title": "Sonarjs: No use of empty return value",
+    "description": "The return value of void functions should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-useless-catch",
+    "title": "Sonarjs: No useless catch",
+    "description": "\"catch\" clauses should do more than rethrow",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-useless-increment",
+    "title": "Sonarjs: No useless increment",
+    "description": "Values should not be uselessly incremented",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-useless-intersection",
+    "title": "Sonarjs: No useless intersection",
+    "description": "Type intersections should use meaningful types",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-useless-react-setstate",
+    "title": "Sonarjs: No useless react setstate",
+    "description": "React state setter function should not be called with its matching state variable",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-variable-usage-before-declaration",
+    "title": "Sonarjs: No variable usage before declaration",
+    "description": "Variables declared with \"var\" should be declared before they are used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-vue-bypass-sanitization",
+    "title": "Sonarjs: No vue bypass sanitization",
+    "description": "Disabling Vue.js built-in escaping is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-weak-cipher",
+    "title": "Sonarjs: No weak cipher",
+    "description": "Cipher algorithms should be robust",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-weak-keys",
+    "title": "Sonarjs: No weak keys",
+    "description": "Cryptographic keys should be robust",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-wildcard-import",
+    "title": "Sonarjs: No wildcard import",
+    "description": "Wildcard imports should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_non-existent-operator",
+    "title": "Sonarjs: Non existent operator",
+    "description": "Non-existent operators '=+', '=-' and '=!' should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_non-number-in-arithmetic-expression",
+    "title": "Sonarjs: Non number in arithmetic expression",
+    "description": "Arithmetic operators should only have numbers as operands",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_null-dereference",
+    "title": "Sonarjs: Null dereference",
+    "description": "Properties of variables with \"null\" or \"undefined\" values should not be accessed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_object-alt-content",
+    "title": "Sonarjs: Object alt content",
+    "description": "\"<object>\" tags should provide an alternative content",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_operation-returning-nan",
+    "title": "Sonarjs: Operation returning nan",
+    "description": "Arithmetic operations should not result in \"NaN\"",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_os-command",
+    "title": "Sonarjs: Os command",
+    "description": "Using shell interpreter when executing OS commands is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_post-message",
+    "title": "Sonarjs: Post message",
+    "description": "Origins should be verified during cross-origin communications",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-default-last",
+    "title": "Sonarjs: Prefer default last",
+    "description": "\"default\" clauses should be last",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-immediate-return",
+    "title": "Sonarjs: Prefer immediate return",
+    "description": "Local variables should not be declared and then immediately returned or thrown",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-object-literal",
+    "title": "Sonarjs: Prefer object literal",
+    "description": "Object literal syntax should be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-promise-shorthand",
+    "title": "Sonarjs: Prefer promise shorthand",
+    "description": "Shorthand promises should be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-single-boolean-return",
+    "title": "Sonarjs: Prefer single boolean return",
+    "description": "Return of boolean expressions should not be wrapped into an \"if-then-else\" statement",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-type-guard",
+    "title": "Sonarjs: Prefer type guard",
+    "description": "Type predicates should be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-while",
+    "title": "Sonarjs: Prefer while",
+    "description": "A \"while\" loop should be used instead of a \"for\" loop",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_production-debug",
+    "title": "Sonarjs: Production debug",
+    "description": "Delivering code in production with debug features activated is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_pseudo-random",
+    "title": "Sonarjs: Pseudo random",
+    "description": "Using pseudorandom number generators (PRNGs) is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_public-static-readonly",
+    "title": "Sonarjs: Public static readonly",
+    "description": "Public \"static\" fields should be read-only",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_publicly-writable-directories",
+    "title": "Sonarjs: Publicly writable directories",
+    "description": "Using publicly writable directories is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_reduce-initial-value",
+    "title": "Sonarjs: Reduce initial value",
+    "description": "\"Array.reduce()\" calls should include an initial value",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_redundant-type-aliases",
+    "title": "Sonarjs: Redundant type aliases",
+    "description": "Redundant type aliases should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_regex-complexity",
+    "title": "Sonarjs: Regex complexity",
+    "description": "Regular expressions should not be too complicated",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_session-regeneration",
+    "title": "Sonarjs: Session regeneration",
+    "description": "A new session should be created during user authentication",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_shorthand-property-grouping",
+    "title": "Sonarjs: Shorthand property grouping",
+    "description": "Shorthand object properties should be grouped at the beginning or end of an object declaration",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_single-char-in-character-classes",
+    "title": "Sonarjs: Single char in character classes",
+    "description": "Character classes in regular expressions should not contain only one character",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_single-character-alternation",
+    "title": "Sonarjs: Single character alternation",
+    "description": "Single-character alternations in regular expressions should be replaced with character classes",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_slow-regex",
+    "title": "Sonarjs: Slow regex",
+    "description": "Using slow regular expressions is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-block-scoped-var",
+    "title": "Sonarjs: Sonar block scoped var",
+    "description": "Variables should be used in the blocks where they are declared",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-jsx-no-leaked-render",
+    "title": "Sonarjs: Sonar jsx no leaked render",
+    "description": "React components should not render non-boolean condition values",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-max-lines",
+    "title": "Sonarjs: Sonar max lines",
+    "description": "Files should not have too many lines of code",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-max-lines-per-function",
+    "title": "Sonarjs: Sonar max lines per function",
+    "description": "Functions should not have too many lines of code",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-no-control-regex",
+    "title": "Sonarjs: Sonar no control regex",
+    "description": "Regular expressions should not contain control characters",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-no-empty-character-class",
+    "title": "Sonarjs: Sonar no empty character class",
+    "description": "Empty character classes should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-no-fallthrough",
+    "title": "Sonarjs: Sonar no fallthrough",
+    "description": "Switch cases should end with an unconditional \"break\" statement",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-no-invalid-regexp",
+    "title": "Sonarjs: Sonar no invalid regexp",
+    "description": "Regular expressions should be syntactically valid",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "detectObjects",
+        "description": "detectObjects"
+      },
+      {
+        "name": "enforceConst",
+        "description": "enforceConst"
+      },
+      {
+        "name": "ignoreArrayIndexes",
+        "description": "ignoreArrayIndexes"
+      },
+      {
+        "name": "ignoreDefaultValues",
+        "description": "ignoreDefaultValues"
+      },
+      {
+        "name": "ignoreClassFieldInitialValues",
+        "description": "ignoreClassFieldInitialValues"
+      }
+    ],
+    "patternId": "sonarjs_sonar-no-magic-numbers",
+    "title": "Sonarjs: Sonar no magic numbers",
+    "description": "Magic numbers should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-no-misleading-character-class",
+    "title": "Sonarjs: Sonar no misleading character class",
+    "description": "Unicode Grapheme Clusters should be avoided inside regex character classes",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-no-regex-spaces",
+    "title": "Sonarjs: Sonar no regex spaces",
+    "description": "Regular expressions should not contain multiple spaces",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-no-unused-class-component-methods",
+    "title": "Sonarjs: Sonar no unused class component methods",
+    "description": "Unused methods of React components should be removed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-no-unused-vars",
+    "title": "Sonarjs: Sonar no unused vars",
+    "description": "Unused local variables and functions should be removed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-prefer-optional-chain",
+    "title": "Sonarjs: Sonar prefer optional chain",
+    "description": "Optional chaining should be preferred",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-prefer-read-only-props",
+    "title": "Sonarjs: Sonar prefer read only props",
+    "description": "React props should be read-only",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-prefer-regexp-exec",
+    "title": "Sonarjs: Sonar prefer regexp exec",
+    "description": "\"RegExp.exec()\" should be preferred over \"String.match()\"",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sql-queries",
+    "title": "Sonarjs: Sql queries",
+    "description": "Formatting SQL queries is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_stable-tests",
+    "title": "Sonarjs: Stable tests",
+    "description": "Tests should be stable",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_stateful-regex",
+    "title": "Sonarjs: Stateful regex",
+    "description": "Regular expressions with the global flag should be used with caution",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_strict-transport-security",
+    "title": "Sonarjs: Strict transport security",
+    "description": "Disabling Strict-Transport-Security policy is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_strings-comparison",
+    "title": "Sonarjs: Strings comparison",
+    "description": "Comparison operators should not be used with strings",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_super-invocation",
+    "title": "Sonarjs: Super invocation",
+    "description": "\"super()\" should be invoked appropriately",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_table-header",
+    "title": "Sonarjs: Table header",
+    "description": "Tables should have headers",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_table-header-reference",
+    "title": "Sonarjs: Table header reference",
+    "description": "Table cells should reference their headers",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_test-check-exception",
+    "title": "Sonarjs: Test check exception",
+    "description": "Tests should check which exception is thrown",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_todo-tag",
+    "title": "Sonarjs: Todo tag",
+    "description": "Track uses of \"TODO\" tags",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_too-many-break-or-continue-in-loop",
+    "title": "Sonarjs: Too many break or continue in loop",
+    "description": "Loops should not contain more than a single \"break\" or \"continue\" statement",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_unicode-aware-regex",
+    "title": "Sonarjs: Unicode aware regex",
+    "description": "Regular expressions using Unicode character classes or property escapes should enable the unicode flag",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_unused-import",
+    "title": "Sonarjs: Unused import",
+    "description": "Unnecessary imports should be removed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_unused-named-groups",
+    "title": "Sonarjs: Unused named groups",
+    "description": "Names of regular expressions named groups should be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_unverified-certificate",
+    "title": "Sonarjs: Unverified certificate",
+    "description": "Server certificates should be verified during SSL/TLS connections",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_unverified-hostname",
+    "title": "Sonarjs: Unverified hostname",
+    "description": "Server hostnames should be verified during SSL/TLS connections",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_updated-const-var",
+    "title": "Sonarjs: Updated const var",
+    "description": "\"const\" variables should not be reassigned",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_updated-loop-counter",
+    "title": "Sonarjs: Updated loop counter",
+    "description": "Loop counters should not be assigned within the loop body",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_use-type-alias",
+    "title": "Sonarjs: Use type alias",
+    "description": "Type aliases should be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_values-not-convertible-to-numbers",
+    "title": "Sonarjs: Values not convertible to numbers",
+    "description": "Values not convertible to numbers should not be used in numeric comparisons",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_variable-name",
+    "title": "Sonarjs: Variable name",
+    "description": "Variable, property and parameter names should comply with a naming convention",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_void-use",
+    "title": "Sonarjs: Void use",
+    "description": "\"void\" should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_weak-ssl",
+    "title": "Sonarjs: Weak ssl",
+    "description": "Weak SSL/TLS protocols should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_x-powered-by",
+    "title": "Sonarjs: X powered by",
+    "description": "Disclosing fingerprints from web application technologies is security-sensitive",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_xml-parser-xxe",
+    "title": "Sonarjs: Xml parser xxe",
+    "description": "XML parsers should not be vulnerable to XXE attacks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-max-params",
+    "title": "Sonarjs: Sonar max params",
+    "description": "Functions should not have too many parameters",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-unused-private-class-members",
+    "title": "Sonarjs: No unused private class members",
+    "description": "Unused private class members should be removed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_alt-text",
+    "title": "Sonarjs: Alt text",
+    "description": "Image, area, button with image and object elements should have an alternative text",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-empty-function",
+    "title": "Sonarjs: No empty function",
+    "description": "Functions should not be empty",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_switch-without-default",
+    "title": "Sonarjs: Switch without default",
+    "description": "\"switch\" statements should have \"default\" clauses",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_sonar-no-dupe-keys",
+    "title": "Sonarjs: Sonar no dupe keys",
+    "description": "Member names should not be duplicated within a class or object literal",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-unreachable",
+    "title": "Sonarjs: No unreachable",
+    "description": "All code should be reachable",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_default-param-last",
+    "title": "Sonarjs: Default param last",
+    "description": "Function parameters with default values should be last",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-infinite-loop",
+    "title": "Sonarjs: No infinite loop",
+    "description": "Loops should not be infinite",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "getWithoutSet",
+        "description": "getWithoutSet"
+      },
+      {
+        "name": "setWithoutGet",
+        "description": "setWithoutGet"
+      },
+      {
+        "name": "enforceForClassMembers",
+        "description": "enforceForClassMembers"
+      }
+    ],
+    "patternId": "sonarjs_accessor-pairs",
+    "title": "Sonarjs: Accessor pairs",
+    "description": "Property getters and setters should come in pairs",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "newIsCap",
+        "description": "newIsCap"
+      },
+      {
+        "name": "capIsNew",
+        "description": "capIsNew"
+      },
+      {
+        "name": "properties",
+        "description": "properties"
+      }
+    ],
+    "patternId": "sonarjs_new-cap",
+    "title": "Sonarjs: New cap",
+    "description": "Constructor names should start with an upper case letter",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "enforceForSwitchCase",
+        "description": "enforceForSwitchCase"
+      },
+      {
+        "name": "enforceForIndexOf",
+        "description": "enforceForIndexOf"
+      }
+    ],
+    "patternId": "sonarjs_use-isnan",
+    "title": "Sonarjs: Use isnan",
+    "description": "\"NaN\" should not be used in comparisons",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-redeclare",
+    "title": "Sonarjs: No redeclare",
+    "description": "Variables and functions should not be redeclared",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_object-shorthand",
+    "title": "Sonarjs: Object shorthand",
+    "description": "Object literal shorthand syntax should be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-var",
+    "title": "Sonarjs: No var",
+    "description": "Variables should be declared with \"let\" or \"const\"",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-template",
+    "title": "Sonarjs: Prefer template",
+    "description": "Template strings should be used instead of concatenation",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-throw-literal",
+    "title": "Sonarjs: No throw literal",
+    "description": "Literals should not be thrown",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-empty-interface",
+    "title": "Sonarjs: No empty interface",
+    "description": "Interfaces should not be empty",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_media-has-caption",
+    "title": "Sonarjs: Media has caption",
+    "description": "Media elements should have captions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-for-of",
+    "title": "Sonarjs: Prefer for of",
+    "description": "\"for of\" should be used with Iterables",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-namespace-keyword",
+    "title": "Sonarjs: Prefer namespace keyword",
+    "description": "\"module\" should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "allowImplicit",
+        "description": "allowImplicit"
+      }
+    ],
+    "patternId": "sonarjs_no-accessor-field-mismatch",
+    "title": "Sonarjs: No accessor field mismatch",
+    "description": "Getters and setters should access the expected fields",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-this-alias",
+    "title": "Sonarjs: No this alias",
+    "description": "\"this\" should not be assigned to variables",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_html-has-lang",
+    "title": "Sonarjs: Html has lang",
+    "description": "HTML elements should have a valid language attribute",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_unnecessary-character-escapes",
+    "title": "Sonarjs: Unnecessary character escapes",
+    "description": "Unnecessary character escapes should be removed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-misused-promises",
+    "title": "Sonarjs: No misused promises",
+    "description": "Promises should not be misused",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-base-to-string",
+    "title": "Sonarjs: No base to string",
+    "description": "Objects and classes converted or coerced to strings should define a \"toString()\" method",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-string-starts-ends-with",
+    "title": "Sonarjs: Prefer string starts ends with",
+    "description": "Ends of strings should be checked with \"startsWith()\" and \"endsWith()\"",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-redundant-type-constituents",
+    "title": "Sonarjs: No redundant type constituents",
+    "description": "Type constituents of unions and intersections should not be redundant",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-enum-initializers",
+    "title": "Sonarjs: Prefer enum initializers",
+    "description": "Enum member values should be either all initialized or none",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-function-type",
+    "title": "Sonarjs: Prefer function type",
+    "description": "Function types should be preferred",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-nullish-coalescing",
+    "title": "Sonarjs: Prefer nullish coalescing",
+    "description": "Nullish coalescing should be preferred",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-extend-native",
+    "title": "Sonarjs: No extend native",
+    "description": "Prototypes of builtin objects should not be modified",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-useless-constructor",
+    "title": "Sonarjs: No useless constructor",
+    "description": "Unnecessary constructors should be removed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-lonely-if",
+    "title": "Sonarjs: No lonely if",
+    "description": "If statements should not be the only statement in else blocks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-object-spread",
+    "title": "Sonarjs: Prefer object spread",
+    "description": "Object spread syntax should be used instead of \"Object.assign\"",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_prefer-spread",
+    "title": "Sonarjs: Prefer spread",
+    "description": "Spread syntax should be used instead of \"apply()\"",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-useless-call",
+    "title": "Sonarjs: No useless call",
+    "description": "Calls to \".call()\" and \".apply()\" methods should not be redundant",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-self-compare",
+    "title": "Sonarjs: No self compare",
+    "description": "\"Number.isNaN()\" should be used to check for \"NaN\" value",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-unknown-property",
+    "title": "Sonarjs: No unknown property",
+    "description": "JSX elements should not use unknown properties and attributes",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_jsx-no-useless-fragment",
+    "title": "Sonarjs: Jsx no useless fragment",
+    "description": "Redundant React fragments should be removed",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-find-dom-node",
+    "title": "Sonarjs: No find dom node",
+    "description": "React's \"findDOMNode\" should not be used",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_anchor-has-content",
+    "title": "Sonarjs: Anchor has content",
+    "description": "Anchors should contain accessible content",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_anchor-is-valid",
+    "title": "Sonarjs: Anchor is valid",
+    "description": "Anchor tags should not be used as buttons",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_label-has-associated-control",
+    "title": "Sonarjs: Label has associated control",
+    "description": "Label elements should have a text label and an associated control",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_no-self-import",
+    "title": "Sonarjs: No self import",
+    "description": "Module should not import itself",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [
+      {
+        "name": "allowShortCircuit",
+        "description": "allowShortCircuit"
+      },
+      {
+        "name": "allowTernary",
+        "description": "allowTernary"
+      },
+      {
+        "name": "allowTaggedTemplates",
+        "description": "allowTaggedTemplates"
+      },
+      {
+        "name": "enforceForJSX",
+        "description": "enforceForJSX"
+      }
+    ],
+    "patternId": "sonarjs_no-unused-expressions",
+    "title": "Sonarjs: No unused expressions",
+    "description": "Non-empty statements should change control flow or have at least one side-effect",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "sonarjs_rules-of-hooks",
+    "title": "Sonarjs: Rules of hooks",
+    "description": "React Hooks should be properly called",
+    "timeToFix": 5
+  },
+  {
     "parameters": [
       {
         "name": "caseSensitive",
@@ -14669,7 +16952,7 @@
     "parameters": [],
     "patternId": "storybook_use-storybook-expect",
     "title": "Storybook: Use storybook expect",
-    "description": "Use expect from `@storybook/jest`",
+    "description": "Use expect from `@storybook/test` or `@storybook/jest`",
     "timeToFix": 5
   },
   {
@@ -15108,6 +17391,13 @@
     "patternId": "unicorn_consistent-empty-array-spread",
     "title": "Unicorn: Consistent empty array spread",
     "description": "Prefer consistent types when spreading a ternary in an array literal.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "unicorn_consistent-existence-index-check",
+    "title": "Unicorn: Consistent existence index check",
+    "description": "Enforce consistent style for element existence checks with `indexOf()`, `lastIndexOf()`, `findIndex()`, and `findLastIndex()`.",
     "timeToFix": 5
   },
   {
@@ -15691,6 +17981,13 @@
   },
   {
     "parameters": [],
+    "patternId": "unicorn_prefer-global-this",
+    "title": "Unicorn: Prefer global this",
+    "description": "Prefer `globalThis` over `window`, `self`, and `global`.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "unicorn_prefer-includes",
     "title": "Unicorn: Prefer includes",
     "description": "Prefer `.includes()` over `.indexOf()`, `.lastIndexOf()`, and `Array#some()` when checking for existence or non-existence.",
@@ -15715,6 +18012,13 @@
     "patternId": "unicorn_prefer-logical-operator-over-ternary",
     "title": "Unicorn: Prefer logical operator over ternary",
     "description": "Prefer using a logical operator over a ternary.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "unicorn_prefer-math-min-max",
+    "title": "Unicorn: Prefer math min max",
+    "description": "Prefer `Math.min()` and `Math.max()` over ternaries for simple comparisons.",
     "timeToFix": 5
   },
   {
@@ -15807,7 +18111,7 @@
     "parameters": [],
     "patternId": "unicorn_prefer-query-selector",
     "title": "Unicorn: Prefer query selector",
-    "description": "Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `.getElementsByClassName()` and `.getElementsByTagName()`.",
+    "description": "Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `.getElementsByClassName()` and `.getElementsByTagName()` and `.getElementsByName()`.",
     "timeToFix": 5
   },
   {
@@ -16548,6 +18852,13 @@
     "patternId": "vue_no-deprecated-data-object-declaration",
     "title": "Vue: No deprecated data object declaration",
     "description": "Disallow using deprecated object declaration on data (in Vue.js 3.0.0+)",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "vue_no-deprecated-delete-set",
+    "title": "Vue: No deprecated delete set",
+    "description": "Disallow using deprecated `$delete` and `$set` (in Vue.js 3.0.0+)",
     "timeToFix": 5
   },
   {
