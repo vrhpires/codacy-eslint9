@@ -51,6 +51,7 @@ const packageNames: string[] = [
   "eslint-plugin-playwright",
   "eslint-plugin-promise",
   "eslint-plugin-react",
+  "eslint-plugin-react-hooks",
   "eslint-plugin-react-perf",
   "eslint-plugin-react-redux",
   "eslint-plugin-redux-saga",

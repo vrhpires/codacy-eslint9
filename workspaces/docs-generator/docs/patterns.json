@@ -13652,6 +13652,20 @@
       "enabled": false
     },
     {
+      "patternId": "react-hooks_rules-of-hooks",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "react-hooks_exhaustive-deps",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "react-perf_jsx-no-new-object-as-prop",
       "level": "Info",
       "category": "CodeStyle",

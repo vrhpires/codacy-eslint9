@@ -1665,6 +1665,8 @@
   <module name="react_static-property-placement" />
   <module name="react_style-prop-object" />
   <module name="react_void-dom-elements-no-children" />
+  <module name="react-hooks_rules-of-hooks" />
+  <module name="react-hooks_exhaustive-deps" />
   <module name="react-perf_jsx-no-new-object-as-prop" />
   <module name="react-perf_jsx-no-new-array-as-prop" />
   <module name="react-perf_jsx-no-new-function-as-prop" />
