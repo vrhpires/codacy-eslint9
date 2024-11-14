@@ -20,6 +20,7 @@ const packageNames: string[] = [
   "@typescript-eslint/eslint-plugin",
   "@vitest/eslint-plugin",
   "eslint",
+  "eslint-plugin-angular",
   "eslint-plugin-backbone",
   "eslint-plugin-compat",
   "eslint-plugin-cypress",

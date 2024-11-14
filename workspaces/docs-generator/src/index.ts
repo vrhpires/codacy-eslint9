@@ -32,11 +32,15 @@ const downloadDocs: DocsInfo[] = [
   },
   {
      packageName:"eslint-plugin-sonarjs",
-     relativeUrl: "/SonarSource/eslint-plugin-sonarjs/master/docs/rules/"
+     relativeUrl: "/SonarSource/eslint-plugin-sonarjs/refs/heads/master/docs/rules/"
   },
   {
     packageName: "@vitest/eslint-plugin",
     relativeUrl: "/vitest-dev/eslint-plugin-vitest/main/docs/rules/"
+  },
+  {
+    packageName: "eslint-plugin-angular",
+    relativeUrl: "/EmmanuelDemey/eslint-plugin-angular/master/docs/rules/"
   },
   {
     packageName: "eslint-plugin-backbone",
