@@ -8736,6 +8736,13 @@
       "enabled": false
     },
     {
+      "patternId": "expect-type_expect",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "eslint-plugin_consistent-output",
       "level": "Warning",
       "category": "BestPractice",

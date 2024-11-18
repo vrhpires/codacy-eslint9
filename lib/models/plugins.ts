@@ -27,6 +27,7 @@ const packageNames: string[] = [
   "eslint-plugin-ember",
   "eslint-plugin-ember-suave",
   "eslint-plugin-es-x",
+  "eslint-plugin-expect-type",
   "eslint-plugin-eslint-plugin",
   "eslint-plugin-filenames",
   "eslint-plugin-fp",

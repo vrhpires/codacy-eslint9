@@ -67,6 +67,10 @@ const downloadDocs: DocsInfo[] = [
     relativeUrl: "/eslint-community/eslint-plugin-es-x/master/docs/rules/"
   },
   {
+    packageName: "eslint-plugin-expect-type",
+    relativeUrl: "/JoshuaKGoldberg/eslint-plugin-expect-type/refs/heads/main/docs/rules/"
+  },
+  {
     packageName: "eslint",
     relativeUrl: "/eslint/eslint/main/docs/src/rules/"
   },

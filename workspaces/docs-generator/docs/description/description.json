@@ -8662,6 +8662,13 @@
   },
   {
     "parameters": [],
+    "patternId": "expect-type_expect",
+    "title": "Expect type: Expect",
+    "description": "Expects type error, type snapshot, or type.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "eslint-plugin_consistent-output",
     "title": "Eslint plugin: Consistent output",
     "description": "Enforce consistent use of `output` assertions in rule tests",
