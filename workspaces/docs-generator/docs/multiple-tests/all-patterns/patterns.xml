@@ -1049,7 +1049,7 @@
   <module name="es-x_no-weak-map" />
   <module name="es-x_no-weak-set" />
   <module name="es-x_no-weakrefs" />
-  <module name="expect-type_expect" />
+  <!-- <module name="expect-type_expect" /> we're testing a js file, so this rule is not suitable --> 
   <module name="eslint-plugin_consistent-output" />
   <module name="eslint-plugin_fixer-return" />
   <module name="eslint-plugin_meta-property-ordering" />
