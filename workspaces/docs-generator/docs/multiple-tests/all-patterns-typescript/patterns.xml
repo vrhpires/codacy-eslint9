@@ -203,6 +203,7 @@
   <module name="no-this-before-super" />
   <module name="no-throw-literal" />
   <module name="no-trailing-spaces" />
+  <module name="no-unassigned-vars" />
   <module name="no-undef" />
   <module name="no-undef-init" />
   <module name="no-undefined" />

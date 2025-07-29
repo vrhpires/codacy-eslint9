@@ -58,7 +58,7 @@
     "@vue/eslint-config-typescript": "^14.5.0",
     "angular-eslint": "^19.3.0",
     "codacy": "^0.0.1",
-    "eslint": "9.26.0",
+    "eslint": "9.32.0",
     "eslint-config-prettier": "10.1.2",
     "eslint-plugin-angular": "4.1.0",
     "eslint-plugin-eslint-plugin": "6.4.0",

@@ -20,3 +20,7 @@ tsconfig.tsbuildinfo
 
 # Test directories
 /tests
+
+
+#Ignore vscode AI rules
+.github/copilot-instructions.md

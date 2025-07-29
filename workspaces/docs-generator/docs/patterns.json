@@ -1,6 +1,6 @@
 {
   "name": "eslint-9",
-  "version": "9.26.0",
+  "version": "9.32.0",
   "patterns": [
     {
       "patternId": "accessor-pairs",
@@ -1200,6 +1200,22 @@
         {
           "name": "ignoreClassFieldInitialValues",
           "default": false
+        },
+        {
+          "name": "ignoreEnums",
+          "default": false
+        },
+        {
+          "name": "ignoreNumericLiteralTypes",
+          "default": false
+        },
+        {
+          "name": "ignoreReadonlyClassProperties",
+          "default": false
+        },
+        {
+          "name": "ignoreTypeIndexes",
+          "default": false
         }
       ],
       "enabled": false
@@ -1652,6 +1668,13 @@
           "default": false
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "no-unassigned-vars",
+      "level": "Error",
+      "category": "ErrorProne",
+      "parameters": [],
       "enabled": false
     },
     {
@@ -4567,6 +4590,22 @@
         },
         {
           "name": "ignoreClassFieldInitialValues",
+          "default": false
+        },
+        {
+          "name": "ignoreEnums",
+          "default": false
+        },
+        {
+          "name": "ignoreNumericLiteralTypes",
+          "default": false
+        },
+        {
+          "name": "ignoreReadonlyClassProperties",
+          "default": false
+        },
+        {
+          "name": "ignoreTypeIndexes",
           "default": false
         }
       ],

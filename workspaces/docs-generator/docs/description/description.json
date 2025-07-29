@@ -822,7 +822,7 @@
     "parameters": [],
     "patternId": "no-const-assign",
     "title": "No const assign",
-    "description": "Disallow reassigning `const` variables",
+    "description": "Disallow reassigning `const`, `using`, and `await using` variables",
     "timeToFix": 5
   },
   {
@@ -1194,6 +1194,22 @@
       {
         "name": "ignoreClassFieldInitialValues",
         "description": "ignoreClassFieldInitialValues"
+      },
+      {
+        "name": "ignoreEnums",
+        "description": "ignoreEnums"
+      },
+      {
+        "name": "ignoreNumericLiteralTypes",
+        "description": "ignoreNumericLiteralTypes"
+      },
+      {
+        "name": "ignoreReadonlyClassProperties",
+        "description": "ignoreReadonlyClassProperties"
+      },
+      {
+        "name": "ignoreTypeIndexes",
+        "description": "ignoreTypeIndexes"
       }
     ],
     "patternId": "no-magic-numbers",
@@ -1649,6 +1665,13 @@
     "patternId": "no-trailing-spaces",
     "title": "No trailing spaces",
     "description": "Disallow trailing whitespace at the end of lines",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "no-unassigned-vars",
+    "title": "No unassigned vars",
+    "description": "Disallow `let` or `var` variables that are read but never assigned",
     "timeToFix": 5
   },
   {
@@ -4554,6 +4577,22 @@
       {
         "name": "ignoreClassFieldInitialValues",
         "description": "ignoreClassFieldInitialValues"
+      },
+      {
+        "name": "ignoreEnums",
+        "description": "ignoreEnums"
+      },
+      {
+        "name": "ignoreNumericLiteralTypes",
+        "description": "ignoreNumericLiteralTypes"
+      },
+      {
+        "name": "ignoreReadonlyClassProperties",
+        "description": "ignoreReadonlyClassProperties"
+      },
+      {
+        "name": "ignoreTypeIndexes",
+        "description": "ignoreTypeIndexes"
       }
     ],
     "patternId": "@typescript-eslint_no-magic-numbers",
