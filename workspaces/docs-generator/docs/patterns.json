@@ -1,6 +1,6 @@
 {
   "name": "eslint-9",
-  "version": "9.32.0",
+  "version": "9.38.0",
   "patterns": [
     {
       "patternId": "accessor-pairs",
@@ -1224,12 +1224,7 @@
       "patternId": "no-misleading-character-class",
       "level": "Error",
       "category": "ErrorProne",
-      "parameters": [
-        {
-          "name": "allowEscape",
-          "default": false
-        }
-      ],
+      "parameters": [],
       "enabled": true
     },
     {
@@ -2085,6 +2080,13 @@
     },
     {
       "patternId": "prefer-template",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "preserve-caught-error",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -18845,6 +18847,20 @@
       "enabled": false
     },
     {
+      "patternId": "unicorn_no-array-reverse",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "unicorn_no-array-sort",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "unicorn_no-await-expression-member",
       "level": "Warning",
       "category": "BestPractice",
@@ -18888,6 +18904,13 @@
     },
     {
       "patternId": "unicorn_no-hex-escape",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "unicorn_no-immediate-mutation",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -19090,6 +19113,20 @@
       "enabled": false
     },
     {
+      "patternId": "unicorn_no-useless-collection-argument",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "unicorn_no-useless-error-capture-stack-trace",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "unicorn_no-useless-fallback-in-spread",
       "level": "Warning",
       "category": "BestPractice",
@@ -19167,14 +19204,14 @@
       "enabled": false
     },
     {
-      "patternId": "unicorn_prefer-array-flat-map",
+      "patternId": "unicorn_prefer-array-flat",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
       "enabled": false
     },
     {
-      "patternId": "unicorn_prefer-array-flat",
+      "patternId": "unicorn_prefer-array-flat-map",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -19202,7 +19239,28 @@
       "enabled": false
     },
     {
+      "patternId": "unicorn_prefer-bigint-literals",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "unicorn_prefer-blob-reading-methods",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "unicorn_prefer-class-fields",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "unicorn_prefer-classlist-toggle",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],
@@ -19419,6 +19477,13 @@
       "enabled": false
     },
     {
+      "patternId": "unicorn_prefer-response-static-json",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
       "patternId": "unicorn_prefer-set-has",
       "level": "Warning",
       "category": "BestPractice",
@@ -19532,6 +19597,20 @@
     },
     {
       "patternId": "unicorn_require-array-join-separator",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "unicorn_require-module-attributes",
+      "level": "Warning",
+      "category": "BestPractice",
+      "parameters": [],
+      "enabled": false
+    },
+    {
+      "patternId": "unicorn_require-module-specifiers",
       "level": "Warning",
       "category": "BestPractice",
       "parameters": [],

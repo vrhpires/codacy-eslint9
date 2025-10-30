@@ -27,7 +27,8 @@
     "init": "npm i --legacy-peer-deps && npm i --legacy-peer-deps -ws",
     "preupgrade": "npx npm-check-updates -u -ws --root",
     "upgrade": "npm install --legacy-peer-deps -ws --root",
-    "postupgrade": "npm start -w docs-generator"
+    "postupgrade": "npm start -w docs-generator",
+    "postinstall": "npx update-browserslist-db@latest"
   },
   "type": "module",
   "workspaces": [
@@ -58,7 +59,7 @@
     "@vue/eslint-config-typescript": "^14.5.0",
     "angular-eslint": "^19.3.0",
     "codacy": "^0.0.1",
-    "eslint": "9.32.0",
+    "eslint": "9.38.0",
     "eslint-config-prettier": "10.1.2",
     "eslint-plugin-angular": "4.1.0",
     "eslint-plugin-eslint-plugin": "6.4.0",
@@ -88,7 +89,8 @@
     "typescript-eslint": "8.31.1",
     "vue": "^3.5.13",
     "vuetify": "^3.8.3",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.14",
+    "webpack": "^5.95.0"
   },
   "devDependencies": {
     "@eslint/js": "9.26.0",

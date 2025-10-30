@@ -1218,12 +1218,7 @@
     "timeToFix": 5
   },
   {
-    "parameters": [
-      {
-        "name": "allowEscape",
-        "description": "allowEscape"
-      }
-    ],
+    "parameters": [],
     "patternId": "no-misleading-character-class",
     "title": "No misleading character class",
     "description": "Disallow characters which are made with multiple code points in character class syntax",
@@ -2085,6 +2080,13 @@
     "patternId": "prefer-template",
     "title": "Prefer template",
     "description": "Require template literals instead of string concatenation",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "preserve-caught-error",
+    "title": "Preserve caught error",
+    "description": "Disallow losing originally caught error when re-throwing custom errors",
     "timeToFix": 5
   },
   {
@@ -18630,6 +18632,20 @@
   },
   {
     "parameters": [],
+    "patternId": "unicorn_no-array-reverse",
+    "title": "Unicorn: No array reverse",
+    "description": "Prefer `Array#toReversed()` over `Array#reverse()`.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "unicorn_no-array-sort",
+    "title": "Unicorn: No array sort",
+    "description": "Prefer `Array#toSorted()` over `Array#sort()`.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "unicorn_no-await-expression-member",
     "title": "Unicorn: No await expression member",
     "description": "Disallow member access from await expression.",
@@ -18675,6 +18691,13 @@
     "patternId": "unicorn_no-hex-escape",
     "title": "Unicorn: No hex escape",
     "description": "Enforce the use of Unicode escapes instead of hexadecimal escapes.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "unicorn_no-immediate-mutation",
+    "title": "Unicorn: No immediate mutation",
+    "description": "Disallow immediate mutation after variable assignment.",
     "timeToFix": 5
   },
   {
@@ -18875,6 +18898,20 @@
   },
   {
     "parameters": [],
+    "patternId": "unicorn_no-useless-collection-argument",
+    "title": "Unicorn: No useless collection argument",
+    "description": "Disallow useless values or fallbacks in `Set`, `Map`, `WeakSet`, or `WeakMap`.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "unicorn_no-useless-error-capture-stack-trace",
+    "title": "Unicorn: No useless error capture stack trace",
+    "description": "Disallow unnecessary `Error.captureStackTrace(…)`.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "unicorn_no-useless-fallback-in-spread",
     "title": "Unicorn: No useless fallback in spread",
     "description": "Disallow useless fallback when spreading in object literals.",
@@ -18952,16 +18989,16 @@
   },
   {
     "parameters": [],
-    "patternId": "unicorn_prefer-array-flat-map",
-    "title": "Unicorn: Prefer array flat map",
-    "description": "Prefer `.flatMap(…)` over `.map(…).flat()`.",
+    "patternId": "unicorn_prefer-array-flat",
+    "title": "Unicorn: Prefer array flat",
+    "description": "Prefer `Array#flat()` over legacy techniques to flatten arrays.",
     "timeToFix": 5
   },
   {
     "parameters": [],
-    "patternId": "unicorn_prefer-array-flat",
-    "title": "Unicorn: Prefer array flat",
-    "description": "Prefer `Array#flat()` over legacy techniques to flatten arrays.",
+    "patternId": "unicorn_prefer-array-flat-map",
+    "title": "Unicorn: Prefer array flat map",
+    "description": "Prefer `.flatMap(…)` over `.map(…).flat()`.",
     "timeToFix": 5
   },
   {
@@ -18987,9 +19024,30 @@
   },
   {
     "parameters": [],
+    "patternId": "unicorn_prefer-bigint-literals",
+    "title": "Unicorn: Prefer bigint literals",
+    "description": "Prefer `BigInt` literals over the constructor.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "unicorn_prefer-blob-reading-methods",
     "title": "Unicorn: Prefer blob reading methods",
     "description": "Prefer `Blob#arrayBuffer()` over `FileReader#readAsArrayBuffer(…)` and `Blob#text()` over `FileReader#readAsText(…)`.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "unicorn_prefer-class-fields",
+    "title": "Unicorn: Prefer class fields",
+    "description": "Prefer class field declarations over `this` assignments in constructors.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "unicorn_prefer-classlist-toggle",
+    "title": "Unicorn: Prefer classlist toggle",
+    "description": "Prefer using `Element#classList.toggle()` to toggle class names.",
     "timeToFix": 5
   },
   {
@@ -19204,6 +19262,13 @@
   },
   {
     "parameters": [],
+    "patternId": "unicorn_prefer-response-static-json",
+    "title": "Unicorn: Prefer response static json",
+    "description": "Prefer `Response.json()` over `new Response(JSON.stringify())`.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "unicorn_prefer-set-has",
     "title": "Unicorn: Prefer set has",
     "description": "Prefer `Set#has()` over `Array#includes()` when checking for existence or non-existence.",
@@ -19319,6 +19384,20 @@
     "patternId": "unicorn_require-array-join-separator",
     "title": "Unicorn: Require array join separator",
     "description": "Enforce using the separator argument with `Array#join()`.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "unicorn_require-module-attributes",
+    "title": "Unicorn: Require module attributes",
+    "description": "Require non-empty module attributes for imports and exports",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "unicorn_require-module-specifiers",
+    "title": "Unicorn: Require module specifiers",
+    "description": "Require non-empty specifier list in import and export statements.",
     "timeToFix": 5
   },
   {

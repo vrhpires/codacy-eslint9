@@ -261,6 +261,7 @@
   <module name="prefer-rest-params" />
   <module name="prefer-spread" />
   <module name="prefer-template" />
+  <module name="preserve-caught-error" />
   <module name="quote-props" />
   <module name="quotes" />
   <module name="radix" />
@@ -2436,6 +2437,8 @@
   <module name="unicorn_no-array-for-each" />
   <module name="unicorn_no-array-method-this-argument" />
   <module name="unicorn_no-array-reduce" />
+  <module name="unicorn_no-array-reverse" />
+  <module name="unicorn_no-array-sort" />
   <module name="unicorn_no-await-expression-member" />
   <module name="unicorn_no-await-in-promise-methods" />
   <module name="unicorn_no-console-spaces" />
@@ -2443,6 +2446,7 @@
   <module name="unicorn_no-empty-file" />
   <module name="unicorn_no-for-loop" />
   <module name="unicorn_no-hex-escape" />
+  <module name="unicorn_no-immediate-mutation" />
   <module name="unicorn_no-instanceof-builtins" />
   <module name="unicorn_no-invalid-fetch-options" />
   <module name="unicorn_no-invalid-remove-event-listener" />
@@ -2471,6 +2475,8 @@
   <module name="unicorn_no-unreadable-array-destructuring" />
   <module name="unicorn_no-unreadable-iife" />
   <module name="unicorn_no-unused-properties" />
+  <module name="unicorn_no-useless-collection-argument" />
+  <module name="unicorn_no-useless-error-capture-stack-trace" />
   <module name="unicorn_no-useless-fallback-in-spread" />
   <module name="unicorn_no-useless-length-check" />
   <module name="unicorn_no-useless-promise-resolve-reject" />
@@ -2482,12 +2488,15 @@
   <module name="unicorn_numeric-separators-style" />
   <module name="unicorn_prefer-add-event-listener" />
   <module name="unicorn_prefer-array-find" />
-  <module name="unicorn_prefer-array-flat-map" />
   <module name="unicorn_prefer-array-flat" />
+  <module name="unicorn_prefer-array-flat-map" />
   <module name="unicorn_prefer-array-index-of" />
   <module name="unicorn_prefer-array-some" />
   <module name="unicorn_prefer-at" />
+  <module name="unicorn_prefer-bigint-literals" />
   <module name="unicorn_prefer-blob-reading-methods" />
+  <module name="unicorn_prefer-class-fields" />
+  <module name="unicorn_prefer-classlist-toggle" />
   <module name="unicorn_prefer-code-point" />
   <module name="unicorn_prefer-date-now" />
   <module name="unicorn_prefer-default-parameters" />
@@ -2518,6 +2527,7 @@
   <module name="unicorn_prefer-query-selector" />
   <module name="unicorn_prefer-reflect-apply" />
   <module name="unicorn_prefer-regexp-test" />
+  <module name="unicorn_prefer-response-static-json" />
   <module name="unicorn_prefer-set-has" />
   <module name="unicorn_prefer-set-size" />
   <module name="unicorn_prefer-single-call" />
@@ -2535,6 +2545,8 @@
   <module name="unicorn_prevent-abbreviations" />
   <module name="unicorn_relative-url-style" />
   <module name="unicorn_require-array-join-separator" />
+  <module name="unicorn_require-module-attributes" />
+  <module name="unicorn_require-module-specifiers" />
   <module name="unicorn_require-number-to-fixed-digits-argument" />
   <module name="unicorn_require-post-message-target-origin" />
   <module name="unicorn_string-content" />
