@@ -14623,6 +14623,13 @@
   },
   {
     "parameters": [],
+    "patternId": "react-hooks_exhaustive-deps",
+    "title": "React hooks: Exhaustive deps",
+    "description": "Verifies the list of dependencies for Hooks like useEffect and similar",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "react-hooks_rules-of-hooks",
     "title": "React hooks: Rules of hooks",
     "description": "Enforces the Rules of Hooks",
@@ -14630,9 +14637,191 @@
   },
   {
     "parameters": [],
-    "patternId": "react-hooks_exhaustive-deps",
-    "title": "React hooks: Exhaustive deps",
-    "description": "Verifies the list of dependencies for Hooks like useEffect and similar",
+    "patternId": "react-hooks_hooks",
+    "title": "React hooks: Hooks",
+    "description": "Validates the rules of hooks",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_capitalized-calls",
+    "title": "React hooks: Capitalized calls",
+    "description": "Validates against calling capitalized functions/methods instead of using JSX",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_static-components",
+    "title": "React hooks: Static components",
+    "description": "Validates that components are static, not recreated every render. Components that are recreated dynamically can reset state and trigger excessive re-rendering",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_use-memo",
+    "title": "React hooks: Use memo",
+    "description": "Validates usage of the useMemo() hook against common mistakes. See [`useMemo()` docs](https://react.dev/reference/react/useMemo) for more information.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_void-use-memo",
+    "title": "React hooks: Void use memo",
+    "description": "Validates that useMemos always return a value and that the result of the useMemo is used by the component/hook. See [`useMemo()` docs](https://react.dev/reference/react/useMemo) for more information.",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_component-hook-factories",
+    "title": "React hooks: Component hook factories",
+    "description": "Validates against higher order functions defining nested components or hooks. Components and hooks should be defined at the module level",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_preserve-manual-memoization",
+    "title": "React hooks: Preserve manual memoization",
+    "description": "Validates that existing manual memoized is preserved by the compiler. React Compiler will only compile components and hooks if its inference [matches or exceeds the existing manual memoization](https://react.dev/learn/react-compiler/introduction#what-should-i-do-about-usememo-usecallback-and-reactmemo)",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_incompatible-library",
+    "title": "React hooks: Incompatible library",
+    "description": "Validates against usage of libraries which are incompatible with memoization (manual or automatic)",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_immutability",
+    "title": "React hooks: Immutability",
+    "description": "Validates against mutating props, state, and other values that [are immutable](https://react.dev/reference/rules/components-and-hooks-must-be-pure#props-and-state-are-immutable)",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_globals",
+    "title": "React hooks: Globals",
+    "description": "Validates against assignment/mutation of globals during render, part of ensuring that [side effects must render outside of render](https://react.dev/reference/rules/components-and-hooks-must-be-pure#side-effects-must-run-outside-of-render)",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_refs",
+    "title": "React hooks: Refs",
+    "description": "Validates correct usage of refs, not reading/writing during render. See the \"pitfalls\" section in [`useRef()` usage](https://react.dev/reference/react/useRef#usage)",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_memoized-effect-dependencies",
+    "title": "React hooks: Memoized effect dependencies",
+    "description": "Validates that effect dependencies are memoized",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_set-state-in-effect",
+    "title": "React hooks: Set state in effect",
+    "description": "Validates against calling setState synchronously in an effect, which can lead to re-renders that degrade performance",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_no-deriving-state-in-effects",
+    "title": "React hooks: No deriving state in effects",
+    "description": "Validates against deriving values from state in an effect",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_error-boundaries",
+    "title": "React hooks: Error boundaries",
+    "description": "Validates usage of error boundaries instead of try/catch for errors in child components",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_purity",
+    "title": "React hooks: Purity",
+    "description": "Validates that [components/hooks are pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure) by checking that they do not call known-impure functions",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_set-state-in-render",
+    "title": "React hooks: Set state in render",
+    "description": "Validates against setting state during render, which can trigger additional renders and potential infinite render loops",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_invariant",
+    "title": "React hooks: Invariant",
+    "description": "Internal invariants",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_todo",
+    "title": "React hooks: Todo",
+    "description": "Unimplemented features",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_syntax",
+    "title": "React hooks: Syntax",
+    "description": "Validates against invalid syntax",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_unsupported-syntax",
+    "title": "React hooks: Unsupported syntax",
+    "description": "Validates against syntax that we do not plan to support in React Compiler",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_config",
+    "title": "React hooks: Config",
+    "description": "Validates the compiler configuration options",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_gating",
+    "title": "React hooks: Gating",
+    "description": "Validates configuration of [gating mode](https://react.dev/reference/react-compiler/gating)",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_rule-suppression",
+    "title": "React hooks: Rule suppression",
+    "description": "Validates against suppression of other rules",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_automatic-effect-dependencies",
+    "title": "React hooks: Automatic effect dependencies",
+    "description": "Verifies that automatic effect dependencies are compiled if opted-in",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_fire",
+    "title": "React hooks: Fire",
+    "description": "Validates usage of `fire`",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "react-hooks_fbt",
+    "title": "React hooks: Fbt",
+    "description": "Validates usage of fbt",
     "timeToFix": 5
   },
   {
