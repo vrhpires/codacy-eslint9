@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "eslint-9",
+            "patterns": [
+                {
+                "patternId":"security-node_non-literal-reg-expr"
+                }
+            ]
+           
+        }
+    ],
+        "files": [
+            "./security-node.js"
+        ]
+}

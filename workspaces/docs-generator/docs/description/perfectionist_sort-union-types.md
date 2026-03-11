@@ -1,0 +1,445 @@
+---
+title: sort-union-types
+description: Ensure union types in TypeScript are sorted for cleaner and more maintainable code. This ESLint rule promotes a standardized ordering of union types
+shortDescription: Enforce sorted union types
+keywords:
+  - eslint
+  - sort union types
+  - eslint rule
+  - coding standards
+  - code quality
+  - typescript linting
+  - union types sorting
+  - typescript types
+  - typescript linting
+  - typescript-eslint
+  - typescript union types
+  - typescript union type sorting
+  - typescript union type members
+  - typescript union type sorting
+  - typescript union type members sorting
+---
+
+import CodeExample from '../../components/CodeExample.svelte'
+import Important from '../../components/Important.astro'
+import CodeTabs from '../../components/CodeTabs.svelte'
+import dedent from 'dedent'
+
+Enforce sorted TypeScript union types.
+
+Adhering to this rule ensures that union types are consistently sorted, resulting in cleaner and more maintainable code. By promoting a standardized ordering of union types, this rule makes it easier for developers to navigate and understand the structure of type unions within the codebase.
+
+Consistently sorted union types enhance the overall clarity and organization of your code.
+
+<Important>
+If you use the [`sort-type-constituents`](https://typescript-eslint.io/rules/sort-type-constituents) rule from the [`@typescript-eslint/eslint-plugin`](https://typescript-eslint.io) plugin, it is highly recommended to [disable it](https://eslint.org/docs/latest/use/configure/rules#using-configuration-files-1) to avoid conflicts.
+</Important>
+
+## Try it out
+
+<CodeExample
+  alphabetical={dedent`
+    type UserRole = 'admin' | 'editor' | 'guest' | 'user'
+
+    type ResponseStatus =
+      | 'error'
+      | 'pending'
+      | 'success'
+      | 'timeout'
+
+    type InputType =
+      | 'email'
+      | 'number'
+      | 'password'
+      | 'tel'
+      | 'text'
+  `}
+  lineLength={dedent`
+    type UserRole = 'editor' | 'admin' | 'guest' | 'user'
+
+    type ResponseStatus =
+      | 'success'
+      | 'pending'
+      | 'timeout'
+      | 'error'
+
+    type InputType =
+      | 'password'
+      | 'number'
+      | 'email'
+      | 'text'
+      | 'tel'
+  `}
+  initial={dedent`
+    type UserRole = 'user' | 'guest' | 'admin' | 'editor'
+
+    type ResponseStatus =
+      | 'timeout'
+      | 'success'
+      | 'pending'
+      | 'error'
+
+    type InputType =
+      | 'password'
+      | 'tel'
+      | 'number'
+      | 'text'
+      | 'email'
+  `}
+  client:load
+  lang="tsx"
+/>
+
+## Options
+
+This rule accepts an options object with the following properties:
+
+### type
+
+<sub>default: `'alphabetical'`</sub>
+
+Specifies the sorting method.
+
+- `'alphabetical'` — Sort items alphabetically (e.g., “a” < “b” < “c”) using [localeCompare](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare).
+- `'natural'` — Sort items in a [natural](https://github.com/yobacca/natural-orderby) order (e.g., “item2” < “item10”).
+- `'line-length'` — Sort items by code line length (shorter lines first).
+- `'custom'` — Sort items using the alphabet specified in the [`alphabet`](#alphabet) option.
+- `'unsorted'` — Do not sort items. [`grouping`](#groups) and [`newlines behavior`](#newlinesbetween) are still enforced.
+
+### order
+
+<sub>default: `'asc'`</sub>
+
+Specifies whether to sort items in ascending or descending order.
+
+- `'asc'` — Sort items in ascending order (A to Z, 1 to 9).
+- `'desc'` — Sort items in descending order (Z to A, 9 to 1).
+
+### fallbackSort
+
+<sub>
+  type:
+  ```
+  {
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted'
+    order?: 'asc' | 'desc'
+  }
+  ```
+</sub>
+<sub>default: `{ type: 'unsorted' }`</sub>
+
+Specifies fallback sort options for elements that are equal according to the primary sort
+[`type`](#type).
+
+Example: enforce alphabetical sort between two elements with the same length.
+```ts
+{
+  type: 'line-length',
+  order: 'desc',
+  fallbackSort: { type: 'alphabetical', order: 'asc' }
+}
+```
+
+### alphabet
+
+<sub>default: `''`</sub>
+
+Used only when the [`type`](#type) option is set to `'custom'`. Specifies the custom alphabet for sorting.
+
+Use the `Alphabet` utility class from `eslint-plugin-perfectionist/alphabet` to quickly generate a custom alphabet.
+
+Example: `0123456789abcdef...`
+
+### ignoreCase
+
+<sub>default: `true`</sub>
+
+Specifies whether sorting should be case-sensitive.
+
+- `true` — Ignore case when sorting alphabetically or naturally (e.g., “A” and “a” are the same).
+- `false` — Consider case when sorting (e.g., “a” comes before “A”).
+
+### specialCharacters
+
+<sub>default: `keep`</sub>
+
+Specifies whether to trim, remove, or keep special characters before sorting.
+
+- `'keep'` — Keep special characters when sorting (e.g., “_a” comes before “a”).
+- `'trim'` — Trim special characters when sorting alphabetically or naturally (e.g., “_a” and “a” are the same).
+- `'remove'` — Remove special characters when sorting (e.g., “/a/b” and “ab” are the same).
+
+### locales
+
+<sub>default: `'en-US'`</sub>
+
+Specifies the sorting locales. Refer To [String.prototype.localeCompare() - locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare#locales).
+
+- `string` — A BCP 47 language tag (e.g. `'en'`, `'en-US'`, `'zh-CN'`).
+- `string[]` — An array of BCP 47 language tags.
+
+### partitionByComment
+
+<sub>default: `false`</sub>
+
+Enables the use of comments to separate the members of union types into logical groups. This can help in organizing and maintaining large union types by creating partitions based on comments.
+
+- `true` — All comments will be treated as delimiters, creating partitions.
+- `false` — Comments will not be used as delimiters.
+- `RegExpPattern = string | { pattern: string; flags: string}` — A regexp pattern to specify which comments should act as delimiters.
+- `RegExpPattern[]` — A list of regexp patterns to specify which comments should act as delimiters.
+- `{ block: boolean | RegExpPattern | RegExpPattern[]; line: boolean | RegExpPattern | RegExpPattern[] }` — Specify which block and line comments should act as delimiters.
+
+### partitionByNewLine
+
+<sub>default: `false`</sub>
+
+When `true`, the rule will not sort the members of an union type if there is an empty line between them. This helps maintain the defined order of logically separated groups of members.
+
+```ts
+type CarBrand =
+  // Group 1
+  Fiat |
+  Honda |
+
+  // Group 2
+  Ferrari |
+
+  // Group 3
+  Chevrolet |
+  Ford
+```
+
+Each group of union types (separated by empty lines) is treated independently, and the order within each group is preserved.
+
+### newlinesBetween
+
+<sub>default: `'ignore'`</sub>
+
+Specifies how to handle new lines between union type groups.
+
+- `ignore` — Do not report errors related to new lines between union type groups.
+- `always` — Enforce one new line between each group, and forbid new lines inside a group.
+- `never` — No new lines are allowed in union types.
+
+You can also enforce the newline behavior between two specific groups through the `groups` options.
+
+See the [`groups`](#newlines-between-groups) option.
+
+This option is only applicable when [`partitionByNewLine`](#partitionbynewline) is `false`.
+
+### groups
+
+<sub>
+  type: `Array<string | string[]>`
+</sub>
+<sub>default: `[]`</sub>
+
+Specifies a list of union type groups for sorting. Groups help organize types into categories, making your type definitions more readable and maintainable.
+
+Predefined groups:
+
+- `'conditional`' — Conditional types.
+- `'function`' — Function types.
+- `'import`' — Imported types.
+- `'intersection`' — Intersection types.
+- `'keyword`' — Keyword types.
+- `'literal`' — Literal types.
+- `'named`' — Named types.
+- `'object`' — Object types.
+- `'operator`' — Operator types.
+- `'tuple`' — Tuple types.
+- `'union`' — Union types.
+- `'nullish`' — Nullish types (`null` or `undefined`).
+- `'unknown`' — Types that don’t fit into any group entered by the user.
+
+If the `unknown` group is not specified in the `groups` option, it will automatically be added to the end of the list.
+
+Each union type will be assigned a single group specified in the `groups` option (or the `unknown` group if no match is found).
+The order of items in the `groups` option determines how groups are ordered.
+
+Within a given group, members will be sorted according to the `type`, `order`, `ignoreCase`, etc. options.
+
+Individual groups can be combined together by placing them in an array. The order of groups in that array does not matter.
+All members of the groups in the array will be sorted together as if they were part of a single group.
+
+#### Example 1
+
+Using all predefined groups:
+
+```ts
+type Example =
+  // 'conditional' — Conditional types.
+  | (A extends B ? C : D)
+  // 'function' — Function types.
+  | ((arg: T) => U)
+  // 'import' — Imported types.
+  | import('module').Type
+  // 'intersection' — Intersection types.
+  | (A & B)
+  // 'keyword' — Keyword types.
+  | any
+  // 'literal' — Literal types.
+  | 'literal'
+  | 42
+  // 'named' — Named types.
+  | SomeType
+  | AnotherType
+  // 'object' — Object types.
+  | { a: string; b: number; }
+  // 'operator' — Operator types.
+  | keyof T
+  // 'tuple' — Tuple types.
+  | [string, number]
+  // 'union' — Union types.
+  | (A | B)
+  // 'nullish' — Nullish types.
+  | null
+  | undefined;
+```
+
+`groups` option configuration:
+
+```js
+{
+  groups: [
+    'conditional',
+    'function',
+    'import',
+    'intersection',
+    'keyword',
+    'literal',
+    'named',
+    'object',
+    'operator',
+    'tuple',
+    'union',
+    'nullish',
+  ]
+}
+```
+
+#### Example 2
+
+Combine and sort `intersection` and `union` groups together:
+
+```ts
+type Example =
+  | AnotherType // 'named'
+  | SomeType    // 'named'
+  | (A & B)     // 'intersection'
+  | (A | B)     // 'union'
+  | (C & D)     // 'intersection'
+  | (C | D)     // 'union'
+  | keyof T;    // 'unknown'
+```
+
+`groups` option configuration:
+
+```js
+{
+  groups: [
+    'named',
+    ['intersection', 'union'],
+    'unknown',
+  ]
+}
+```
+
+#### Newlines between groups
+
+You may place `newlinesBetween` objects between your groups to enforce the newline behavior between two specific groups.
+
+See the [`newlinesBetween`](#newlinesbetween) option.
+
+This feature is only applicable when [`partitionByNewLine`](#partitionbynewline) is `false`.
+
+```ts
+{
+  newlinesBetween: 'always',
+  groups: [
+    'a',
+    { newlinesBetween: 'never' }, // Overrides the global newlinesBetween option
+    'b',
+  ]
+}
+```
+
+## Usage
+
+<CodeTabs
+  code={[
+    {
+      source: dedent`
+        // eslint.config.js
+        import perfectionist from 'eslint-plugin-perfectionist'
+
+        export default [
+          {
+            plugins: {
+              perfectionist,
+            },
+            rules: {
+              'perfectionist/sort-union-types': [
+                'error',
+                {
+                  type: 'alphabetical',
+                  order: 'asc',
+                  fallbackSort: { type: 'unsorted' },
+                  ignoreCase: true,
+                  specialCharacters: 'keep',
+                  partitionByComment: false,
+                  partitionByNewLine: false,
+                  newlinesBetween: 'ignore',
+                  groups: [],
+                },
+              ],
+            },
+          },
+        ]
+      `,
+      name: 'Flat Config',
+      value: 'flat',
+    },
+    {
+      source: dedent`
+        // .eslintrc.js
+        module.exports = {
+          plugins: [
+            'perfectionist',
+          ],
+          rules: {
+            'perfectionist/sort-union-types': [
+              'error',
+              {
+                type: 'alphabetical',
+                order: 'asc',
+                fallbackSort: { type: 'unsorted' },
+                ignoreCase: true,
+                specialCharacters: 'keep',
+                partitionByComment: false,
+                partitionByNewLine: false,
+                newlinesBetween: 'ignore',
+                groups: [],
+              },
+            ],
+          },
+        }
+      `,
+      name: 'Legacy Config',
+      value: 'legacy',
+    },
+  ]}
+  type="config-type"
+  client:load
+  lang="tsx"
+/>
+
+## Version
+
+This rule was introduced in [v0.4.0](https://github.com/azat-io/eslint-plugin-perfectionist/releases/tag/v0.4.0).
+
+## Resources
+
+- [Rule source](https://github.com/azat-io/eslint-plugin-perfectionist/blob/main/rules/sort-union-types.ts)
+- [Test source](https://github.com/azat-io/eslint-plugin-perfectionist/blob/main/test/sort-union-types.test.ts)

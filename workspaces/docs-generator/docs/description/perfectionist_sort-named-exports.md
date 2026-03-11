@@ -1,0 +1,460 @@
+---
+title: sort-named-exports
+description: Maintain a consistent and sorted order of named exports to improve code readability and maintainability. This ESLint rule ensures your named exports are well-organized
+shortDescription: Enforce sorted named exports
+keywords:
+  - eslint
+  - sort named exports
+  - eslint rule
+  - coding standards
+  - code quality
+  - javascript linting
+  - module exports sorting
+  - named exports sorting
+---
+
+import CodeExample from '../../components/CodeExample.svelte'
+import CodeTabs from '../../components/CodeTabs.svelte'
+import dedent from 'dedent'
+
+Enforce sorted named exports.
+
+Maintaining a consistent and sorted order of named exports can significantly improve code readability.
+
+This rule ensures that named exports are organized in a predictable manner, making it easier for developers to navigate and manage exported modules. By adopting this practice, you enhance the maintainability and clarity of your codebase.
+
+## Try it out
+
+<CodeExample
+  alphabetical={dedent`
+    export {
+      calculateAge,
+      debounce,
+      formatDate,
+      generateUUID,
+      parseQueryString,
+      throttle,
+    } from './utils'
+
+    export {
+      capitalizeFirstLetter,
+      generateRandomString,
+      isDateValid,
+      isEmailValid,
+      isEmpty,
+      isEqual,
+      isPhoneNumberValid,
+      parseDate,
+    } from './helpers'
+  `}
+  lineLength={dedent`
+    export {
+      parseQueryString,
+      calculateAge,
+      generateUUID,
+      formatDate,
+      debounce,
+      throttle,
+    } from './utils'
+
+    export {
+      capitalizeFirstLetter,
+      generateRandomString,
+      isPhoneNumberValid,
+      isEmailValid,
+      isDateValid,
+      parseDate,
+      isEmpty,
+      isEqual,
+    } from './helpers'
+  `}
+  initial={dedent`
+    export {
+      throttle,
+      calculateAge,
+      formatDate,
+      generateUUID,
+      debounce,
+      parseQueryString,
+    } from './utils'
+
+    export {
+      isPhoneNumberValid,
+      parseDate,
+      isEmpty,
+      isEqual,
+      capitalizeFirstLetter,
+      isDateValid,
+      isEmailValid,
+      generateRandomString,
+    } from './helpers'
+  `}
+  client:load
+  lang="tsx"
+/>
+
+## Options
+
+This rule accepts an options object with the following properties:
+
+### type
+
+<sub>default: `'alphabetical'`</sub>
+
+Specifies the sorting method.
+
+- `'alphabetical'` — Sort items alphabetically (e.g., “a” < “b” < “c”) using [localeCompare](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare).
+- `'natural'` — Sort items in a [natural](https://github.com/yobacca/natural-orderby) order (e.g., “item2” < “item10”).
+- `'line-length'` — Sort items by code line length (shorter lines first).
+- `'custom'` — Sort items using the alphabet specified in the [`alphabet`](#alphabet) option.
+- `'unsorted'` — Do not sort items. [`grouping`](#groups) and [`newlines behavior`](#newlinesbetween) are still enforced.
+
+### order
+
+<sub>default: `'asc'`</sub>
+
+Specifies whether to sort items in ascending or descending order.
+
+- `'asc'` — Sort items in ascending order (A to Z, 1 to 9).
+- `'desc'` — Sort items in descending order (Z to A, 9 to 1).
+
+### fallbackSort
+
+<sub>
+  type:
+  ```
+  {
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted'
+    order?: 'asc' | 'desc'
+  }
+  ```
+</sub>
+<sub>default: `{ type: 'unsorted' }`</sub>
+
+Specifies fallback sort options for elements that are equal according to the primary sort
+[`type`](#type).
+
+Example: enforce alphabetical sort between two elements with the same length.
+```ts
+{
+  type: 'line-length',
+  order: 'desc',
+  fallbackSort: { type: 'alphabetical', order: 'asc' }
+}
+```
+
+### alphabet
+
+<sub>default: `''`</sub>
+
+Used only when the [`type`](#type) option is set to `'custom'`. Specifies the custom alphabet for sorting.
+
+Use the `Alphabet` utility class from `eslint-plugin-perfectionist/alphabet` to quickly generate a custom alphabet.
+
+Example: `0123456789abcdef...`
+
+### ignoreCase
+
+<sub>default: `true`</sub>
+
+Specifies whether sorting should be case-sensitive.
+
+- `true` — Ignore case when sorting alphabetically or naturally (e.g., “A” and “a” are the same).
+- `false` — Consider case when sorting (e.g., “a” comes before “A”).
+
+### specialCharacters
+
+<sub>default: `keep`</sub>
+
+Specifies whether to trim, remove, or keep special characters before sorting.
+
+- `'keep'` — Keep special characters when sorting (e.g., “_a” comes before “a”).
+- `'trim'` — Trim special characters when sorting alphabetically or naturally (e.g., “_a” and “a” are the same).
+- `'remove'` — Remove special characters when sorting (e.g., “/a/b” and “ab” are the same).
+
+### locales
+
+<sub>default: `'en-US'`</sub>
+
+Specifies the sorting locales. Refer To [String.prototype.localeCompare() - locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare#locales).
+
+- `string` — A BCP 47 language tag (e.g. `'en'`, `'en-US'`, `'zh-CN'`).
+- `string[]` — An array of BCP 47 language tags.
+
+### ignoreAlias
+
+<sub>default: `false`</sub>
+
+Specifies whether to use the export alias as the name for sorting instead of the local name.
+
+- `true` — Use the export alias for sorting.
+- `false` — Use the local name for sorting.
+
+### [DEPRECATED] groupKind
+
+<sub>default: `'mixed'`</sub>
+
+Use the [groups](#groups) option with the `value` and `type` modifiers instead.
+
+Groups named exports by their kind, determining whether value exports should come before or after type exports.
+
+- `mixed` — Do not group named exports by their kind; export statements are sorted together regardless of their type.
+- `values-first` — Group all value exports before type exports.
+- `types-first` — Group all type exports before value exports.
+
+### partitionByComment
+
+<sub>default: `false`</sub>
+
+Enables the use of comments to separate the members of named exports into logical groups. This can help in organizing and maintaining large named exports by creating partitions based on comments.
+
+- `true` — All comments will be treated as delimiters, creating partitions.
+- `false` — Comments will not be used as delimiters.
+- `RegExpPattern = string | { pattern: string; flags: string}` — A regexp pattern to specify which comments should act as delimiters.
+- `RegExpPattern[]` — A list of regexp patterns to specify which comments should act as delimiters.
+- `{ block: boolean | RegExpPattern | RegExpPattern[]; line: boolean | RegExpPattern | RegExpPattern[] }` — Specify which block and line comments should act as delimiters.
+
+### partitionByNewLine
+
+<sub>default: `false`</sub>
+
+When `true`, the rule will not sort the members of named exports if there is an empty line between them. This helps maintain the defined order of logically separated groups of members.
+
+```ts
+export {
+     // Group 1
+    Drone,
+    Keyboard,
+    Mouse,
+    Smartphone,
+
+    // Group 2
+    Laptop,
+    Monitor,
+    Smartwatch,
+    Tablet,
+
+    // Group 3
+    Headphones,
+    Router,
+} from './devices'
+```
+
+Each group of members (separated by empty lines) is treated independently, and the order within each group is preserved.
+
+### newlinesBetween
+
+<sub>default: `'ignore'`</sub>
+
+Specifies how to handle new lines between groups.
+
+- `ignore` — Do not report errors related to new lines.
+- `always` — Enforce one new line between each group, and forbid new lines inside a group.
+- `never` — No new lines are allowed.
+
+You can also enforce the newline behavior between two specific groups through the `groups` options.
+
+See the [`groups`](#newlines-between-groups) option.
+
+This option is only applicable when [`partitionByNewLine`](#partitionbynewline) is `false`.
+
+### groups
+
+<sub>
+  type: `Array<string | string[]>`
+</sub>
+<sub>default: `[]`</sub>
+
+Specifies a list of named exports groups for sorting. Groups help organize named exports into categories, making them more readable and maintainable.
+
+Each named export will be assigned a single group specified in the `groups` option (or the `unknown` group if no match is found).
+The order of items in the `groups` option determines how groups are ordered.
+
+Within a given group, members will be sorted according to the `type`, `order`, `ignoreCase`, etc. options.
+
+Individual groups can be combined together by placing them in an array. The order of groups in that array does not matter.
+All members of the groups in the array will be sorted together as if they were part of a single group.
+
+Predefined groups are characterized by a single selector and potentially multiple modifiers. You may enter modifiers in any order, but the selector must always come at the end.
+
+#### Selectors
+
+The only selector possible for this rule is `export`.
+
+#### Modifiers
+
+- `value` — Matches value exports.
+- `type` — Matches type exports.
+
+Example: `type-export`.
+
+#### Important notes
+
+##### The `unknown` group
+
+Members that don’t fit into any group specified in the `groups` option will be placed in the `unknown` group. If the `unknown` group is not specified in the `groups` option,
+it will automatically be added to the end of the list.
+
+##### Newlines between groups
+
+You may place `newlinesBetween` objects between your groups to enforce the newline behavior between two specific groups.
+
+See the [`newlinesBetween`](#newlinesbetween) option.
+
+This feature is only applicable when [`partitionByNewLine`](#partitionbynewline) is `false`.
+
+```ts
+{
+  newlinesBetween: 'always',
+  groups: [
+    'a',
+    { newlinesBetween: 'never' }, // Overrides the global newlinesBetween option
+    'b',
+  ]
+}
+```
+
+### customGroups
+
+<sub>
+  type: `Array<CustomGroupDefinition | CustomGroupAnyOfDefinition>`
+</sub>
+<sub>default: `[]`</sub>
+
+Defines custom groups to match specific named exports.
+
+A custom group definition may follow one of the two following interfaces:
+
+```ts
+interface CustomGroupDefinition {
+  groupName: string
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'unsorted'
+  order?: 'asc' | 'desc'
+  fallbackSort?: { type: string; order?: 'asc' | 'desc' }
+  newlinesInside?: 'always' | 'never'
+  selector?: string
+  elementNamePattern?: string | string[] | { pattern: string; flags?: string } | { pattern: string; flags?: string }[]
+}
+
+```
+A named export will match a `CustomGroupDefinition` group if it matches all the filters of the custom group's definition.
+
+or:
+
+```ts
+interface CustomGroupAnyOfDefinition {
+  groupName: string
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'unsorted'
+  order?: 'asc' | 'desc'
+  fallbackSort?: { type: string; order?: 'asc' | 'desc' }
+  newlinesInside?: 'always' | 'never'
+  anyOf: Array<{
+      selector?: string
+      elementNamePattern?: string | string[] | { pattern: string; flags?: string } | { pattern: string; flags?: string }[]
+  }>
+}
+```
+
+A named export will match a `CustomGroupAnyOfDefinition` group if it matches all the filters of at least one of the `anyOf` items.
+
+#### Attributes
+
+- `groupName` — The group's name, which needs to be put in the [`groups`](#groups) option.
+- `selector` — Filter on the `selector` of the element.
+- `elementNamePattern` — If entered, will check that the name of the element matches the pattern entered.
+- `type` — Overrides the [`type`](#type) option for that custom group. `unsorted` will not sort the group.
+- `order` — Overrides the [`order`](#order) option for that custom group.
+- `fallbackSort` — Overrides the [`fallbackSort`](#fallbacksort) option for that custom group.
+- `newlinesInside` — Enforces a specific newline behavior between elements of the group.
+
+#### Match importance
+
+The `customGroups` list is ordered:
+The first custom group definition that matches an element will be used.
+
+Custom groups have a higher priority than any predefined group.
+
+## Usage
+
+<CodeTabs
+  code={[
+    {
+      source: dedent`
+        // eslint.config.js
+        import perfectionist from 'eslint-plugin-perfectionist'
+
+        export default [
+          {
+            plugins: {
+              perfectionist,
+            },
+            rules: {
+              'perfectionist/sort-named-exports': [
+                'error',
+                {
+                  type: 'alphabetical',
+                  order: 'asc',
+                  fallbackSort: { type: 'unsorted' },
+                  ignoreAlias: false,
+                  ignoreCase: true,
+                  specialCharacters: 'keep',
+                  groupKind: 'mixed',
+                  partitionByNewLine: false,
+                  partitionByComment: false,
+                  newlinesBetween: 'ignore',
+                  groups: [],
+                  customGroups: [],
+                },
+              ],
+            },
+          },
+        ]
+      `,
+      name: 'Flat Config',
+      value: 'flat',
+    },
+    {
+      source: dedent`
+        // .eslintrc.js
+        module.exports = {
+          plugins: [
+            'perfectionist',
+          ],
+          rules: {
+            'perfectionist/sort-named-exports': [
+              'error',
+              {
+                type: 'alphabetical',
+                order: 'asc',
+                fallbackSort: { type: 'unsorted' },
+                ignoreAlias: false,
+                ignoreCase: true,
+                specialCharacters: 'keep',
+                groupKind: 'mixed',
+                partitionByNewLine: false,
+                partitionByComment: false,
+                newlinesBetween: 'ignore',
+                groups: [],
+                customGroups: [],
+              },
+            ],
+          },
+        }
+      `,
+      name: 'Legacy Config',
+      value: 'legacy',
+    },
+  ]}
+  type="config-type"
+  client:load
+  lang="tsx"
+/>
+
+## Version
+
+This rule was introduced in [v0.4.0](https://github.com/azat-io/eslint-plugin-perfectionist/releases/tag/v0.4.0).
+
+## Resources
+
+- [Rule source](https://github.com/azat-io/eslint-plugin-perfectionist/blob/main/rules/sort-named-exports.ts)
+- [Test source](https://github.com/azat-io/eslint-plugin-perfectionist/blob/main/test/sort-named-exports.test.ts)

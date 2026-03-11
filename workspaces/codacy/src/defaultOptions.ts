@@ -187,6 +187,7 @@ export const baseConfig: TSESLint.FlatConfig.ConfigArray = [
       "rxjs-angular/prefer-async-pipe": "off",
       "rxjs-angular/prefer-composition": "off",
       "rxjs-angular/prefer-takeuntil": "off",
+      "svelte/no-restricted-html-elements": ["error", "h1", "h2", "h3", "h4", "h5", "h6"],
       // turn off rules that don't apply to JS code
       // https://github.com/typescript-eslint/typescript-eslint/blob/e44a1a280f08f9fd0d29f74e5c3e73b7b64a9606/eslint.config.mjs#L304
       "deprecation/deprecation": "off",

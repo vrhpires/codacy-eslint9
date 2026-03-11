@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.20
+FROM node:lts-alpine3.22
 
 WORKDIR /app
 
@@ -15,7 +15,8 @@ RUN npm install --legacy-peer-dep \
 # Generate documentation
 RUN npm start -w docs-generator \
     && mv workspaces/docs-generator/docs /docs \
-    && chmod -R 0777 /docs
+    && chmod -R 0777 /docs 
+    
 # Prepare env
 RUN mv workspaces/codacy/src/tsconfig.src.json /tsconfig.json  \
     && ln -s /app/node_modules /node_modules

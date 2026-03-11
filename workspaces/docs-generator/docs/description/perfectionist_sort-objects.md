@@ -1,0 +1,741 @@
+---
+title: sort-objects
+description: Ensure object keys are consistently sorted for cleaner and more maintainable code. This ESLint rule promotes a standardized key ordering across objects
+shortDescription: Enforce sorted objects
+keywords:
+  - eslint
+  - sort objects
+  - eslint rule
+  - coding standards
+  - code quality
+  - javascript linting
+  - object keys sorting
+  - object properties sorting
+---
+
+import CodeExample from '../../components/CodeExample.svelte'
+import Important from '../../components/Important.astro'
+import CodeTabs from '../../components/CodeTabs.svelte'
+import dedent from 'dedent'
+
+Enforce sorted objects.
+
+By adhering to this rule, developers can ensure that object keys are consistently sorted, leading to cleaner and more maintainable code. This rule promotes a standardized key ordering across objects, making it easier to navigate and understand the structure of objects within the codebase.
+
+It's **safe**. The rule considers spread elements in objects and does not break component functionality.
+
+<Important>
+If you use the [`sort-keys`](https://eslint.org/docs/latest/rules/sort-keys) rule, it is highly recommended to [disable it](https://eslint.org/docs/latest/use/configure/rules#using-configuration-files-1) to avoid conflicts.
+</Important>
+
+## Try it out
+
+<CodeExample
+  alphabetical={dedent`
+    const event = {
+      date: new Date('2023-09-15'),
+      description: 'Annual conference discussing the latest in technology.',
+      location: {
+        address: '123 Tech Street',
+        city: 'San Francisco',
+        country: 'USA',
+        postalCode: '94103',
+        state: 'CA',
+        venue: 'Tech Center',
+      },
+      organizer: {
+        email: 'charlie.brown@protonmail.com',
+        name: 'Charlie Brown',
+        phone: '555-1234',
+      },
+      schedule: [
+        {
+          activity: 'Registration',
+          speaker: null,
+          time: '09:00 AM',
+        },
+        {
+          activity: 'Opening Keynote',
+          speaker: 'Jane Doe',
+          time: '10:00 AM',
+        },
+        {
+          activity: 'Tech Trends 2023',
+          speaker: 'Alice Johnson',
+          time: '11:00 AM',
+        }
+      ],
+      status: 'upcoming',
+      title: 'Tech Conference 2023',
+    }
+  `}
+  lineLength={dedent`
+    const event = {
+      schedule: [
+        {
+          activity: 'Registration',
+          time: '09:00 AM',
+          speaker: null,
+        },
+        {
+          activity: 'Opening Keynote',
+          speaker: 'Jane Doe',
+          time: '10:00 AM',
+        },
+        {
+          activity: 'Tech Trends 2023',
+          speaker: 'Alice Johnson',
+          time: '11:00 AM',
+        }
+      ],
+      location: {
+        address: '123 Tech Street',
+        city: 'San Francisco',
+        venue: 'Tech Center',
+        postalCode: '94103',
+        country: 'USA',
+        state: 'CA',
+      },
+      organizer: {
+        email: 'charlie.brown@protonmail.com',
+        name: 'Charlie Brown',
+        phone: '555-1234',
+      },
+      description: 'Annual conference discussing the latest in technology.',
+      title: 'Tech Conference 2023',
+      date: new Date('2023-09-15'),
+      status: 'upcoming',
+    }
+  `}
+  initial={dedent`
+    const event = {
+      description: 'Annual conference discussing the latest in technology.',
+      organizer: {
+        email: 'charlie.brown@protonmail.com',
+        phone: '555-1234',
+        name: 'Charlie Brown',
+      },
+      title: 'Tech Conference 2023',
+      schedule: [
+        {
+          speaker: null,
+          time: '09:00 AM',
+          activity: 'Registration',
+        },
+        {
+          speaker: 'Jane Doe',
+          time: '10:00 AM',
+          activity: 'Opening Keynote',
+        },
+        {
+          activity: 'Tech Trends 2023',
+          time: '11:00 AM',
+          speaker: 'Alice Johnson',
+        }
+      ],
+      location: {
+        state: 'CA',
+        address: '123 Tech Street',
+        city: 'San Francisco',
+        postalCode: '94103',
+        country: 'USA',
+        venue: 'Tech Center',
+      },
+      date: new Date('2023-09-15'),
+      status: 'upcoming',
+    }
+  `}
+  client:load
+  lang="tsx"
+/>
+
+## Options
+
+This rule accepts an options object with the following properties:
+
+### type
+
+<sub>default: `'alphabetical'`</sub>
+
+Specifies the sorting method.
+
+- `'alphabetical'` — Sort items alphabetically (e.g., “a” < “b” < “c”) using [localeCompare](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare).
+- `'natural'` — Sort items in a [natural](https://github.com/yobacca/natural-orderby) order (e.g., “item2” < “item10”).
+- `'line-length'` — Sort items by code line length (shorter lines first).
+- `'custom'` — Sort items using the alphabet specified in the [`alphabet`](#alphabet) option.
+- `'unsorted'` — Do not sort items. [`grouping`](#groups) and [`newlines behavior`](#newlinesbetween) are still enforced.
+
+### order
+
+<sub>default: `'asc'`</sub>
+
+Specifies whether to sort items in ascending or descending order.
+
+- `'asc'` — Sort items in ascending order (A to Z, 1 to 9).
+- `'desc'` — Sort items in descending order (Z to A, 9 to 1).
+
+### fallbackSort
+
+<sub>
+  type:
+  ```
+  {
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted'
+    order?: 'asc' | 'desc'
+  }
+  ```
+</sub>
+<sub>default: `{ type: 'unsorted' }`</sub>
+
+Specifies fallback sort options for elements that are equal according to the primary sort
+[`type`](#type).
+
+Example: enforce alphabetical sort between two elements with the same length.
+```ts
+{
+  type: 'line-length',
+  order: 'desc',
+  fallbackSort: { type: 'alphabetical', order: 'asc' }
+}
+```
+
+### alphabet
+
+<sub>default: `''`</sub>
+
+Used only when the [`type`](#type) option is set to `'custom'`. Specifies the custom alphabet for sorting.
+
+Use the `Alphabet` utility class from `eslint-plugin-perfectionist/alphabet` to quickly generate a custom alphabet.
+
+Example: `0123456789abcdef...`
+
+### ignoreCase
+
+<sub>default: `true`</sub>
+
+Specifies whether sorting should be case-sensitive.
+
+- `true` — Ignore case when sorting alphabetically or naturally (e.g., “A” and “a” are the same).
+- `false` — Consider case when sorting (e.g., “a” comes before “A”).
+
+### specialCharacters
+
+<sub>default: `keep`</sub>
+
+Specifies whether to trim, remove, or keep special characters before sorting.
+
+- `'keep'` — Keep special characters when sorting (e.g., “_a” comes before “a”).
+- `'trim'` — Trim special characters when sorting alphabetically or naturally (e.g., “_a” and “a” are the same).
+- `'remove'` — Remove special characters when sorting (e.g., “/a/b” and “ab” are the same).
+
+### locales
+
+<sub>default: `'en-US'`</sub>
+
+Specifies the sorting locales. Refer To [String.prototype.localeCompare() - locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare#locales).
+
+- `string` — A BCP 47 language tag (e.g. `'en'`, `'en-US'`, `'zh-CN'`).
+- `string[]` — An array of BCP 47 language tags.
+
+### partitionByComment
+
+<sub>default: `false`</sub>
+
+Enables the use of comments to separate the keys of objects into logical groups. This can help in organizing and maintaining large objects by creating partitions based on comments.
+
+- `true` — All comments will be treated as delimiters, creating partitions.
+- `false` — Comments will not be used as delimiters.
+- `RegExpPattern = string | { pattern: string; flags: string}` — A regexp pattern to specify which comments should act as delimiters.
+- `RegExpPattern[]` — A list of regexp patterns to specify which comments should act as delimiters.
+- `{ block: boolean | RegExpPattern | RegExpPattern[]; line: boolean | RegExpPattern | RegExpPattern[] }` — Specify which block and line comments should act as delimiters.
+
+### partitionByNewLine
+
+<sub>default: `false`</sub>
+
+When `true`, the rule will not sort the object’s keys if there is an empty line between them. This helps maintain the defined order of logically separated groups of keys.
+
+```js
+const user = {
+  // Group 1
+  firstName: 'John',
+  lastName: 'Doe',
+
+  // Group 2
+  age: 30,
+  birthDate: '1990-01-01',
+
+  // Group 3
+  email: 'john.doe@example.com',
+  phone: '555-555-5555'
+};
+```
+
+Each group of keys (separated by empty lines) is treated independently, and the order within each group is preserved.
+
+### newlinesBetween
+
+<sub>default: `'ignore'`</sub>
+
+Specifies how to handle new lines between object groups.
+
+- `ignore` — Do not report errors related to new lines between object groups.
+- `always` — Enforce one new line between each group, and forbid new lines inside a group.
+- `never` — No new lines are allowed in objects.
+
+You can also enforce the newline behavior between two specific groups through the `groups` options.
+
+See the [`groups`](#newlines-between-groups) option.
+
+This option is only applicable when [`partitionByNewLine`](#partitionbynewline) is `false`.
+
+### styledComponents
+
+<sub>default: `true`</sub>
+
+Specifies whether this rule should be applied to styled-components like libraries or `style` JSX attribute.
+
+- `true` — Apply the rule to styled-components.
+- `false` — Disable the rule for styled-components.
+
+### [DEPRECATED] ignorePattern
+
+<sub>
+  type:
+  ```
+  {
+    allNamesMatchPattern?: string | string[] | { pattern: string; flags: string } | { pattern: string; flags: string }[]
+  }
+  ```
+</sub>
+<sub>default: `[]`</sub>
+
+Use the [useConfigurationIf.declarationMatchesPattern](#useconfigurationif) option alongside [type: unsorted](#type) instead.
+
+Specifies names or patterns for objects that should be ignored by this rule. This can be useful if you have specific objects that you do not want to sort.
+
+You can specify their names or a regexp pattern to ignore, for example: `'^User.+'` to ignore all object whose names begin with the word “User”.
+
+### [DEPRECATED] destructureOnly
+
+<sub>default: `false`</sub>
+
+Use the [objectDeclarations](#objectdeclarations) and [destructuredObjects](#destructuredobjects) options instead.
+
+Restricts sorting to objects that are part of a destructuring pattern. When set to `true`, the rule will apply sorting exclusively to destructured objects, leaving other object declarations unchanged.
+
+### objectDeclarations
+
+<sub>default: `true`</sub>
+
+Specifies whether to sort standard object declarations.
+
+### destructuredObjects
+
+<sub>
+  type: `boolean | { groups: boolean }`
+</sub>
+<sub>default: `true`</sub>
+
+Specifies whether to sort destructured objects.
+The `groups` attribute specifies whether to use groups to sort destructured objects.
+
+### useConfigurationIf
+
+<sub>
+  type:
+  ```
+  {
+    allNamesMatchPattern?: string | string[] | { pattern: string; flags: string } | { pattern: string; flags: string }[]
+    callingFunctionNamePattern?: string | string[] | { pattern: string; flags: string } | { pattern: string; flags: string }[]
+  }
+  ```
+</sub>
+<sub>default: `{}`</sub>
+
+Specifies filters to match a particular options configuration for a given object.
+
+The first matching options configuration will be used. If no configuration matches, the default options configuration will be used.
+
+- `allNamesMatchPattern` — A regexp pattern that all object keys must match.
+
+Example configuration:
+```ts
+{
+  'perfectionist/sort-objects': [
+    'error',
+    {
+      groups: ['r', 'g', 'b'], // Sort colors by RGB
+      customGroups: {
+        r: '^r$',
+        g: '^g$',
+        b: '^b$',
+      },
+      useConfigurationIf: {
+        allNamesMatchPattern: '^r|g|b$',
+      },
+    },
+    {
+      type: 'alphabetical' // Fallback configuration
+    }
+  ],
+}
+```
+
+- `callingFunctionNamePattern` — A regexp pattern for matching objects that are passed as arguments to a function with a specific name.
+
+```ts
+{
+  'perfectionist/sort-objects': [
+    'error',
+    {
+      type: 'unsorted', // Don't sort objects passed to createSlice
+      useConfigurationIf: {
+        callingFunctionNamePattern: '^createSlice$',
+      },
+    },
+    {
+      type: 'alphabetical' // Fallback configuration
+    }
+  ],
+}
+```
+
+### groups
+
+<sub>
+  type: `Array<string | string[]>`
+</sub>
+<sub>default: `[]`</sub>
+
+Specifies a list of object keys groups for sorting. Groups help organize object keys into categories, making your objects more readable and maintainable.
+
+Each property will be assigned a single group specified in the `groups` option (or the `unknown` group if no match is found).
+The order of items in the `groups` option determines how groups are ordered.
+
+Within a given group, members will be sorted according to the `type`, `order`, `ignoreCase`, etc. options.
+
+Individual groups can be combined together by placing them in an array. The order of groups in that array does not matter.
+All members of the groups in the array will be sorted together as if they were part of a single group.
+
+Predefined groups are characterized by a single selector and potentially multiple modifiers. You may enter modifiers in any order, but the selector must always come at the end.
+
+#### Example
+
+```ts
+let user = {
+  firstName: "John", // unknown
+  lastName: "Doe",  // unknown
+  username: "john_doe",  // unknown
+  job: {            // multiline-member
+    // Stuff about job
+  },
+  localization: {   // multiline-member
+    // Stuff about localization
+  }
+}
+```
+
+`groups` option configuration:
+
+```js
+{
+  groups: [
+    'unknown',
+    'method',
+    'multiline-member',
+  ]
+}
+
+```
+
+#### Methods
+
+- Selectors: `method`, `member`.
+- Modifiers: `multiline`.
+- Example: `multiline-method`, `method`, `member`.
+
+#### Properties
+
+- Selectors: `property`, `member`.
+- Modifiers: `multiline`.
+- Example: `multiline-property`, `property`, `member`.
+
+##### The `unknown` group
+
+Members that don’t fit into any group specified in the `groups` option will be placed in the `unknown` group. If the `unknown` group is not specified in the `groups` option,
+it will automatically be added to the end of the list.
+
+#### Important notes
+
+##### Behavior when multiple groups match an element
+
+The lists of modifiers above are sorted by importance, from most to least important.
+In case of multiple groups matching an element, the following rules will be applied:
+
+1. The group with the most modifiers matching will be selected.
+2. If modifiers quantity is the same, order will be chosen based on modifier importance as listed above.
+
+Example :
+
+```ts
+interface Test {
+  multilineMethod: () => {
+      property: string;
+    }
+}
+```
+
+`multilineMethod` can be matched by the following groups, from most to least important:
+- `multiline-method`.
+- `method`.
+- `multiline-member`.
+- `member`.
+- `unknown`.
+
+##### Newlines between groups
+
+You may place `newlinesBetween` objects between your groups to enforce the newline behavior between two specific groups.
+
+See the [`newlinesBetween`](#newlinesbetween) option.
+
+This feature is only applicable when [`partitionByNewLine`](#partitionbynewline) is `false`.
+
+```ts
+{
+  newlinesBetween: 'always',
+  groups: [
+    'a',
+    { newlinesBetween: 'never' }, // Overrides the global newlinesBetween option
+    'b',
+  ]
+}
+```
+
+### customGroups
+
+<Important title="Migrating from the old API">
+Support for the object-based `customGroups` option is deprecated.
+
+Migrating from the old to the current API is easy:
+
+Old API:
+```ts
+{
+  "key1": "value1",
+  "key2": "value2"
+}
+```
+
+Current API:
+```ts
+[
+  {
+    "groupName": "key1",
+    "elementNamePattern": "value1"
+  },
+  {
+    "groupName": "key2",
+    "elementNamePattern": "value2"
+  }
+]
+```
+</Important>
+
+<sub>
+  type: `{ [groupName: string]: string | string[] }`
+</sub>
+<sub>default: `[]`</sub>
+
+Defines custom groups to match specific object keys.
+
+A custom group definition may follow one of the two following interfaces:
+
+```ts
+interface CustomGroupDefinition {
+  groupName: string
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'unsorted'
+  order?: 'asc' | 'desc'
+  fallbackSort?: { type: string; order?: 'asc' | 'desc' }
+  newlinesInside?: 'always' | 'never'
+  selector?: string
+  modifiers?: string[]
+  elementNamePattern?: string | string[] | { pattern: string; flags?: string } | { pattern: string; flags?: string }[]
+  elementValuePattern?: string | string[] | { pattern: string; flags?: string } | { pattern: string; flags?: string }[]
+}
+
+```
+An object will match a `CustomGroupDefinition` group if it matches all the filters of the custom group's definition.
+
+or:
+
+```ts
+interface CustomGroupAnyOfDefinition {
+  groupName: string
+  type?: 'alphabetical' | 'natural' | 'line-length' | 'unsorted'
+  order?: 'asc' | 'desc'
+  fallbackSort?: { type: string; order?: 'asc' | 'desc' }
+  newlinesInside?: 'always' | 'never'
+  anyOf: Array<{
+      selector?: string
+      modifiers?: string[]
+      elementNamePattern?: string | string[] | { pattern: string; flags?: string } | { pattern: string; flags?: string }[]
+      elementValuePattern?: string | string[] | { pattern: string; flags?: string } | { pattern: string; flags?: string }[]
+  }>
+}
+```
+
+An object will match a `CustomGroupAnyOfDefinition` group if it matches all the filters of at least one of the `anyOf` items.
+
+#### Attributes
+
+- `groupName` — The group's name, which needs to be put in the [`groups`](#groups) option.
+- `selector` — Filter on the `selector` of the element.
+- `modifiers` — Filter on the `modifiers` of the element. (All the modifiers of the element must be present in that list)
+- `elementNamePattern` — If entered, will check that the name of the element matches the pattern entered.
+- `elementValuePattern` — Only for non-function properties. If entered, will check that the value of the property matches the pattern entered.
+- `type` — Overrides the [`type`](#type) option for that custom group. `unsorted` will not sort the group.
+- `order` — Overrides the [`order`](#order) option for that custom group.
+- `fallbackSort` — Overrides the [`fallbackSort`](#fallbacksort) option for that custom group.
+- `newlinesInside` — Enforces a specific newline behavior between elements of the group.
+
+#### Match importance
+
+The `customGroups` list is ordered:
+The first custom group definition that matches an element will be used.
+
+Custom groups have a higher priority than any predefined group.
+
+#### Example
+
+Put all properties starting with `id` and `name` at the top, combine and sort metadata and multiline properties at the bottom.
+Anything else is put in the middle.
+
+```ts
+let user = {
+  id: "id",                 // top
+  name: "John",               // top
+  age: 42,                // unknown
+  isAdmin: true,           // unknown
+  lastUpdated_metadata: null, // bottom
+  localization: {            // multiline-member
+    // Stuff about localization
+  },
+  version_metadata: "1"   // bottom
+}
+```
+
+`groups` and `customGroups` configuration:
+
+```js
+ {
+   groups: [
++    'top',                                  // [!code ++]
+     'unknown',
++    ['multiline-member', 'bottom'] // [!code ++]
+   ],
++  customGroups: [                           // [!code ++]
++    {                                       // [!code ++]
++       groupName: 'top',                    // [!code ++]
++       selector: 'property',                // [!code ++]
++       elementNamePattern: '^(?:id|name)$', // [!code ++]
++    },                                      // [!code ++]
++    {                                       // [!code ++]
++       groupName: 'bottom',                 // [!code ++]
++       selector: 'property',                // [!code ++]
++       elementNamePattern: '.+_metadata$',  // [!code ++]
++    }                                       // [!code ++]
++  ]                                         // [!code ++]
+ }
+```
+
+## Usage
+
+<CodeTabs
+  code={[
+    {
+      source: dedent`
+        // eslint.config.js
+        import perfectionist from 'eslint-plugin-perfectionist'
+
+        export default [
+          {
+            plugins: {
+              perfectionist,
+            },
+            rules: {
+              'perfectionist/sort-objects': [
+                'error',
+                {
+                  type: 'alphabetical',
+                  order: 'asc',
+                  fallbackSort: { type: 'unsorted' },
+                  ignoreCase: true,
+                  specialCharacters: 'keep',
+                  partitionByComment: false,
+                  partitionByNewLine: false,
+                  newlinesBetween: 'ignore',
+                  objectDeclarations: true,
+                  destructuredObjects: true,
+                  styledComponents: true,
+                  ignorePattern: [],
+                  useConfigurationIf: {},
+                  groups: [],
+                  customGroups: [],
+                },
+              ],
+            },
+          },
+        ]
+      `,
+      name: 'Flat Config',
+      value: 'flat',
+    },
+    {
+      source: dedent`
+        // .eslintrc.js
+        module.exports = {
+          plugins: [
+            'perfectionist',
+          ],
+          rules: {
+            'perfectionist/sort-objects': [
+              'error',
+              {
+                type: 'alphabetical',
+                order: 'asc',
+                fallbackSort: { type: 'unsorted' },
+                ignoreCase: true,
+                specialCharacters: 'keep',
+                partitionByComment: false,
+                partitionByNewLine: false,
+                newlinesBetween: 'ignore',
+                objectDeclarations: true,
+                destructuredObjects: true,
+                styledComponents: true,
+                ignorePattern: [],
+                useConfigurationIf: {},
+                groups: [],
+                customGroups: [],
+              },
+            ],
+          },
+        }
+      `,
+      name: 'Legacy Config',
+      value: 'legacy',
+    },
+  ]}
+  type="config-type"
+  client:load
+  lang="tsx"
+/>
+
+## Version
+
+This rule was introduced in [v0.6.0](https://github.com/azat-io/eslint-plugin-perfectionist/releases/tag/v0.6.0).
+
+## Resources
+
+- [Rule source](https://github.com/azat-io/eslint-plugin-perfectionist/blob/main/rules/sort-objects.ts)
+- [Test source](https://github.com/azat-io/eslint-plugin-perfectionist/blob/main/test/sort-objects.test.ts)

@@ -9,10 +9,11 @@
   },
   "type": "module",
   "dependencies": {
-    "@types/semver": "^7.5.8",
-    "axios": "^1.7.2",
-    "fs-extra": "^11.2.0",
-    "json-schema": "^0.4.0",
+    "@types/semver": "^7.7.0",
+    "axios": "^1.9.0",
+    "fs-extra": "^11.3.0",
+    "jsonschema": "^1.5.0",
+    "svelte": "5.28.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0"
   }

@@ -1,0 +1,74 @@
+---
+pageClass: "rule-details"
+sidebarDepth: 0
+title: "regexp/prefer-character-class"
+description: "enforce using character class"
+since: "v0.4.0"
+---
+# regexp/prefer-character-class
+
+💼 This rule is enabled in the following configs: 🟢 `flat/recommended`, 🔵 `recommended`.
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
+
+> enforce using character class
+
+## :book: Rule Details
+
+Instead of single-character alternatives (e.g. `(?:a|b|c)`), character classes (e.g. `[abc]`) should be preferred.
+
+The main reason for doing this is performance. Character classes don't require backtracking and are heavily optimized by the regex engine. On the other hand, alternatives are usually quite tricky to optimize.
+
+Character classes are also safer than alternatives because they don't require backtracking. While `^(?:\w|a)+b$` will take _O(2^n)_ time to reject a string of _n_ many `a`s, the regex `^[\wa]+b$` will reject a string of _n_ many `a`s in _O(n)_.
+
+### Limitations
+
+This rule might not be able to merge all single-character alternatives.
+
+<eslint-code-block fix>
+
+```js
+/* eslint regexp/prefer-character-class: "error" */
+
+/* ✓ GOOD */
+var foo = /[abc]/
+var foo = /(?:a|b)/
+
+/* ✗ BAD */
+var foo = /a|b|c/
+var foo = /(a|b|c)c/
+var foo = /.|\s/
+var foo = /(\w|\d)+:/
+```
+
+</eslint-code-block>
+
+## :wrench: Options
+
+```json5
+{
+  "regexp/prefer-character-class": [
+    "error",
+    {
+        "minAlternatives": 3
+    }
+  ]
+}
+```
+
+### `minAlternatives: integer`
+
+This number controls how many character alternatives have to be present for them to be merged. By default, there need to be at least 3 alternatives.
+
+Note that this option does not affect character alternatives where the characters overlap. These alternatives will always be merged to prevent excessive backtracking.
+
+## :rocket: Version
+
+This rule was introduced in eslint-plugin-regexp v0.4.0
+
+## :mag: Implementation
+
+- [Rule source](https://github.com/ota-meshi/eslint-plugin-regexp/blob/master/lib/rules/prefer-character-class.ts)
+- [Test source](https://github.com/ota-meshi/eslint-plugin-regexp/blob/master/tests/lib/rules/prefer-character-class.ts)

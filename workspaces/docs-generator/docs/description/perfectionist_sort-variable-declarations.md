@@ -1,0 +1,273 @@
+---
+title: sort-variable-declarations
+description: The sort-variable-declarations rule in ESLint enforces a consistent order of variable declarations within a scope, improving code readability and maintainability
+shortDescription: Enforce sorted variable declarations
+keywords:
+  - eslint
+  - eslint rule
+  - coding standards
+  - code quality
+  - javascript linting
+  - variable declarations
+  - variable order
+  - variable sorting
+  - variable declaration order
+  - sort vars
+  - sort variables
+  - sort constants
+---
+
+import CodeExample from '../../components/CodeExample.svelte'
+import Important from '../../components/Important.astro'
+import CodeTabs from '../../components/CodeTabs.svelte'
+import dedent from 'dedent'
+
+Enforce sorted variable declarations within a scope.
+
+Variable declarations within a block of code can quickly become disorganized and difficult to navigate, especially in larger functions or modules. With this rule, you can ensure that all variable declarations are consistently sorted, making it easier to locate specific variables and maintain a clean and structured codebase.
+
+This practice improves readability and maintainability by providing a predictable order for variable declarations. It helps developers quickly understand the scope and usage of variables without having to search through an unsorted list.
+
+## Try it out
+
+<CodeExample
+  alphabetical={dedent`
+    const API_KEY = 'e7c3b6d4-7b7d-4b3b-8b3b-7b3b7b3b7b3b',
+          apiUrl = 'https://api.perfectionist.dev',
+          data = fetchData(),
+          isAuthenticated = checkAuth(),
+          user = getCurrentUser()
+
+    const config = loadConfig(),
+          database = connectToDatabase(),
+          environment = process.env.NODE_ENV,
+          logger = createLogger(),
+          server = createServer()
+  `}
+  lineLength={dedent`
+    const API_KEY = 'e7c3b6d4-7b7d-4b3b-8b3b-7b3b7b3b7b3b',
+          apiUrl = 'https://api.perfectionist.dev',
+          isAuthenticated = checkAuth(),
+          user = getCurrentUser(),
+          data = fetchData()
+
+    const environment = process.env.NODE_ENV,
+          database = connectToDatabase(),
+          logger = createLogger(),
+          server = createServer(),
+          config = loadConfig()
+  `}
+  initial={dedent`
+    const data = fetchData(),
+          isAuthenticated = checkAuth(),
+          API_KEY = 'e7c3b6d4-7b7d-4b3b-8b3b-7b3b7b3b7b3b',
+          user = getCurrentUser(),
+          apiUrl = 'https://api.perfectionist.dev'
+
+    const logger = createLogger(),
+          database = connectToDatabase(),
+          config = loadConfig(),
+          environment = process.env.NODE_ENV,
+          server = createServer()
+  `}
+  client:load
+  lang="tsx"
+/>
+
+## Options
+
+This rule accepts an options object with the following properties:
+
+### type
+
+<sub>default: `'alphabetical'`</sub>
+
+Specifies the sorting method.
+
+- `'alphabetical'` — Sort items alphabetically (e.g., “a” < “b” < “c”) using [localeCompare](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare).
+- `'natural'` — Sort items in a [natural](https://github.com/yobacca/natural-orderby) order (e.g., “item2” < “item10”).
+- `'line-length'` — Sort items by code line length (shorter lines first).
+- `'custom'` — Sort items using the alphabet specified in the [`alphabet`](#alphabet) option.
+- `'unsorted'` — Do not sort items.
+
+### order
+
+<sub>default: `'asc'`</sub>
+
+Specifies whether to sort items in ascending or descending order.
+
+- `'asc'` — Sort items in ascending order (A to Z, 1 to 9).
+- `'desc'` — Sort items in descending order (Z to A, 9 to 1).
+
+### fallbackSort
+
+<sub>
+  type:
+  ```
+  {
+    type: 'alphabetical' | 'natural' | 'line-length' | 'custom' | 'unsorted'
+    order?: 'asc' | 'desc'
+  }
+  ```
+</sub>
+<sub>default: `{ type: 'unsorted' }`</sub>
+
+Specifies fallback sort options for elements that are equal according to the primary sort
+[`type`](#type).
+
+Example: enforce alphabetical sort between two elements with the same length.
+```ts
+{
+  type: 'line-length',
+  order: 'desc',
+  fallbackSort: { type: 'alphabetical', order: 'asc' }
+}
+```
+
+### alphabet
+
+<sub>default: `''`</sub>
+
+Used only when the [`type`](#type) option is set to `'custom'`. Specifies the custom alphabet for sorting.
+
+Use the `Alphabet` utility class from `eslint-plugin-perfectionist/alphabet` to quickly generate a custom alphabet.
+
+Example: `0123456789abcdef...`
+
+### ignoreCase
+
+<sub>default: `true`</sub>
+
+Specifies whether sorting should be case-sensitive.
+
+- `true` — Ignore case when sorting alphabetically or naturally (e.g., “A” and “a” are the same).
+- `false` — Consider case when sorting (e.g., “a” comes before “A”).
+
+### specialCharacters
+
+<sub>default: `keep`</sub>
+
+Specifies whether to trim, remove, or keep special characters before sorting.
+
+- `'keep'` — Keep special characters when sorting (e.g., “_a” comes before “a”).
+- `'trim'` — Trim special characters when sorting alphabetically or naturally (e.g., “_a” and “a” are the same).
+- `'remove'` — Remove special characters when sorting (e.g., “/a/b” and “ab” are the same).
+
+### locales
+
+<sub>default: `'en-US'`</sub>
+
+Specifies the sorting locales. Refer To [String.prototype.localeCompare() - locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare#locales).
+
+- `string` — A BCP 47 language tag (e.g. `'en'`, `'en-US'`, `'zh-CN'`).
+- `string[]` — An array of BCP 47 language tags.
+
+### partitionByComment
+
+<sub>default: `false`</sub>
+
+Enables the use of comments to separate the members of variable declarations into logical groups. This can help in organizing and maintaining large variable declaration blocks by creating partitions based on comments.
+
+- `true` — All comments will be treated as delimiters, creating partitions.
+- `false` — Comments will not be used as delimiters.
+- `RegExpPattern = string | { pattern: string; flags: string}` — A regexp pattern to specify which comments should act as delimiters.
+- `RegExpPattern[]` — A list of regexp patterns to specify which comments should act as delimiters.
+- `{ block: boolean | RegExpPattern | RegExpPattern[]; line: boolean | RegExpPattern | RegExpPattern[] }` — Specify which block and line comments should act as delimiters.
+
+### partitionByNewLine
+
+<sub>default: `false`</sub>
+
+When `true`, the rule will not sort the members of a variable declaration if there is an empty line between them. This helps maintain the defined order of logically separated groups of members.
+
+```ts
+const
+  // Group 1
+  fiat = "Fiat",
+  honda = "Honda",
+
+  // Group 2
+  ferrari = "Ferrari",
+
+  // Group 3
+  chevrolet = "Chevrolet",
+  ford = "Ford"
+```
+
+Each group of variables (separated by empty lines) is treated independently, and the order within each group is preserved.
+
+## Usage
+
+<CodeTabs
+  code={[
+    {
+      source: dedent`
+        // eslint.config.js
+        import perfectionist from 'eslint-plugin-perfectionist'
+
+        export default [
+          {
+            plugins: {
+              perfectionist,
+            },
+            rules: {
+              'perfectionist/sort-variable-declarations': [
+                'error',
+                {
+                  type: 'alphabetical',
+                  order: 'asc',
+                  fallbackSort: { type: 'unsorted' },
+                  ignoreCase: true,
+                  specialCharacters: 'keep',
+                  partitionByNewLine: false,
+                  partitionByComment: false,
+                },
+              ],
+            },
+          },
+        ]
+      `,
+      name: 'Flat Config',
+      value: 'flat',
+    },
+    {
+      source: dedent`
+        // .eslintrc.js
+        module.exports = {
+          plugins: [
+            'perfectionist',
+          ],
+          rules: {
+            'perfectionist/sort-variable-declarations': [
+              'error',
+              {
+                type: 'alphabetical',
+                order: 'asc',
+                fallbackSort: { type: 'unsorted' },
+                ignoreCase: true,
+                specialCharacters: 'keep',
+                partitionByNewLine: false,
+                partitionByComment: false,
+              },
+            ],
+          },
+        }
+      `,
+      name: 'Legacy Config',
+      value: 'legacy',
+    },
+  ]}
+  type="config-type"
+  client:load
+  lang="tsx"
+/>
+
+## Version
+
+This rule was introduced in [v3.0.0](https://github.com/azat-io/eslint-plugin-perfectionist/releases/tag/v3.0.0).
+
+## Resources
+
+- [Rule source](https://github.com/azat-io/eslint-plugin-perfectionist/blob/main/rules/sort-variable-declarations.ts)
+- [Test source](https://github.com/azat-io/eslint-plugin-perfectionist/blob/main/test/sort-variable-declarations.test.ts)
+

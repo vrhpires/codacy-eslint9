@@ -10,52 +10,48 @@ import { DocsGenerator } from "docs-generator/src/docsGenerator.ts";
 import { baseConfig } from "codacy/src/defaultOptions.ts";
 import { getAll, getAllRules, getRuleMeta } from "lib/models/plugins.ts";
 import { DEBUG, debug } from "lib/utils/logging.ts";
-import { patternIdToEslint } from "lib/models/patterns.ts";
+import { patternIdToEslint/*, securityPlugins */} from "lib/models/patterns.ts";
+import sveltePlugin from 'eslint-plugin-svelte';
 
-export async function createEslintConfig (
+
+export async function createEslintConfig(
   srcDirPath: string,
   codacyrc: Codacyrc
 ): Promise<[TSESLint.FlatESLint.ESLintOptions, string[]]> {
-  debug("config: creating")
 
   const options = await generateEslintOptions(srcDirPath, codacyrc)
   const files = generateFilesToAnalyze(codacyrc)
 
-  debug("config: finished")
   return [options, files]
 }
 
-function generateFilesToAnalyze (
+function generateFilesToAnalyze(
   codacyrc: Codacyrc
 ): string[] {
-  debug("files: creating")
 
   const defaultFilesToAnalyze = [
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    "**/*.json"
+    "**/*.json",
+    "**/*.svelte"
   ]
   const files = codacyrc?.files && codacyrc.files.length
     ? codacyrc.files
     : defaultFilesToAnalyze
 
-  debug("files: finished")
   return files
 }
 
-async function generateEslintOptions (
+async function generateEslintOptions(
   srcDirPath: string,
   codacyrc: Codacyrc
 ): Promise<TSESLint.FlatESLint.ESLintOptions> {
-  debug("options: creating");
-
   let patterns = codacyrc.tools?.[0].patterns || [];
-  debug(`options: ${patterns.length} patterns in codacyrc`);
+  debug(`options: ${patterns.length} patterns in codacyrc`)
 
   const eslintConfig = existsEslintConfigInRepoRoot(srcDirPath);
-  debug(`options: config file${(eslintConfig === undefined) && " not"} found`);
 
   const useCodacyPatterns = patterns.length;
   const useRepoPatterns = !useCodacyPatterns;
@@ -69,14 +65,22 @@ async function generateEslintOptions (
       "tests/**",
       "vendor/**",
       "**/tsconfig.json",
-      "**/.eslintrc*"
+      "**/.eslintrc*",
+      "**/eslint.config.*",
+      "**/package.json",
+      "**/package-lock.json"
     ],
     //passOnNoPatterns: true,
     warnIgnored: false,
     overrideConfig: []
   }
-  if (eslintConfig) {
+
+  if (eslintConfig && useRepoPatterns) {
+    debug(`options: using config from repo root: ${eslintConfig}`)
     options.overrideConfigFile = srcDirPath + path.sep + eslintConfig;
+  } else {
+    debug(`options: overrideConfigFile: true`)
+    options.overrideConfigFile = true;
   }
 
   if (!DEBUG && useRepoPatterns) {
@@ -88,11 +92,33 @@ async function generateEslintOptions (
 
   if (DEBUG && useRepoPatterns && !eslintConfig) {
     const patternsSet = "recommended";
+    debug(`config: retrieveCodacyPatterns`)
     patterns = await retrieveCodacyPatterns(patternsSet);
-    options.overrideConfig?.push({
+    const [typescriptPatterns, nonTypescriptPatterns] = partition(
+      patterns,
+      (p: Pattern) => p.patternId.startsWith("@typescript-eslint")
+    );
+
+    if (typescriptPatterns.length > 0) {
+      // Configuration for TypeScript files
+      options.overrideConfig?.push({
+        files: ["*.@(ts|tsx)"],
+        rules: convertPatternsToEslintRules(typescriptPatterns),
+      });
+
+    }
+
+    if (nonTypescriptPatterns.length > 0) {
+      // Configuration for non-TypeScript files
+      options.overrideConfig?.push({
+        files: ["*.@(ts|tsx|js|jsx|mjs|cjs)"],
+        rules: convertPatternsToEslintRules(nonTypescriptPatterns),
+      });
+    }
+    /*options.overrideConfig?.push({
       rules: convertPatternsToEslintRules(patterns)
-    });
-    debug(`options: setting ${patternsSet} (${patterns.length}) patterns`);
+    });*/
+
   } else if (useCodacyPatterns) {
     //TODO: move this logic to a generic (or specific) plugin function
 
@@ -105,14 +131,17 @@ async function generateEslintOptions (
     //            reports false positives on normal files.
     //            check: conf file @ eslint-plugin-storybook/configs/recommended.js
 
+    
+
+
     const [storybookPatterns, otherPatterns] = partition(
       patterns, (p: Pattern) =>
-      p.patternId.startsWith("storybook")
+      p.patternId.startsWith("storybook") || false
     )
 
     // configure override in case storybook plugin rules being turned on
     if (storybookPatterns.length) {
-      debug(`options: setting ${storybookPatterns.length} storybook patterns`);
+
       options.overrideConfig?.push({
         files: [
           "*.stories.@(ts|tsx|js|jsx|mjs|cjs)",
@@ -124,31 +153,53 @@ async function generateEslintOptions (
 
     // explicitly use only the rules being passed by codacyrc
     if (otherPatterns.length) {
-      debug(`options: setting ${otherPatterns.length} patterns`);
+
+      // Handle TypeScript-specific rules for JavaScript files
+    const [typescriptPatterns, nonTypescriptPatterns] = partition(
+      otherPatterns,
+      (p: Pattern) => p.patternId.startsWith("@typescript-eslint")
+    );
+
+    if (typescriptPatterns.length > 0) {
+      // Configuration for TypeScript files
       options.overrideConfig?.push({
-        rules: convertPatternsToEslintRules(otherPatterns)
+        files: ["*.@(ts|tsx)"],
+        rules: convertPatternsToEslintRules(typescriptPatterns),
       });
+
+    }
+
+    if (nonTypescriptPatterns.length > 0) {
+      // Configuration for non-TypeScript files
+      options.overrideConfig?.push({
+        files: ["*.@(ts|tsx|js|jsx|mjs|cjs)"],
+        rules: convertPatternsToEslintRules(nonTypescriptPatterns),
+      });
+    }
     }
   }
 
   // load only the plugins that are being used in loaded rules
   const prefixes = getPatternsUniquePrefixes(patterns)
+
   const plugins: Record<string, TSESLint.Linter.Plugin> = {};
   (await getAll())
     .filter(plugin => prefixes.includes(plugin.name))
     .forEach(plugin => {
-      plugins[plugin.name] = plugin.module;
+      if (!plugins[plugin.name]) {
+        plugins[plugin.name] = plugin.module;
+      }
     });
+  plugins.svelte = sveltePlugin as unknown as TSESLint.Linter.Plugin;
+
   if (Object.keys(plugins).length) {
     options.plugins = plugins;
   }
 
-  debug("options: finished");
-
   return options;
 }
 
-function getPatternsUniquePrefixes (patterns: Pattern[]) {
+function getPatternsUniquePrefixes(patterns: Pattern[]) {
   const prefixes = patterns.map(item => {
     const patternId = patternIdToEslint(item.patternId)
     return patternId.substring(0, patternId.lastIndexOf("/"))
@@ -156,8 +207,8 @@ function getPatternsUniquePrefixes (patterns: Pattern[]) {
   return [...new Set(prefixes)]
 }
 
-function convertPatternsToEslintRules (patterns: Pattern[]): {
-  [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
+function convertPatternsToEslintRules(patterns: Pattern[]): {
+  [name: string]: Linter.RuleSeverity | Linter.RuleSeverityAndOptions;
 } {
   const pairs = patterns.map((pattern: Pattern) => {
     const patternId = patternIdToEslint(pattern.patternId)
@@ -183,16 +234,19 @@ function convertPatternsToEslintRules (patterns: Pattern[]): {
   return fromPairs(pairs)
 }
 
-function existsEslintConfigInRepoRoot (srcDirPath: string): string | undefined {
+
+//TODO: Check supported Configuration File
+// https://eslint.org/docs/latest/use/configure/configuration-files
+function existsEslintConfigInRepoRoot(srcDirPath: string): string | undefined {
   const filenames = [
-    ".eslint.config.js",
-    ".eslint.config.mjs",
-    ".eslint.config.cjs"
+    "eslint.config.js",
+    "eslint.config.mjs",
+    "eslint.config.cjs"
   ]
   return filenames.find(filename => existsSync(srcDirPath + path.sep + filename))
 }
 
-async function retrieveCodacyPatterns (set: "recommended" | "all" = "recommended"): Promise<Pattern[]> {
+async function retrieveCodacyPatterns(set: "recommended" | "all" = "recommended"): Promise<Pattern[]> {
   const patterns: Pattern[] = [];
   const allRules = await getAllRules(true);
   Object.entries(allRules)
@@ -215,6 +269,5 @@ async function retrieveCodacyPatterns (set: "recommended" | "all" = "recommended
       patterns.push(pattern)
     })
 
-  debug(`options: returning ${set} (${patterns.length}) patterns`)
   return patterns
 }

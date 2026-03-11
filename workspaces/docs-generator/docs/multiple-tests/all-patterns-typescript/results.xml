@@ -3,6 +3,10 @@
   <file name="test.ts">
     <error source="jsdoc_require-file-overview" line="1" message="Missing @file" severity="warning" />
     <error source="unicorn_no-empty-file" line="1" message="Empty files are not allowed." severity="warning" />
+    <error source="check-file_filename-blocklist" line="1" message="The naming pattern object &quot;undefined&quot; does not appear to be an Object type, please double-check it and try again" severity='info' />
+    <error source="check-file_filename-naming-convention" line="1" message="The naming pattern object &quot;undefined&quot; does not appear to be an Object type, please double-check it and try again" severity='info' />
+    <error source="check-file_folder-match-with-fex" line="1" message="The naming pattern object &quot;undefined&quot; does not appear to be an Object type, please double-check it and try again" severity='info' />
+    <error source="check-file_folder-naming-convention" line="1" message="The naming pattern object &quot;undefined&quot; does not appear to be an Object type, please double-check it and try again" severity='info' />
   </file>
   <!-- This test is specifically made to test that codacy-eslint -->
   <!-- should only return specific errors to test and/or empty files. -->

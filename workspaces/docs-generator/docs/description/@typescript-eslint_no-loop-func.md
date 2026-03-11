@@ -1,0 +1,9 @@
+---
+description: 'Disallow function declarations that contain unsafe references inside loop statements.'
+---
+
+> 🛑 This file is source code, not the primary documentation location! 🛑
+>
+> See **https://typescript-eslint.io/rules/no-loop-func** for documentation.
+
+It adds support for TypeScript types.
